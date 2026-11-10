@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# 에이전트의 스킬 폴더에 이 프로젝트를 심볼릭 링크로 건다.
+#   scripts/install_skill <스킬 폴더>      예: scripts/install_skill ~/.claude/skills
+# 이미 같은 이름이 있으면 덮어쓰지 않고 멈춘다.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/.." && pwd)"
+TARGET_DIR="${1:?스킬 폴더 경로를 준다 (예: ~/.claude/skills)}"
+LINK="$TARGET_DIR/seafood-import-plugin"
+if [ -e "$LINK" ] || [ -L "$LINK" ]; then
+  echo "이미 있다: $LINK (지우고 다시 실행한다)" >&2
+  exit 1
+fi
+mkdir -p "$TARGET_DIR"
+ln -s "$ROOT" "$LINK"
+echo "설치됨: $LINK -> $ROOT"

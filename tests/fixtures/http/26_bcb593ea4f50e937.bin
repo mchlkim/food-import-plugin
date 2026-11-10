@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head></head>
+ <body>
+  <input type="hidden" id="admRulSeq" name="admRulSeq" value="2100000250588" /> 
+  <input type="hidden" id="lsiSeq" name="lsiSeq" value="2100000250588" /> 
+  <input type="hidden" id="sideAdmRulSeq" value="2100000250588" /> 
+  <input type="hidden" id="admRulId" name="admRulId" value="54622" /> 
+  <input type="hidden" id="admNm" value="대한민국과 인도네시아공화국 간 수출입 수산물·수산가공품의 품질관리 및 위생안전 협력에 관한 고시" /> 
+  <input type="hidden" id="addressNm" value="대한민국과 인도네시아공화국 간 수출입 수산물·수산가공품의 품질관리 및 위생안전 협력에 관한 고시" /> 
+  <input type="hidden" id="prmlYd" name="prmlYd" value="20241210" /> 
+  <input type="hidden" id="prmlNo" name="prmlNo" value="2024-7" /> 
+  <input type="hidden" name="admRulJoTpYn" id="admRulJoTpYn" value="Y" /> 
+  <input type="hidden" id="lsNm" value="대한민국과 인도네시아공화국 간 수출입 수산물·수산가공품의 품질관리 및 위생안전 협력에 관한 고시" /> 
+  <input type="hidden" id="rrClsCd" value="200403" /> 
+  <input type="hidden" id="admRulKndCd" value="B0003" /> 
+  <input type="hidden" id="lsBdyChrCls" value="010201" /> 
+  <input type="hidden" id="isExistAdmrulLnkFlCvtYn" value="N" /> 
+  <div class="viewwrap" id="viewwrapCenter"> 
+   <div id="contentBody"> 
+    <div id="conTop"> 
+     <a id="top"></a> 
+     <!-- 조제목 영역 --> 
+     <h2>대한민국과 인도네시아공화국 간 수출입 수산물·수산가공품의 품질관리 및 위생안전 협력에 관한 고시</h2> 
+     <!-- 요약정보 영역 --> 
+     <div class="subtit1">
+       [시행 2024. 12. 10.] [국립수산물품질관리원고시 제2024-7호, 2024. 12. 10., 일부개정] 
+     </div> 
+    </div> 
+    <div id="conScroll" style="overflow-y:auto;"> 
+     <!-- 소관부처 영역 --> 
+     <div class="subtit2" style="margin-bottom:20px;">
+       국립수산물품질관리원(검역검사과), 051-400-5733 
+      <br />
+      <br /> 
+     </div> 
+     <!-- 조 표시 영역 --> 
+     <!-- 조문 --> 
+     <a name="J1-0:0" id="J1-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0001000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="1-0:0::0001000000:17100319" /> <span class="bl"><label for="Y0001000000">제1조(목적)</label></span> 이 고시는 대한민국과 인도네시아공화국 간 수출입 수산물의 안전성 확보를 위하여 2016년 9월 2일자로 체결한 「대한민국 해양수산부 국립수산물품질관리원과 인도네시아공화국 해양수산부 수산물검역검사청간 수출입 수산물ㆍ수산가공품의 품질관리 및 위생안전 협력에 관한 약정」 이행에 관한 사항을 규정함을 목적으로 한다.<span class="sfon2"></span> 
+        <!-- 항 표시 end --> </p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J2-0:0" id="J2-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0002000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="2-0:0::0002000000:17100321" /> <span class="bl"><label for="Y0002000000">제2조(정의)</label></span> 이 고시에서 사용하는 용어의 뜻은 다음과 같다.<span class="sfon2"></span>  <span class="sfon2"></span> 
+        <!-- 호 표시 start --> </p>
+       <p class="pty1_de2h">1. "소비자보호"란 수산물ㆍ수산가공품(이하 "제품"이라 한다)의 적절한 표시 또는 수용 가능한 품질에 대하여 존재하는 요구조건을 말한다. <span class="sfon2"></span></p> 
+       <p class="pty1_de2h">2. "시설"이란 관할 당국이 허가, 등록 또는 승인한 수산물 가공시설로서 안전관리인증기준(HACCP)과 같은 위생관리시스템 하에서 운영되고 있는 시설을 말한다. <span class="sfon2"></span></p> 
+       <p class="pty1_de2h">3. "수산물"이란 어류, 갑각류, 연체동물 및 그 외 식용으로 이용하는 수생동물을 말한다. <span class="sfon2"></span></p> 
+       <p class="pty1_de2h">4. "수산가공품"이란 원형 수산물 또는 어류와 같은 수산물 일부를 포함한 제품으로 식용 소금이나 생 원료를 제외한 식품첨가물 또는 기타 원료를 사용하지 않고 절단, 가열, 조리, 건조, 염장(鹽藏)이나 염수장(鹽水藏), 훈연, 냉장 및 냉동 처리한 원형이 유지되고 외관상 원형상태를 알아볼 수 있는 수산물을 말한다. <span class="sfon2"></span></p> 
+       <p class="pty1_de2h">5. "완전조리품"이란 수용할 수 없는 위해(危害)요소를 제거하거나 줄일 수 있도록 적절한 온도로 열처리된 제품을 말한다. <span class="sfon2"></span></p> 
+       <p class="pty1_de2h">6. "수입검사"란 수입된 제품의 규정 준수여부를 결정하기 위해 수입국이 실시하는 검사를 말한다. <span class="sfon2"></span></p> 
+       <p class="pty1_de2h">7. "관할당국"이란 다음 기관을 말한다. <span class="sfon2"></span></p> 
+       <p class="pty1_de3">가. 대한민국 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">   1) 해양수산부 소속 국립수산물품질관리원 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">   2) 식품의약품안전처 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">나. 인도네시아공화국 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">   1) 해양수산부 소속 수산물검역검사청 <span class="sfon2"></span></p> 
+       <p class="pty1_de2h">8. "수용 가능한 품질"이란 국제식품규격위원회(Codex)의 승인을 받아 수산물 및 수산가공품 분과위원회가 개발한 부패 및 기타 결함 요소 기준을 제품이 충족하는 품질을 말한다. <span class="sfon2"></span></p> 
+       <p class="pty1_de2h">9. "적정표시"란 이 약정과 자국의 법률 요건에 따른 것으로서, 거짓되거나 오도(誤導) 또는 기만하지 않는 표시를 말한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J3-0:0" id="J3-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0003000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="3-0:0::0003000000:17100323" /> <span class="bl"><label for="Y0003000000">제3조(적용범위)</label></span> 이 약정은 등록시설에서 생산ㆍ가공된 제품이 안전하고 수용 가능한 품질 및 적정표시 상태에서 교역되기 위한 대한민국 해양수산부 국립수산물품질관리원과 인도네시아공화국 해양수산부 수산물검역검사청(이하 "양측"이라 한다)의 제품검사 제도에 적용한다.<span class="sfon2"></span> 
+        <!-- 항 표시 end --> </p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J4-0:0" id="J4-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0004000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="4-0:0::0004000000:17100325" /> <span class="bl"><label for="Y0004000000">제4조(관할당국)</label></span> <span class="sfon2"></span> ① 양측은 제품에 있어서 원료, 보관, 처리, 운송, 가공, 포장 및 유통을 관리하는 상대국의 제품검사 제도를 인정한다. <span class="sfon2"></span> 
+        <!-- 호 표시 start --> 
+        <!-- 호 표시 end --> </p>
+       <p class="pty1_de2_1">② 양측의 수출입 제품에 대한 검사 및 위생증명서 발급은 다음의 관할 기관이 담당한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <p class="pty1_de2h">1. 대한민국: 국립수산물품질관리원과 식품의약품안전처 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">가. 국립수산물품질관리원 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">   1) 이 약정 서명인 및 약정 이행을 위한 연락기관 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">   2) 인도네시아공화국으로 수출하는 제품 검사 및 위생증명서 발급 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">   3) 인도네시아공화국으로 수출하는 등록시설 관리 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">나. 식품의약품안전처 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">   1) 인도네시아공화국에서 수입되는 제품 검사 <span class="sfon2"></span></p> 
+       <p class="pty1_de2h">2. 인도네시아공화국: 수산물검역검사청 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">가. 수산물검역검사청 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">   1) 이 약정 서명인 및 약정 이행을 위한 연락기관 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">   2) 한국으로 수출하는 제품 검사 및 위생증명서 발급 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">   3) 한국에서 수입되는 제품 검사 <span class="sfon2"></span></p> 
+       <p class="pty1_de3">   4) 한국으로 수출하는 등록시설 관리 <span class="sfon2"></span></p> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">③ 수출국은 수입국에 검사기관의 명단 및 위생증명서 서식을 통보한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J5-0:0" id="J5-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0005000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="5-0:0::0005000000:17100327" /> <span class="bl"><label for="Y0005000000">제5조(운영절차)</label></span> <span class="sfon2"></span> ① 수산물 가공시설은 수출국의 검사 기관에 등록한다. 수출국의 검사기관은 가공시설의 위생 및 안전기준이 수입국의 기준에 부합됨을 보증한다. <span class="sfon2"></span> 
+        <!-- 호 표시 start --> 
+        <!-- 호 표시 end --> </p>
+       <p class="pty1_de2_1">② 수출국은 등록된 수산물 가공시설 명단을 상대국에 통보한다. 수입국이 등록된 수산물 가공시설을 승인하였을 경우, 해당 가공 시설에서 수입된 수산 제품의 위생검사를 완화할 수 있다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">③ 수출국의 검사기관은 수입국의 위생안전 기준에 부합되는지를 보증하기 위하여 정기적으로 등록된 가공시설의 위생 상태를 점검하고 기록을 유지한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">④ 양측은 이 약정의 이행 여부를 확인하기 위하여, 수입국은 수출국에 등록된 가공시설에 대한 무작위 검사를 실시할 수 있음을 보증한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">⑤ 양측은 상대측에 매 분기마다 등록된 수산물 가공시설에 대한 공장명, 주소 및 등록번호 등을 통보하며, 상대국으로 제품 수출이 중단된 시설에 대한 정보도 제공한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J6-0:0" id="J6-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0006000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="6-0:0::0006000000:17100329" /> <span class="bl"><label for="Y0006000000">제6조(검사방법 및 기준)</label></span> <span class="sfon2"></span> ① 양측은 수입국의 검사방법 및 기준에 따라 제품 검사를 실시한다. <span class="sfon2"></span> 
+        <!-- 호 표시 start --> 
+        <!-- 호 표시 end --> </p>
+       <p class="pty1_de2_1">② 양측은 다음 각 호의 분야에서 개정 사항이 발생할 경우 상대국에 통보한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <p class="pty1_de2h">1. 수출 또는 수입제품에 대한 검사 항목과 기준 <span class="sfon2"></span></p> 
+       <p class="pty1_de2h">2. 위생증명서 서식 <span class="sfon2"></span></p> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J7-0:0" id="J7-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0007000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="7-0:0::0007000000:17100331" /> <span class="bl"><label for="Y0007000000">제7조(위생증명서)</label></span> <span class="sfon2"></span> ① 상대국으로 수출하는 각각의 제품에는 수출국의 검사기관이 발행한 위생 증명서를 첨부한다. <span class="sfon2"></span> 
+        <!-- 호 표시 start --> 
+        <!-- 호 표시 end --> </p>
+       <p class="pty1_de2_1">② 수출되는 수산제품의 포장에는 제품명, 국가명, 등록시설명 및 등록번호와 같은 정보를 지워지지 않게 표시한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">③ 수출국의 위생증명서는 수출제품이 세균 및 인체에 유해한 독성물질에 오염되지 않고, 수입국의 기준에 준한 이물질 등이 제품에 포함되지 않음을 증명한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J8-0:0" id="J8-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0008000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="8-0:0::0008000000:17100333" /> <span class="bl"><label for="Y0008000000">제8조(통보절차)</label></span> <span class="sfon2"></span> ① 통보는 양측 간의 통보절차에 따른다. <span class="sfon2"></span> 
+        <!-- 호 표시 start --> 
+        <!-- 호 표시 end --> </p>
+       <p class="pty1_de2_1">② 관련 정보 이용을 조건으로 하여, 양측은 각 제품의 검사 및 관리제도에 대한 상호 신뢰성 확보 및 타당성을 증명하기 위하여 정기적으로 이 약정의 이행과 관련된 정보를 교환한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J9-0:0" id="J9-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0009000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="9-0:0::0009000000:17100335" /> <span class="bl"><label for="Y0009000000">제9조(보호조치)</label></span> <span class="sfon2"></span> ① 수입된 제품에서 위생 및 안전과 관련된 문제점이 발견되었을 경우, 수입국은 수출국에 관련 정보를 신속히 통보하여 수출국이 동일한 사고의 재발방지를 위하여 문제의 원인조사를 실시하도록 한다. <span class="sfon2"></span> 
+        <!-- 호 표시 start --> 
+        <!-- 호 표시 end --> </p>
+       <p class="pty1_de2_1">② 수입국은 문제가 완전히 해결될 때까지 동일한 시설에서 생산, 가공, 포장한 제품의 수입을 잠정 중단할 수 있다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">③ 부적합 제품 통보를 받은 수출국은 검사, 실험, 검증 및 수출 선적의 승인절차를 재조사해야 하며, 문제의 원인 및 조사결과를 수입국에 통보한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">④ 일방에서 제품검사 결과에 대한 공동조사를 요청할 경우, 상대국의 관할 당국은 요청에 협조한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">⑤ 수입중단 조치는 양측 간 협의로 해제할 수 있다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J10-0:0" id="J10-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0010000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="10-0:0::0010000000:17100337" /> <span class="bl"><label for="Y0010000000">제10조(인적교류)</label></span> <span class="sfon2"></span> ① 양측은 제품의 위생안전 및 검사와 관련된 문제점들을 다루기 위한 실무회의를 교대로 개최한다. <span class="sfon2"></span> 
+        <!-- 호 표시 start --> 
+        <!-- 호 표시 end --> </p>
+       <p class="pty1_de2_1">② 양측은 제품과 관련한 문제가 발생하였을 경우 협의를 통하여 적절한 방식으로 문제를 해결한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">③ 일방은 전문 검사관 또는 기타 전문가를 상대국에 파견할 수 있다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">④ 상대국 제품에 대한 위생검사, 검사방법의 모니터링과 같은 분야의 협조 체계를 향상시키기 위하여, 상대국은 일방의 점검에 도움이 되는 여건을 조성한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J11-0:0" id="J11-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0011000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="11-0:0::0011000000:17100339" /> <span class="bl"><label for="Y0011000000">제11조(재검토기한)</label></span> 국립수산물품질관리원장은 <a title="팝업으로 이동" class="link" onclick="javascript:fncLawPop('훈령ㆍ예규 등의 발령 및 관리에 관한 규정', 'LN', '', '54622', 'true', '', '', 'Admrul', '', '', '', '', '');" href="#AJAX">「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」</a>에 따라 이 고시에 대하여 2024년 7월 1일 기준으로 매 5년이 되는 시점(매 5년째의 6월 30일까지를 말한다)마다 그 타당성을 검토하여 개선 등의 조치를 해야 한다.<span class="sfon2"></span> 
+        <!-- 항 표시 end --> </p> 
+      </div> 
+     </div> 
+     <!-- 조 표시 영역 --> 
+     <!-- 행정규칙 첨부파일 사이냅뷰어  --> 
+     <!-- 행정규칙 첨부파일 사이냅뷰어  --> 
+     <!-- 부칙 영역 --> 
+     <div id="arDivArea"> 
+      <a name="arArea"></a> 
+      <a name="ar"></a> 
+      <a name="J2391015"></a> 
+      <div class="pgroup"> 
+       <p class="pty3"> <a class="nun" onclick="javascript:arView('ar2391015', '<제2016-13호,2016.11.8.>');return false;" href="#AJAX"> <img id="ar2391015btn" style="vertical-align: middle;" alt="부칙<제2016-13호,2016.11.8.>조문목록 접기" src="/LSW/images/button/btn_cocl.gif" /> </a> <input type="checkbox" name="arInf" id="chk2391015" style="vertical-align: middle;" alt="부칙<제2016-13호,2016.11.8.>체크박스" value="2391015" /> <a class="nun" onclick="javascript:arView('ar2391015', '<제2016-13호,2016.11.8.>');return false;" href="#AJAX"> <label for="chk2391015"> <span class="bl">부      칙</span> </label> <span class="sfon">&lt;제2016-13호,2016. 11. 8.&gt;</span> </a> </p> 
+       <p class="pty3_dep1" style="margin-top: -10px;"> </p> 
+       <!-- 부칙 조번호 --> 
+       <p class="pty3_dep1"> <span class="bl">제1조 (시행일)</span> 이 고시는 2016년 12월 1일부터 시행한다. </p> 
+       <div id="ar2391015" style=""> 
+        <p class="pty3_dep1"> <span class="bl">제2조 (다른 고시의 폐지)</span> 대한민국과 인도네시아공화국간 수출ㆍ입 수산물ㆍ수산제품의 품질관리 및 위생안전 고시는 폐지한다. </p> 
+        <p class="pty3_dep1"> <span class="bl">제3조 (경과조치)</span> 이 고시 시행당시 종전의 규정에 따라 양국에 등록된 수산물 가공시설은 이 고시에 따라 행하여진 것으로 본다. </p> 
+       </div> 
+       <!-- 부칙 조번호 --> 
+      </div> 
+      <a name="ar"></a> 
+      <a name="J2391017"></a> 
+      <div class="pgroup"> 
+       <p class="pty3"> <img id="ar2391017btn" style="vertical-align: middle;" alt="부칙<제2021-42호, 2021.12.28.>조문목록 없음" src="/LSW/images/button/btn_dot.gif" /> <input type="checkbox" name="arInf" id="chk2391017" style="vertical-align: middle;" alt="부칙<제2021-42호, 2021.12.28.>체크박스" value="2391017" /> <a class="nun" onclick="javascript:arView('ar2391017', '<제2021-42호, 2021.12.28.>');return false;" href="#AJAX"> <label for="chk2391017"> <span class="bl">부      칙</span> </label> <span class="sfon">&lt;제2021-42호, 2021. 12. 28.&gt;</span> </a> </p> 
+       <p class="pty3_dep1" style="margin-top: -10px;"> 이 고시는 발령한 날부터 시행한다. </p> 
+       <!-- 부칙 조번호 --> 
+       <!-- 부칙 조번호 --> 
+      </div> 
+      <a name="ar"></a> 
+      <a name="J2391019"></a> 
+      <div class="pgroup"> 
+       <p class="pty3"> <img id="ar2391019btn" style="vertical-align: middle;" alt="부칙<제2024-7호, 2024.12.10.>조문목록 없음" src="/LSW/images/button/btn_dot.gif" /> <input type="checkbox" name="arInf" id="chk2391019" style="vertical-align: middle;" alt="부칙<제2024-7호, 2024.12.10.>체크박스" value="2391019" /> <a class="nun" onclick="javascript:arView('ar2391019', '<제2024-7호, 2024.12.10.>');return false;" href="#AJAX"> <label for="chk2391019"> <span class="bl">부      칙</span> </label> <span class="sfon">&lt;제2024-7호, 2024. 12. 10.&gt;</span> </a> </p> 
+       <p class="pty3_dep1" style="margin-top: -10px;"> 이 고시는 발령한 날부터 시행한다. </p> 
+       <!-- 부칙 조번호 --> 
+       <!-- 부칙 조번호 --> 
+      </div> 
+     </div> 
+     <!-- 부칙 영역 끝 --> 
+     <!-- 별표 영역 --> 
+     <!-- 별표 영역 끝 --> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+	(function (){
+		initEDotXPress('\uB300\uD55C\uBBFC\uAD6D\uACFC \uC778\uB3C4\uB124\uC2DC\uC544\uACF5\uD654\uAD6D \uAC04 \uC218\uCD9C\uC785 \uC218\uC0B0\uBB3C\u00B7\uC218\uC0B0\uAC00\uACF5\uD488\uC758 \uD488\uC9C8\uAD00\uB9AC \uBC0F \uC704\uC0DD\uC548\uC804 \uD611\uB825\uC5D0 \uAD00\uD55C \uACE0\uC2DC');
+	})();
+</script> 
+ </body>
+</html>

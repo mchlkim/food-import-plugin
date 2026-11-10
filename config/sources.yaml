@@ -1,0 +1,150 @@
+# 공식 출처 등록부.
+# collector: 수집기 종류. params 의 주소는 2026-11-10 에 실제 접속해 확인한 것만 적는다.
+# enabled: false 인 출처는 수집하지 않고 get_source_status 에 사유를 표시한다.
+
+sources:
+  - id: mfds_required_docs
+    title: 식약처 공지 「수입신고 시 제출하여야 하는 구비서류 목록」 (수입식품정보마루 > 증명서제출)
+    collector: impfood_required_docs
+    enabled: true
+    params:
+      board_url: https://impfood.mfds.go.kr/CFCII04F01
+      detail_url: https://impfood.mfds.go.kr/CFCII04F02/getCntntsDetail
+      title_keyword: 구비서류 목록
+      attachment_keyword: 제출
+    legal_basis: 수입식품안전관리 특별법 시행규칙 제27조제1항제10호다목
+
+  - id: radsafe_japan_measures
+    title: 일본산 식품 수입제한조치 (수입식품방사능안전정보 > 원전사고 이후 대응조치)
+    collector: radsafe_measures
+    enabled: true
+    params:
+      url: https://radsafe.mfds.go.kr/CFQCC02F01
+
+  - id: law_enforcement_rule_27
+    title: 수입식품안전관리 특별법 시행규칙 제27조 (국가법령정보센터)
+    collector: lawgo_article
+    enabled: true
+    params:
+      law_address: https://www.law.go.kr/법령/수입식품안전관리특별법시행규칙
+      body_url: https://www.law.go.kr/LSW/lsInfoR.do
+      article: 제27조(수입식품등의 수입신고)
+
+  - id: mfds_inspection_orders
+    title: 검사명령 대상 식품 현황 (수입식품정보마루 > 검사명령제)
+    collector: impfood_page
+    enabled: true
+    params:
+      url: https://impfood.mfds.go.kr/CFBEE01F01
+
+  - id: mfds_hygiene_agreement_notices
+    title: 수산물 위생약정·위생증명서 관련 공지 (수입식품정보마루 > 공지사항)
+    collector: impfood_notices
+    enabled: true
+    params:
+      # 2026-11-10 에 제목과 본문을 확인한 공지. 새 약정 공지는 search_keywords 로 찾아 '미등록 공지'로 보고한다.
+      search_url: https://impfood.mfds.go.kr/CFBAA01F01
+      search_keywords: [위생약정, 위생증명서]
+      notices:
+        - {country: ES, sn: "607441", detail_url: "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail"}
+        - {country: AR, sn: "572258", detail_url: "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail"}
+        - {country: PE, sn: "550048", detail_url: "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail"}
+        - {country: PH, sn: "470604", detail_url: "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail"}
+        - {country: "NO", sn: "415958", detail_url: "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail"}
+        - {country: CL, sn: "219479", detail_url: "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail"}
+
+  - id: law_hygiene_agreements
+    title: 국가별 수산물 위생약정 고시 (국가법령정보센터 행정규칙)
+    collector: lawgo_admin_rules
+    enabled: true
+    params:
+      # 한글주소는 현행본으로 연결된다. 고시명은 2026-11-10 에 접속해 확인했다.
+      # 새 약정 고시가 생기면 여기에 고시명을 추가하고 config/bindings.yaml 의 hygiene_agreements 에 결합을 추가한다.
+      address_base: https://www.law.go.kr/행정규칙/
+      body_url: https://www.law.go.kr/LSW/admRulLsInfoR.do
+      rules:
+        - {key: CN, country: CN, name: "대한민국과 중화인민공화국 간 수출·입 수산물 위생관리"}
+        - {key: CN-WILD, country: CN, name: "대한민국과 중화인민공화국 간 수출입 야생 수산물의 검사 및 위생 요건에 관한 고시"}
+        - {key: RU, country: RU, name: "대한민국과 러시아 간 수출·입 수산물 및 수산가공품의 품질관리 및 위생안전"}
+        - {key: VN, country: VN, name: "대한민국과 베트남사회주의공화국 간 수산물 위생 및 식품 안전관리와 검역에 관한 고시"}
+        - {key: TH, country: TH, name: "대한민국과 태국 간 수출·입 수산물·수산제품의 품질관리 및 위생안전"}
+        - {key: ID, country: ID, name: "대한민국과 인도네시아공화국 간 수출입 수산물·수산가공품의 품질관리 및 위생안전 협력에 관한 고시"}
+        - {key: EC, country: EC, name: "대한민국과 에콰도르공화국간 수산물의 품질관리 및 위생안전에 관한 고시"}
+        - {key: "NO", country: "NO", name: "대한민국과 노르웨이 간 수입수산물 식품안전에 관한 규정"}
+        - {key: CL, country: CL, name: "대한민국과 칠레공화국 간 수입수산물 식품안전에 관한 규정"}
+        - {key: PH, country: PH, name: "대한민국과 필리핀 간 수입수산물 식품안전에 관한 규정"}
+        - {key: PE, country: PE, name: "대한민국과 페루 간 수입수산물 안전에 관한 규정"}
+        - {key: AR, country: AR, name: "대한민국과 아르헨티나 간 수입수산물 식품안전에 관한 규정"}
+        - {key: ES, country: ES, name: "대한민국과 스페인 간 수입수산물 식품안전에 관한 규정"}
+
+  - id: law_import_inspection_notice
+    title: 식약처 고시 「수입식품등 신고 및 검사에 관한 규정」 (국가법령정보센터 행정규칙)
+    collector: lawgo_admin_rules
+    enabled: true
+    params:
+      address_base: https://www.law.go.kr/행정규칙/
+      body_url: https://www.law.go.kr/LSW/admRulLsInfoR.do
+      rules:
+        - {key: MFDS-INSPECTION, name: "수입식품등 신고 및 검사에 관한 규정", annexes: ["별표 2"]}
+
+  - id: law_special_act_5
+    title: 수입식품안전관리 특별법 제5조 (국가법령정보센터)
+    collector: lawgo_text
+    enabled: true
+    params:
+      law_address: https://www.law.go.kr/법령/수입식품안전관리특별법
+      body_url: https://www.law.go.kr/LSW/lsInfoR.do
+      article: 제5조(해외제조업소 등록)
+
+  - id: fsk_inspection_advisories
+    title: 검사지시(검사강화) 게시물 목록 (식품안전나라 > 수입신고 및 검사 > 검사지시)
+    collector: fsk_board
+    enabled: true
+    advisory: true     # 제출서류 규칙이 아니다. 승인 절차 없이 조회 결과에 참고 정보(게시물 제목)로만 붙는다.
+    params:
+      list_url: https://www.foodsafetykorea.go.kr/portal/board/boardList.do
+      page_url: https://www.foodsafetykorea.go.kr/portal/board/board.do?menu_grp=MENU_NEW01&menu_no=4457
+      detail_url: https://www.foodsafetykorea.go.kr/portal/board/boardDetail.do?menu_grp=MENU_NEW01&menu_no=4457&bbs_no=bbs031&ntctxt_no=
+      menu_no: "4457"
+      bbs_no: bbs031
+      ctgry_no: "577"
+      count: 50
+
+  # ---- 아래는 자동 수집하지 않는 출처 ----
+
+  - id: data_go_kr_openapi
+    title: 공공데이터포털 수입식품 관련 Open API
+    collector: openapi_unverified
+    enabled: false
+    reason: >-
+      인증키 발급과 활용신청이 필요해 엔드포인트와 응답 형식을 확인하지 못했다.
+      확인되지 않은 엔드포인트는 코드에 넣지 않는다. 키를 발급받아 형식을 확인한 뒤 수집기를 추가한다.
+    env_key: DATA_GO_KR_SERVICE_KEY
+
+  - id: foodsafetykorea_openapi
+    title: 식품안전나라 Open API
+    collector: openapi_unverified
+    enabled: false
+    reason: 인증키가 필요해 엔드포인트와 응답 형식을 확인하지 못했다.
+    env_key: FOODSAFETYKOREA_API_KEY
+
+  - id: mfds_hygiene_agreement_full_list
+    title: 수산물 위생약정 체결국 전체를 한정 열거한 공식 문서
+    collector: manual
+    enabled: false
+    reason: >-
+      체결국 전체를 한정 열거한 공식 문서를 찾지 못했다. law_hygiene_agreements 는 고시명을 등록한 13개 고시(12개국)만 받는다.
+      국가법령정보센터 검색 화면의 내부 요청 형식은 확인하지 못해 새 고시를 자동으로 찾지 않는다.
+      그래서 등록되지 않은 국가의 위생증명서는 NOT_REQUIRED 가 아니라 UNKNOWN 으로 답한다.
+
+  - id: mfds_photo_exemption_notice
+    title: 사진 제출 제외 수입식품등 공지 (시행규칙 제27조제1항제1호의2 나목)
+    collector: manual
+    enabled: false
+    reason: 수입식품정보마루 공지 검색에서 해당 공지를 찾지 못했다. 사진 제출 제외 대상은 조문 단서만 인용한다.
+
+  - id: mfds_import_suspension
+    title: 수입금지제품·수입중단업체 (수입식품정보마루 /CFCII03F01, /CFCCC01F08)
+    collector: manual
+    enabled: false
+    reason: 게시물이 업체·제품 단위의 자유 서술이라 규칙으로 자동 변환하지 않는다. 조회 결과에 직접 확인 항목으로 표시한다.

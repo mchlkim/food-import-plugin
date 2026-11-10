@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# 공식 출처 확인 → 변경이 있으면 검토 대기 등록. 스케줄러나 CI 에서 이 명령을 부른다.
+# 종료 코드: 0 변경 없음 / 3 변경 감지(검토 필요) / 2 수집·파싱·규칙 생성 실패
+exec "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/seafood-import" update "$@"

@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html style="opacity:0;" lang="ko">
+<head>
+	<title>원전사고이후 대응조치 :: 수입식품방사능안전정보</title>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-compatible" content="IE=edge">
+	<meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width">
+	<meta name="author" content="식품의약품안전처 수입식품방사능안전정보">
+	<meta name="keywords" content="식품의약품안전처 수입식품방사능안전정보 ">
+	<meta name="description" content="식품의약품안전처 수입식품방사능안전정보">
+	<meta name="copyright" content="28159 충청북도 청주시 흥덕구 오송읍 오송생명2로 187 오송보건의료행정타운 식품의약품안전처">
+	<meta property="og:type" content="website">
+<!-- 	<meta property="og:title" content="<?=SITE_TITLE?>"> -->
+	<meta property="og:image" content="/common/img/logo.png">
+	<meta property="og:description" content="식품의약품안전처 수입식품방사능안전정보">
+
+<!-- 	<link rel="icon" href="../images/favicon.ico" th:href="@{/images/favicon.ico}" type="image/x-icon"/> -->
+	<link rel="shortcut icon" href="https://impfood.mfds.go.kr/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="/js/jquery-ui/jquery-ui.min.css"/>
+	
+	<link rel="stylesheet"  href="/css/common/css/common.css?ver=1"/>
+	<link rel="stylesheet"  href="/css/common/pluigs/bootstrap/bootstrap.min.css"/>
+<!-- 	<link rel="stylesheet"  href="../css/common/font/font-awesome.css" th:href="@{/css/common/font/font-awesome.css}"/> -->
+	<link rel="stylesheet"  href="/css/common/pluigs/slick/slick.css"/>
+	<link rel="stylesheet"  href="/css/acego.header.css"/>
+	<link rel="stylesheet"  href="/css/acego.footer.css"/>
+	
+	<link rel="stylesheet"  href="/css/acego.tmpl.css"/>
+	<link rel="stylesheet"  href="/css/common/font/font_score.css" />
+<!-- 	<link rel="shortcut icon"  type="image/x-icon" href="../pcms/common/images/favicon.ico" th:href="@{/pcms/common/images/favicon.ico}"> -->
+	
+	<link rel="stylesheet" href="/js/swiper-4.5.1/dist/css/swiper.min.css" />
+	<link rel="stylesheet" href="/css/jquery-ui.css" />
+	<link rel="stylesheet" href="/css/auto-complete.css" />
+	<link rel="stylesheet" href="/js/jquery.datetimepicker.min.css">
+
+	
+	
+	
+	
+
+	<!-- 	<link rel="stylesheet" href="../css/common.css" th:href="@{/css/common.css}"/> -->
+	<!-- 	<link rel="stylesheet" href="../css/all.css" th:href="@{/css/all.css}"/> -->
+	<!-- 	<link rel="stylesheet" href="../css/main.css" th:href="@{/css/main.css}"/> -->
+	<!-- 	<link rel="stylesheet" href="../css/jquery.bxslider.css" th:href="@{/css/jquery.bxslider.css}"/> -->
+	<link rel="stylesheet" href="/css/mobile.css?ver=1"/>
+	<script>
+		
+		var gSessionAge = Number(null);
+		
+		var isEngLang = false; 
+		var btnOkMsg = "\uD655\uC778"; 
+		var btnYesMsg = "\uC608"; 
+		var btnNoMsg = "\uC544\uB2C8\uC624"; 
+		var btnConfirmMsg = "\uD655\uC778"; 
+		var btnCancelMsg = "\uCDE8\uC18C"; 
+		var btnDateSelectMsg = "\uC77C\uC790\uC120\uD0DD"; 
+		var btnYearMsg = "\uB144"; 
+		var titleAlertMsg = "\uC548\uB0B4"; 
+		var titleApproveMsg = "\uC2B9\uC778"; 
+		var msgEnter = " \uD56D\uBAA9\uC744 \uC785\uB825\uD574\uC8FC\uC138\uC694."; 
+		var msgChoice = " \uD56D\uBAA9\uC744 \uC120\uD0DD\uD574\uC8FC\uC138\uC694."; 
+		var msgIndex = "\uBC88\uC9F8"; 
+		var msgFileSize = "\uD30C\uC77C 1\uAC1C\uB2F9 \uCCA8\uBD80\uD560 \uC218 \uC788\uB294 \uC6A9\uB7C9 \uBC94\uC704\uB294 \uB2E4\uC74C\uACFC \uAC19\uC2B5\uB2C8\uB2E4."; 
+		var msgFileExten = "\uC120\uD0DD\uD558\uC2E0 \uD30C\uC77C\uC740 \uCCA8\uBD80\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."; 
+		var msgErrorGuide = "\uC5D0\uB7EC\uAC00 \uBC1C\uC0DD\uD558\uC600\uC2B5\uB2C8\uB2E4."; 
+	</script>
+<!--	<script src="../js/common/pluigs/jQuery/jquery-3.3.1.min.js" th:src="@{/js/common/pluigs/jQuery/jquery-3.3.1.min.js}"></script>-->
+<!-- 	<script src="../js/jquery-1.12.4.min.js" th:src="@{/js/jquery-1.12.4.min.js}"></script> -->
+	<script src="/js/jquery-3.1.1.min.js"></script>
+	<script src="/js/common/pluigs/WebFont/webfont.js"></script>
+	<script>
+		$("html").delay(250).animate({"opacity" : "1"}, 250); 
+	</script>
+	<script src="/js/jquery-ui/jquery.ui.core.js"></script>
+	<script src="/js/jquery-ui/jquery-ui.min.js"></script>
+	<script src="/js/jquery-ui/jquery.ui.widget.js"></script>
+	<script src="/js/jquery-ui/jquery.ui.datepicker.js"></script>
+	<script src="/js/jquery.inputmask.bundle.js"></script>
+	<script src="/js/jquery.maskedinput.min.js"></script>
+	<script src="/js/jquery.form.js"></script>
+	<script src="/js/jquery.bxslider.min.js"></script>
+	<script src="/js/jquery.bpopup.min.js"></script>
+	<script src="/js/plupload/js/plupload.full.min.js"></script>
+	<script src="/js/plupload/js/tablednd/jquery.tablednd.min.js"></script>
+	<script src="/js/commonRad.js"></script>
+	<script src="/js/design.js"></script>
+
+	<!-- rad사용 -->
+	<script src="/js/common/js/tab/acego.tab.js"></script>
+	<script src="/js/acego.gnb.js"></script>
+	<script src="/js/acego.snb.js"></script>
+	<script src="/js/main.js"></script>
+	<script src="/js/common/pluigs/jQuery/jquery-migrate-1.4.1.min.js"></script>
+<!--	<script src="../js/common/pluigs/jQueryUI/jquery-ui.min.js" th:src="@{/js/common/pluigs/jQueryUI/jquery-ui.min.js}"></script>-->
+	<script src="/js/common/pluigs/bootstrap/bootstrap.min.js"></script>
+	<script src="/js/common/js/acego.common.js"></script>
+	<script src="/js/common/js/scroll/common-scroll.js"></script>
+	<script src="/js/common/pluigs/slick/slick.js"></script>
+	<script src="/js/common/pluigs/slick/slick.slider.js"></script>
+<!--	<script src="../js/pcms/common/pluigs/jQuery/jquery-migrate-1.4.1.min.js" th:src="@{/js/pcms/common/pluigs/jQuery/jquery-migrate-1.4.1.min.js}"></script>-->
+<!--	<script src="../js/pcms/common/pluigs/jQueryUI/jquery-ui.min.js" th:src="@{/js/pcms/common/pluigs/jQueryUI/jquery-ui.min.js}"></script>-->
+<!--	<script src="../js/pcms/common/pluigs/bootstrap/bootstrap.min.js" th:src="@{/js/pcms/common/pluigs/bootstrap/bootstrap.min.js}"></script>-->
+	<script src="/js/pcms/common/pluigs/print/jQuery.print.min.js"></script>
+<!--	<script src="../js/pcms/common/js/acego.common.js" th:src="@{/js/pcms/common/js/acego.common.js}"></script>-->
+	<script type="text/javascript" src="/js/pcms/common/pluigs/WebFont/webfont.js"></script>
+	<script src="/js/pcms/common/pluigs/html5/html5shiv.min.js"></script>
+	<script src="/js/accodion.min.js"></script>
+	<script src="/js/swiper-4.5.1/dist/js/swiper.min.js" ></script>
+	<script src="/js/jquery-ui.js" ></script>
+	<script src="/js/jquery.auto-complete.min.js" ></script>
+	<script src="/js/jquery.datetimepicker.full.min.js" ></script>
+
+	
+
+<!--<meta charset="utf-8"/>-->
+<!--<meta http-equiv="X-UA-compatible" content="IE=edge">-->
+<!--<meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width">-->
+<!--<meta name="author" content="식품의약품안전처 수입식품방사능안전정보">-->
+<!--<meta name="keywords" content="식품의약품안전처 수입식품방사능안전정보 ">-->
+<!--<meta name="description" content="식품의약품안전처 수입식품방사능안전정보">-->
+<!--<meta name="copyright" content="28159 충청북도 청주시 흥덕구 오송읍 오송생명2로 187 오송보건의료행정타운 식품의약품안전처">-->
+<!--<meta property="og:type" content="website">-->
+<!--<meta property="og:title" content="<?=SITE_TITLE?>">-->
+<!--<meta property="og:image" content="/common/img/logo.png">-->
+<!--<meta property="og:description" content="식품의약품안전처 수입식품방사능안전정보">-->
+<!--<link rel="shortcut icon" type="image/x-icon" href="/pcms/common/images/favicon.ico">-->
+<!--<link rel="apple-touch-icon-precomposed" href="/pcms/common/images/favicon_152.png">-->
+<!--<link rel="stylesheet" href="/css/common/css/common.css" />-->
+<!--<link rel="stylesheet" href="/css/common/pluigs/bootstrap/bootstrap.min.css" />-->
+<!--<link rel="stylesheet" href="/css/common/font/font-awesome.css" />-->
+<!--<link rel="stylesheet" href="/css/common/pluigs/slick/slick.css" />-->
+<!--<link rel="stylesheet" href="/css/acego.header.css" />-->
+<!--<link rel="stylesheet" href="/css/acego.footer.css" />-->
+<!--<link rel="stylesheet" href="/css/acego.tmpl.css" />-->
+<link rel="stylesheet" href="/css/content.css" />
+<!--<link rel="stylesheet" href="/js/swiper-4.5.1/dist/css/swiper.min.css" />-->
+<!--<script src="/js/pcms/common/pluigs/jQuery/jquery-3.3.1.min.js"></script>-->
+<!--<script src="/js/pcms/common/pluigs/jQuery/jquery-migrate-1.4.1.min.js"></script>-->
+<!--<script src="/js/pcms/common/pluigs/jQueryUI/jquery-ui.min.js"></script>-->
+<!--<script src="/js/pcms/common/pluigs/bootstrap/bootstrap.min.js"></script>-->
+<!--<script src="/js/pcms/common/pluigs/print/jQuery.print.min.js"></script>-->
+<!--<script src="/js/pcms/common/js/acego.common.js"></script>-->
+<!--<script type="text/javascript" src="/js/pcms/common/pluigs/WebFont/webfont.js"></script>-->
+<!--<script src="/js/swiper-4.5.1/dist/js/swiper.min.js"></script>-->
+<script type="text/javascript">
+/*
+    WebFont.load({
+        custom: {
+            families: ['Noto Sans KR'],
+            urls: ['/css/common/font/font_notosanskr.css']
+        }
+    });
+*/
+</script>
+<!--[if lt IE 9]-->
+<!--    <script src="/pcms/common/pluigs/html5/html5shiv.min.js"></script>-->
+<!--[endif]-->
+</head>
+
+<body id="CFQCC02F01">
+<!-- 	<div id="skipnavigation"> -->
+<!-- 		<ul> -->
+<!-- 			<li><a href="#container" th:text="#{go.to.body.bar}">본문바로가기</a></li> -->
+<!-- 			<li><a href="#gnb" th:text="#{go.to.main.menu}">주메뉴바로가기</a></li> -->
+<!-- 			<li><a href="#home" id="locat"  th:text="#{go.to.location.menu}">로케이션메뉴바로가기</a></li> -->
+<!-- 		</ul> -->
+<!-- 	</div> -->
+	<div class="wrap">
+		<!-- header -->
+		<div class="header_wrap">
+			<div class="top_sns sub_sns">
+				<a href="https://blog.naver.com/kfdazzang" target="_blank" title="새창으로 열립니다." class="icon_blog">블로그</a>
+				<a href="https://www.facebook.com/mfds" target="_blank" title="새창으로 열립니다." class="icon_facebook">페이스북</a>
+				<a href="https://twitter.com/themfds" target="_blank" title="새창으로 열립니다." class="icon_twitter">트위터</a>
+				<a href="https://www.instagram.com/mfdskorea/" target="_blank" title="새창으로 열립니다." class="icon_insta">인스타그램</a>
+				<a href="https://www.youtube.com/user/theKFDA" target="_blank" title="새창으로 열립니다." class="icon_youtube">유투브</a>
+			</div>
+			<header id="top_layout" class="layout2" >
+<!--     gnb_layout :s -->
+    <div class="top_wrap">
+<!--실서버 반영 시 로컬 주소가 아닌 실제 url로 변경하여 반영 -->    
+<!--         <h1 class="logo_wrap" id="logo"><a href="https://radsafe.mfds.go.kr"><span>식품의약품안전처 수입식품방사능안전정보</span></a></h1> -->
+<!--         <h1 class="logo_wrap" id="logo"><a href="http://localhost:8022/?locale=rad"><span>식품의약품안전처 수입식품방사능안전정보</span></a></h1> -->
+        <h1 class="logo_wrap" id="logo"><a href="/radsafe"><span>식품의약품안전처 수입식품방사능안전정보</span></a></h1>
+        <div class="right_utile">
+            <ul class="utile_wrap">
+<!--             	<li class="search"> -->
+<!--             		<div class="form_wrap"> -->
+<!-- 			        	<form name="s_type" action="#" method="post" target="_blank" title="검색페이지로 이동합니다"> -->
+<!-- 							<fieldset> -->
+<!-- 								<legend>통합검색</legend> -->
+<!-- 								<label class="skip" for="search_input_m">통합 검색어를 입력하세요</label> -->
+<!-- 								<input type="hidden" name="s_type" value="all"> -->
+<!-- 								<input id="search_input_m" type="text" name="qt" placeholder="식품의약품안전처"> -->
+<!-- 								<div class="submit"><input type="submit" value="검색" id="search_btn_m"><label for="search_btn_m" class="skip">검색</label></div> -->
+<!-- 							</fieldset> -->
+<!-- 						</form> -->
+<!-- 			        </div> -->
+<!--             	</li>	 -->
+                <li class="pc">
+                    <!--<a href="#none">사이트맵</a>-->
+                </li>
+                 <li class="mo">
+                    <button type="button" class="btn-allmenu " data-toggle="modal" data-target="#mobile-menu">전체메뉴</button>
+                </li>
+            </ul>
+            
+        </div>
+
+    </div>
+
+    <nav id="gnb_layout" class="">
+        <div id="gnb">
+<!--             공통메뉴틀 시작 -->
+            <div class="gnb_wrap">
+<!--                 메뉴 시작 -->
+				<ul class="depth1_ul n4">
+<!-- 					Start : 1차메뉴 -->
+					<li class="th1 n1">
+						<a href="javasciprt:void(0);" class="th1_lnk"><span>새소식</span></a>
+						<div class="item">
+							<div class="gnb-depth">
+								<ul class="depth2_ul">
+									<li class="no1">
+										<a href="/CFQAA01F01"><span>방사능소식</span></a>
+									</li> 
+									<li class="no2">
+										<a href="/CFQAA02F01"><span>홍보자료</span></a>
+									</li> 
+<!-- 									<li class="no3"> -->
+<!-- 										<a href="/CFQAA03F01"><span>참고자료</span></a> -->
+<!-- 									</li>  -->
+
+								</ul>
+<!-- 								//depth2_ul -->
+
+							</div>
+
+						</div>
+
+					</li>
+<!-- 					End : 1차메뉴 -->
+
+<!-- 					Start : 1차메뉴 -->
+					<li class="th1 n2">
+						<a href="javasciprt:void(0);" class="th1_lnk"><span>방사능정보</span></a>
+						<div class="item">
+							<div class="gnb-depth">
+								<ul class="depth2_ul">
+									<li class="no1">
+										<a href="/CFQBB01F01"><span>방사능이란?</span></a>
+									</li> 
+									<li class="no2">
+										<a href="/CFQBB02F01"><span>생활주변 방사능</span></a>
+									</li>
+									<li class="no3">
+										<a href="/CFQBB03F01"><span>방사능의 위험 정보</span></a>
+									</li>
+									<li class="no4">
+										<a href="/CFQBB04F01"><span>방사능 FAQ</span></a>
+									</li> 
+
+								</ul>
+<!-- 								//depth2_ul -->
+
+							</div>
+
+						</div>
+
+					</li>
+<!-- 					End : 1차메뉴 -->
+
+
+<!-- 					Start : 1차메뉴 -->
+					<li class="th1 n3">
+						<a href="javasciprt:void(0);" class="th1_lnk"><span>식품방사능안전관리</span></a>
+						<div class="item">
+							<div class="gnb-depth">
+								<ul class="depth2_ul">
+									<li class="no1">
+                                    	<a href="/CFQCC01F01"><span>수입식품 안전관리</span></a>
+                                    </li>
+                                    <li class="no2">
+                                    	<a href="/CFQCC01F02"><span>국내 유통식품 안전관리</span></a>
+                                    </li>
+									<li class="no3">
+										<a href="/CFQCC02F01"><span>원전사고 이후 대응조치</span></a>
+									</li> 
+									<li class="no4">
+										<a href="/CFQCC03F01"><span>일본산 식품 WTO 분쟁</span></a>
+									</li> 
+
+								</ul>
+<!-- 								//depth2_ul -->
+
+							</div>
+
+						</div>
+
+					</li>
+<!-- 					End : 1차메뉴 -->
+
+<!-- 					Start : 1차메뉴 -->
+					<li class="th1 n4">
+						<a href="javasciprt:void(0);" class="th1_lnk"><span>식품방사능검사현황</span></a>
+						<div class="item">
+							<div class="gnb-depth">
+								<ul class="depth2_ul">
+									<li class="no1">
+										<!--<a href="/CFQDD01F01"><span>수입식품 통관제품 조회</span></a>-->
+<!--										<a href="/CFQDD01F01"><span>수입 통관제품 조회</span></a>-->
+									</li>
+									<li class="no2">
+										<a href="/CFQDD03F01"><span>수입식품 방사능 검사현황</span></a>
+										<ul class="depth3_ul">
+											<!-- 2023-06-20 메뉴추가 요청 - 수입식품 방사능 검사현황 (MIS#52.0)-->
+											<!-- 2024-01-17 메뉴추가 요청 - 삼중수소 모니터링 현황 (MIS#134.0-2)-->
+											<li  class="no3">
+												<a href="/CFQDD03F01"><span>수입식품 방사능 검사현황</span></a>
+											</li>
+											<li  class="no3">
+												<a href="/CFQDD06F01"><span>삼중수소 모니터링 현황</span></a>
+											</li>
+											<li class="no3">
+												<a href="/CFQDD05F01"><span>반복검출 제품정보</span></a>
+											<li>
+											<li class="no3">
+												<a href="/CFQDD02F01"><span>검사 통계</span></a>
+											<li>
+											<li class="no3">
+												<a href="/CFQDD01F01"><span>수입식품 통관제품 조회</span></a>
+											<li>
+										</ul>
+									</li>
+                                    <li>
+                                    	<a href="/CFQDD04F01"><span>국내유통식품 방사능 검사현황</span></a>
+                                    </li>
+								</ul>
+<!-- 								//depth2_ul -->
+							</div>
+						</div>
+
+					</li>
+<!-- 					End : 1차메뉴 -->
+
+				</ul>
+<!--                 메뉴 끝 -->
+            </div>
+<!--             공통메뉴틀 끝 -->
+       </div>
+    </nav>
+<!--     pc 네비게이션 끝  -->
+
+
+<!--     모바일 네비게이션  -->
+    <div class="modal fade in" id="mobile-menu" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+	  		<div class="modal-content">
+	  			<div class="topUtile tmp_center">
+					<div class="m_member">
+						<ul>
+					       	<li><a href="#none">HOME</a></li>
+							<li><a href="#none">사이트맵</a></li>
+							<li class="search">
+			            		<div class="form_wrap">
+						        	<form name="s_type" action="#" method="post" target="_blank" title="검색페이지로 이동합니다">
+										<fieldset>
+											<legend>통합검색</legend>
+											<label class="skip" for="search_input_m2">통합 검색어를 입력하세요</label>
+											<input type="hidden" name="s_type" value="all">
+											<input id="search_input_m2" type="text" name="qt">
+											<div class="submit"><input type="submit" value="검색" id="search_btn_m2"><label for="search_btn_m2" class="skip">검색</label></div>
+										</fieldset>
+									</form>
+						        </div>
+			            	</li>	
+						</ul>
+					</div>
+					
+				</div>
+	  			
+	    		<div class="modal-body accordion">
+					<ul class="depth1_ul n4">
+		             	<li class="n1">
+							<a data-target="#mMenu_modal1" href="javasciprt:void(0);" id="title01"><span>새소식</span></a>
+							<div class="item">
+								<div class="gnb-depth">
+									<ul class="depth2_ul" id="mMenu_modal1" data-parent="#mobile-menu">
+								        <li><a href="/CFQAA01F01"><span>방사능소식</span></a></li>
+								        <li><a href="/CFQAA02F01"><span>홍보자료</span></a></li>
+<!-- 								        <li><a href="/CFQAA03F01"><span>참고자료</span></a></li> -->
+			  		 				</ul>
+								</div>
+							</div>
+							
+	  		 			</li>
+
+	  		 			<li class="n2">
+							<a data-target="#mMenu_modal2" href="javasciprt:void(0);" id="title02"><span>방사능정보</span></a>
+							<div class="item">
+								<div class="gnb-depth">
+									<ul class="depth2_ul" id="mMenu_modal2" data-parent="#mobile-menu">
+								        <li><a href="/CFQBB01F01"><span>방사능이란?</span></a></li>
+								        <li><a href="/CFQBB02F01"><span>생활주변방사능</span></a></li>
+								        <li><a href="/CFQBB03F01"><span>방사능의위험정보</span></a></li>
+								        <li><a href="/CFQBB04F01"><span>방사능FAQ</span></a></li>
+			  		 				</ul>
+								</div>
+							</div>
+							
+	  		 			</li>
+
+	  		 			<li class="n3">
+							<a data-target="#mMenu_modal3" href="javasciprt:void(0);" id="title03"><span>식품방사능안전관리 </span></a>
+							<div class="item">
+								<div class="gnb-depth">
+									<ul class="depth2_ul" id="mMenu_modal3" data-parent="#mobile-menu">
+					          			<li><a href="/CFQCC01F01"><span>수입식품 안전관리</span></a></li>
+					          			<li><a href="/CFQCC01F02"><span>국내 유통식품 안전관리</span></a></li>
+								        <li><a href="/CFQCC02F01"><span>원전사고 이후 대응조치</span></a></li>
+								        <li><a href="/CFQCC03F01"><span>일본산 식품 WTO 분쟁</span></a></li>
+			  		 				</ul>
+								</div>
+							</div>
+							
+	  		 			</li>
+
+
+	  		 			<li class="n4">
+							<a data-target="#mMenu_modal4" href="javasciprt:void(0);" id="title04"><span>식품방사능검사현황 </span></a>
+							<div class="item">
+								<div class="gnb-depth">
+									<ul class="depth2_ul" id="mMenu_modal4" data-parent="#mobile-menu">
+								        <!--<li><a href="/CFQDD01F01"><span>수입 통관제품 조회</span></a></li>-->
+								        <li>
+								        	<a href="/CFQDD03F01"><span>수입식품 방사능 검사현황</span></a>
+								        	<ul class="depth3_ul">
+												<!-- 2023-06-20 메뉴추가 요청 - 수입식품 방사능 검사현황 (MIS#52.0)-->
+												<!-- 2024-01-17 메뉴추가 요청 - 삼중수소 모니터링 현황 (MIS#134.0-2)-->
+								        		<li>
+													<a href="/CFQDD03F01"><span>수입식품 방사능 검사현황</span></a>
+												</li>
+												<li>
+													<a href="/CFQDD06F01"><span>삼중수소 모니터링 현황</span></a>
+												</li>
+												<li>
+													<a href="/CFQDD05F01"><span>반복 검출 제품정보</span></a>
+												</li>
+								        		<li>
+													<a href="/CFQDD02F01"><span>검사 통계</span></a>
+												</li>
+												<li>
+													<a href="/CFQDD01F01"><span>수입식품 통관제품 조회</span></a>
+												</li>
+								        	</ul>
+							        	</li>
+					          			<li><a href="/CFQDD04F01"><span>국내유통식품 방사능 검사현황</span></a></li>
+			  		 				</ul>
+								</div>
+							</div>
+							
+	  		 			</li>
+
+
+	            	</ul>   
+
+	            	<button type="button" class="mobile-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">닫기</span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--     모바일네비게이션 끝  -->
+
+
+</header>
+		</div>
+		<!-- //header -->
+	
+		<!-- container_wrap -->
+		<div class="container_wrap">
+			<div class="area">
+			<!-- container -->
+				<div id="container">
+					<!-- content_wrap -->
+					<div id="content_wrap">
+						<!-- content -->
+						<section id="content">
+<!--<body>-->
+
+<!-- 스킵네비게이션  -->
+<div id="skipnavi">
+    <a href="#txt">본문 바로가기</a>
+    <a href="#gnb_layout">대메뉴 바로가기</a>
+</div>
+<!-- 스킵네비게이션  -->
+
+<!-- 헤더 영역 시작 -->
+
+<!--<header id="top_layout" class="layout2">-->
+<!--	<header th:replace="~{fragments/radHeader :: radHeaderFragment}"></header>-->
+<!--</header>-->
+<!-- 헤더 영역 끝 -->
+
+
+<!-- 서브레이아웃  영역입니다. -->
+<div id="body_layout">
+	<div id="svisual_layout">
+    	<div class="svisual_wrap">
+    		<div class="sub__background"></div>
+        	<div class="subvisual-layout layout">
+            	<strong class="subvisual-layout__title score">원전사고 이후 대응조치</strong>
+            </div>
+        </div>
+    </div><!-- //svisual_layout -->
+    <script type="text/javascript">
+		$(".navi_menu").on("mouseover focusin",function(){
+			$(".navi").removeClass("ov");
+			$(this).parents(".navi").addClass("ov");
+		});
+		$(".navi > .navi_ov").on("mouseleave",function(){
+			$(this).parents(".navi").removeClass("ov");
+		});
+		$("a, button, input").focus(function(){
+			var _boxName = $(this).parents(".navi").attr("class");
+			//console.log(">>>>>> _boxName:"+_boxName);
+			if(_boxName == "undefined" || _boxName == "" || _boxName == null){
+				//console.log(">>>>>> 없다");
+				$(".navi").removeClass("ov");
+			}
+		});
+	</script>
+
+
+<div id="contens" class="contents_wrap">
+		<div id="txt">
+            <div class="sub06">
+                <div class="cont1"> 
+                    <div class="inner">
+                        <h2 class="h2">일본</h2>
+                        <div class="history">
+                            <div class="timeline__head"><strong>2011</strong></div>
+                            <div class="timeline__body">
+                                <div class="timeline__item">
+                                    <div class="timeline__right timeline__box">
+                                        <p class="date"><span>3.11.</span></p>
+                                        <ul class="timelist">
+                                            <li>동일본 대지진과 쓰나미</li>
+                                            <li>일본 후쿠시마현 제1원자력발전소가 침수</li>
+                                            <li>전원 및 냉각시스템이 파손되면서 방사능이 <span class="color-blue">누출된 사고 발생</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="timeline__item item_left">
+                                    <div class="timeline__left timeline__box">
+                                        <p class="date"><span>3.14.</span></p>
+                                        <ul class="timelist">
+                                            <li>일본산 식품(농임산물, 축산물, 수산물, 가공식품) 방사능 검사 시작</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="timeline__item">
+                                    <div class="timeline__right timeline__box">
+                                        <p class="date"><span>3.25.</span></p>
+                                        <ul class="timelist">
+                                            <li>후쿠시마 등 4개현 엽체류 등 일본 내 출하제한 품목에 대해 <span class="color-blue">수입금지 조치</span></li>
+                                            <li class="tip">
+                                                * 이후 일본 내 출하제한 품목에 대한 추가 수입금지 조치 지속<br>
+                                                (현재 15개현 27개 농임산물 품목 수입금지 중)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="timeline__item item_left">
+                                    <div class="timeline__left timeline__box">
+                                        <p class="date"><span>4.20.</span></p>
+                                        <ul class="timelist">
+                                            <li>후쿠시마현 까나리 일본 내 출하제한에 따라 수입금지 조치</li>
+                                            <li class="tip">
+                                                * 이후 일본 내 출하제한 품목에 대한 추가 수입금지 조치 지속</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="timeline__item">
+                                    <div class="timeline__right timeline__box">
+                                        <p class="date"><span>5.1.</span></p>
+                                        <ul class="timelist">
+                                            <li>일본산 식품(농임산물, 축산물, 수산물, 가공식품)<br>
+                                                <span class="color-blue">방사능 검사증명서와 생산지증명서 요구 조치</span></li>
+                                            <li>일본산 식품(농산물, 가공식품)에서 <span class="color-blue">방사능  검출 시 추가 핵종증명서 요구</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="top_line">
+                                <div class="timeline__head"><strong>2012</strong></div>
+                                <div class="timeline__body">
+                                    <div class="timeline__item item_left">
+                                        <div class="timeline__left timeline__box">
+                                            <p class="date"><span>4.1.</span></p>
+                                            <ul class="timelist">
+                                                <li>일본산 식품에 대한 방사성
+                                                    <span class="color-blue block">세슘 기준 100Bq/kg 기준 적용</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="top_line point">
+                                <div class="timeline__head"><strong>2013</strong></div>
+                                <div class="timeline__body">
+                                    <div class="timeline__item">
+                                        <div class="timeline__right timeline__box">
+                                            <p class="date"><span>9.9.</span></p>
+                                            <ul class="timelist">
+                                                <li>임시특별 조치 시행</li>
+                                                <li>8개현 모든 수산물 수입금지</li>
+                                                <li>일본산 축수산물에서 방사능 검출 시 추가핵종 검사증명서 요구</li>
+                                                <li>모든 국가 식품에 방사성 세슘 100Bq/kg 강화된 기준 적용</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline__head"><strong>2015</strong></div>
+                                <div class="timeline__body">
+                                    <div class="timeline__item">
+                                        <div class="timeline__left timeline__box">
+                                            <p class="date"><span>5.21.</span></p>
+                                            <ul class="timelist">
+                                                <li>일본측 WTO 분쟁 제소</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="y2019">
+                                <div class="timeline__head"><strong>2019</strong></div>
+                                <div class="timeline__body">
+                                    <div class="timeline__item point">
+                                        <div class="timeline__right timeline__box">
+                                            <p class="date"><span>4.11.</span></p>
+                                            <ul class="timelist">
+                                                <li>최종 승소</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont2 info_wrpa">
+                    <h2 class="h2">일본산 식품 수입제한조치</h2>
+                    <div class="pad_inner">
+                        <div class="left">
+                            <h3 class="h3">수입금지</h3>
+                            <p class="txt">해당하는 농수산물을 철저히 수입금지</p>
+                            <div class="ir ir01"></div>
+                        
+                        </div>
+                        <div class="right">
+                            <h4 class="h4">일본 8개현 모든 수산물</h4>
+                            <ul class="info">
+                                <li>8개현 : 후쿠시마, 군마, 도치기, 지바, 이바라키, 미야기, 이와테, 아오모리</li>
+                                <li>수산물: 식품첨가물이나 다른 원료를 사용하지 아니하고 원형을 알아볼 수 있는 정도로 단순히 절단·가열·숙성·건조 또는 염장한 
+                                수산동식물(수입수산물 검사에 관한 규정(제2019-22호, 2019.3.21.)의 적용대상인 어류, 패류, 연체류, 갑각류, 해조류 등을 말함)</li>
+                            </ul>
+                        
+                            <h4 class="h4">일본 15개현 27개 품목 농산물</h4>
+                            <div class="swiper-container swiper1 flip-scroll">
+                                <ul class="swiper-wrapper sldie">
+                                    <li class="swiper-slide">
+                                        <strong>후쿠시마</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>엽채류, 결구엽채류, 순무, 죽순, 청나래고사리, 매실, 유자, 밤, 쌀, 버섯류, 키위, 고추냉이, 두릅, 오가피, 고비, 고사리, 대두, 팥, 땅두릅(독활)</p>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <strong>지바</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>엽채류, 엽경채류, 차(茶), 버섯류, 죽순</p>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <strong>도치기</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>시금치, 카키나, 차(茶), 버섯류, 두릅, 죽순, 밤, 청나래고사리, 산초, 오가피, 고비, 고사리</p>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <strong>군마</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>시금치, 카키나, 차(茶), 버섯류, 오가피, 두릅</p>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <strong>이바라키</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>시금치, 카키나, 파슬리, 차(茶), 버섯류, 죽순, 오가피</p>
+                                    </li>
+                                    <!-- 2023-07-24 수입식품정책과 긴급 요청 - '두릅' 추가(MIS#73.0) -->
+                                    <li class="swiper-slide">
+                                        <strong>미야기</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>버섯류, 청나래고사리, 죽순, 고비, 오가피, 메밀, 대두, 쌀, 고사리, 두릅</p>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <strong>이와테</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>버섯류, 오가피, 메밀, 대두, 고비, 고사리, 미나리, 죽순</p>
+                                    </li>
+                                     <li class="swiper-slide">
+                                        <strong>나가노</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>버섯류, 오가피</p>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <strong>사이타마</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>버섯류</p>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <strong>야마나시</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>버섯류</p>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <strong>아오모리</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>버섯류</p>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <strong>시즈오카</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>버섯류</p>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <strong>가나가와</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>차(茶)</p>
+                                    </li>
+                                     <li class="swiper-slide">
+                                        <strong>니가타</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>오가피</p>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <strong>야마가타</strong>
+                                        <span class="tit2">수입금지품목</span>
+                                        <p>버섯류</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="slide_btn">
+                            <div class="swiper-button-prev"><span class="hide">이전</span></div>
+                            <div class="swiper-button-next"><span class="hide">다음</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont3 slide_wrap">
+                    <div class="pad_inner"> 
+                        <div class="left">
+                            <h3 class="h3"><em>일본 정부가 발행한 </em>증명서 첨부</h3>
+                            <p class="txt">수입신고시 방사성 세슘(<sup>134+137</sup>Cs) 과 요오드(<sup>131</sup>I) 검사증명서와 생산지증명서 첨부</p>
+                            <div class="ir ir02"></div>
+                
+                        </div>
+                        <div class="right">
+                            <div class="swiper-container swiper2 flip-scroll">
+                                <ul class="swiper-wrapper sldie"> 
+                                    <li class="swiper-slide">
+                                        <span class="list_title b1">가공식품,축산물</span>
+                                        <ul class="list_inner">
+                                            <li>
+                                                <p class="list_in_title">수입금지품목</p>
+                                                <p class="list_in_txt">육류 및 원유</p>
+                                            </li>
+                                            <li>
+                                                <p class="list_in_title">검사증명서+생산지 증명서</p>
+                                                <p class="list_in_txt">13개 지역
+                                                    <br>* 후쿠시마, 도치기, 군마, 이바라키, 가나가와, 미야기, 나가노, 사이타마, 시즈오카, 지바, 도쿄도, 야마카타, 니가타</p>
+                                            </li>
+                                            <li>
+                                                <p class="list_in_title">생산지증명서</p>
+                                                <p class="list_in_txt">34개 지역
+                                                    <br>* 가가와, 가고시마, 고치, 교토, 구마모토, 기후, 나가사키, 나라, 도야마, 도쿠시마, 돗토리, 미야자키, 미에, 사가, 시가, 시마네, 아오모리, 아이치, 아키타, 야마구치, 야마나시, 에히메, 오사카, 오이타, 오카야마, 오키나와, 와카야마, 이시카와, 이와테, 효고, 후쿠오카, 후쿠이, 홋카이도, 히로시마 </p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <span class="list_title b2">농산물</span>
+                                        <ul class="list_inner">
+                                            <li>
+                                                <p class="list_in_title">수입금지품목</p>
+                                                <p class="list_in_txt">15개현* 27개 품목
+                                                    <br>* 가나가와, 군마, 나가노, 니가타, 도치기, 미야기, 사이타마, 시즈오카, 아오모리, 야마가타, 야마나시, 이바라키, 이와테, 지바, 후쿠시마</p>
+                                            </li>
+                                            <li>
+                                                <p class="list_in_title">검사증명서+생산지 증명서</p>
+                                                <p class="list_in_txt">13개 지역
+                                                    <br>* 후쿠시마, 도치기, 군마, 이바라키, 가나가와, 미야기, 나가노, 사이타마, 시즈오카, 지바, 도쿄도, 야마카타, 니가타</p>
+                                            </li>
+                                            <li>
+                                                <p class="list_in_title">생산지증명서</p>
+                                                <p class="list_in_txt">34개 지역
+                                                    <br>* 가가와, 가고시마, 고치, 교토, 구마모토, 기후, 나가사키, 나라, 도야마, 도쿠시마, 돗토리, 미야자키, 미에, 사가, 시가, 시마네, 아오모리, 아이치, 아키타, 야마구치, 야마나시, 에히메, 오사카, 오이타, 오카야마, 오키나와, 와카야마, 이시카와, 이와테, 효고, 후쿠오카, 후쿠이, 홋카이도, 히로시마 </p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <span class="list_title b3">수산물</span>
+                                        <ul class="list_inner">
+                                            <li>
+                                                <p class="list_in_title">수입금지품목</p>
+                                                <p class="list_in_txt">8개현* 수입금지
+                                                    <br>후쿠시마, 군마, 도치기, 이바라키, 미야기, 이와테, 지바, 아오모리</p>
+                                            </li>
+                                            <li>
+                                                <p class="list_in_title">검사증명서+생산지 증명서</p>
+                                                <p class="list_in_txt">8개 지역
+                                                    <br>가나가와, 도쿄도, 홋카이도, 에히메, 구마모토, 미에, 가고시마, 아이치</p>
+                                            </li>
+                                            <li>
+                                                <p class="list_in_title">생산지증명서</p>
+                                                <p class="list_in_txt">31개 지역
+                                                    <br>* 가가와, 고치, 교토, 기후, 나가노, 나가사키, 나라, 니가타, 도야마, 도쿠시마, 돗토리, 미야자키, 사가, 사이타마, 시가, 시마네, 시즈오카, 아키타, 야마구치, 야마나시, 야마가타, 오사카, 오이타, 오카야마, 오키나와, 와카야마, 이시카와, 효고, 후쿠오카, 후쿠이, 히로시마</p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="slide_btn">
+                            <div class="swiper-button-prev2"><span class="hide">이전</span></div>
+                            <div class="swiper-button-next2"><span class="hide">다음</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont4 bod_wrap">
+                    <div class="pad_inner">
+                        <div class="left">
+                            <h3 class="h3">통관단계<em class="block"></em> 방사능 검사</h3>
+                            <p class="txt">일본산 수입식품등은<em class="block"></em> 매 수입시 세슘과<em class="block"></em> 요오드를 검사</p>
+                            <div class="ir ir01"></div>
+                        </div>
+                        <div class="right">
+                            <ul class="bod_box">
+                                <li>
+                                    <strong>모든 일본산 식품은 <span class="color-blue">매 수입시<em class="block"></em> 방사성 세슘과 요오드 검사</span></strong>
+                                    <p class="tip">* 기준 : 방사성 세슘(<sup>134+137</sup>Cs) 영유아용 식품 50Bq/kg, 기타 식품 100Bq/kg,<br> 방사성 요오드(<sup>131</sup>I) 100Bq/kg 이하</p>
+                                </li>
+                                <li>
+                                    <p class="txt">검사결과 방사성 세슘(<sup>134+137</sup>Cs) 또는 요오드(<sup>131</sup>I)가<em class="block"></em> 0.5Bq/kg이상 (소수점 첫 자리를 반올림하여 1Bq/kg이상) </p>
+                                    <strong>검출되면<em class="block"></em> 수입자에게 17개 추가 핵종<em class="block"></em> <span class="color-blue">검사증명서가 요구</span>됨</strong>
+                                </li>
+                            </ul>
+
+                            <div class="table_wrap">
+                                <strong>&lt;CODEX 식품 중 방사성 핵종 권고기준&gt;</strong>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered text-center">
+                                        <caption>CODEX 식품 중 방사성 핵종 권고기준 - 핵종, 권고기준(Bq/kg)-영유아,성인 정보제공</caption>
+                                        <colgroup>
+                                            <col style="width:20%">
+                                            <col style="width:40%">
+                                            <col style="width:20%">
+                                            <col style="width:20%">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" rowspan="2" colspan="2">핵종</th>
+                                                <th scope="col" colspan="2">권고기준(Bq/kg)</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">영유아</th>
+                                                <th scope="col">성인</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>α선</td>
+                                                <td><sup>238</sup>Pu, <sup>239</sup>Pu, <sup>240</sup>Pu, <sup>241</sup>Am</td>
+                                                <td>1</td>
+                                                <td>10</td>
+                                            </tr>
+                                            <tr>
+                                                <td>α선</td>
+                                                <td><sup>235</sup>U</td>
+                                                <td rowspan="3">100</td>
+                                                <td rowspan="3">100</td>
+                                            </tr>
+                                            <tr>
+                                                <td>β선</td>
+                                                <td><sup>90</sup>Sr,<sup>129</sup>I</td>
+                                            </tr>
+                                            <tr>
+                                                <td>γ선</td>
+                                                <td><sup>106</sup>Ru</td>
+                                            </tr>
+                                            <tr>
+                                                <td>β선</td>
+                                                <td><sup>35</sup>S,<sup>89</sup>Sr</td>
+                                                <td rowspan="2">1,000</td>
+                                                <td rowspan="2">1,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>γ선</td>
+                                                <td><sup>60</sup>Co,<sup>103</sup>Ru,<sup>114</sup>Ce,<sup>192</sup>Ir</td>
+                                            </tr>
+                                            <tr>
+                                                <td>β선</td>
+                                                <td><sup>3</sup>H,<sup>14</sup>C,<sup>99</sup>Tc</td>
+                                                <td>1,000</td>
+                                                <td>10,000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div> 
+
+                            <ul class="info"> 
+                                <li>* 추가 핵종 검사증명서 표기 방법은 방사능 검사증명서(<sup>134</sup>Cs, <sup>137</sup>Cs, <sup>131</sup>I) 표시 방법과 동일하게 추가 핵종 검사 결과를 기재하면 됨</li>
+                                <li>* 추가 핵종 검사증명서 검사 기관 및 장소는 방사능 검사증명서(<sup>134</sup>Cs, <sup>137</sup>Cs, <sup>131</sup>I)와 동일하게 일본 정부 또는 일본 정부가 인정하는 기관임</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+<!--                 체르노빌 추가작업  시작-->
+				<div class="cont4 bod_wrap">
+                    <div class="pad_inner">
+                        <div class="left">
+                            <h3 class="h3">기타국가<em class="block"></em></h3>
+                        </div>
+                        <div class="right">
+                            <div class="table_wrap">
+<!--                                 <strong>&lt;CODEX 식품 중 방사성 핵종 권고기준&gt;</strong> -->
+                                <div class="table-responsive">
+                                    <table class="table table-bordered text-center">
+                                        <caption>CODEX 식품 중 방사성 핵종 권고기준 - 핵종, 권고기준(Bq/kg)-영유아,성인 정보제공</caption>
+                                        <colgroup>
+                                            <col style="width:15%">
+                                            <col style="width:45%">
+                                            <col style="width:40%">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">조치일자</th>
+                                                <th scope="col">대상국가</th>
+                                                <th scope="col">대상제품</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1995.3.19</br>
+                                                	1997.5.23</br>
+                                                	2003.11.27</br>
+                                                	2004.10.4</br>
+                                                	2014.2.24</br>
+                                                </td>
+                                                <td>
+													러시아, 벨라루스(구 벨로루시), 에스토니아, 라트비아, 리투아니아, 우크라이나, 몰도바, 조지아(구 그루지아),
+													아르메니아, 아제르바이잔, 체코, 독일, 폴란드, 헝가리, 루마니아, 세르비아(구 유고슬라비아), 몬테네그루(구 유고슬라비아), 
+													보스니아-헤르체고비나, 크로아티아, 슬로베니아, 마케도니아, 터키, 불가리아, 노르웨이, 스웨덴, 핀란드, 덴마크, 네덜란드, 
+													프랑스, 영국, 아일랜드, 룩셈부르크, 리히텐슈타인, 벨기에, 스페인, 포릍투갈, 이탈리아, 오스트리아, 스위스, 슬로바키아,
+													산마리노, 모나코, 안도라, 바티칸(44개국)
+												</td>
+                                                <td>건조과실류, 견과류, 버섯류, 천연향신식물 및 가공식품 중 천연향신료</td>
+                                            </tr>
+                                            <tr>
+                                                <td> 2013.10.2</br>
+                                                	 2013.12.26</br>
+                                                	 2014.4.31</br>
+                                                </td>
+                                                <td>
+													스웨덴
+												</td>
+                                                <td>스웨덴 HAFI, HALLANDS FRUKTINDUSTRI AB사에서 제조된 베리류를 주원료로 하는 모든 식품</td>
+                                            </tr>
+                                            <tr>
+                                                <td> 2016.4.26</br>
+                                                	 2018.10.4</br>
+                                                </td>
+                                                <td>
+													모든국가
+												</td>
+                                                <td>능이버섯(검사명령 대상은 제외)</td>
+                                            </tr>
+                                            <tr>
+                                                <td> 2017.10.25</br>
+                                                </td>
+                                                <td>
+													유럽국가, 미국, 중국
+												</td>
+                                                <td>블루베리, 빌베리, 링곤베리 및 이를 함유한 잼류, 농축과채즙(과채분), 과채가공품(류) 및 건강기능식품 중 빌베리추출물(검사명령 대상은 제외)</td>
+                                            </tr>
+                                            <tr>
+                                                <td> 2017.11.23</br>
+                                                </td>
+                                                <td>
+													모든국가
+												</td>
+                                                <td>차가버섯을 주원료로 제조한 다류 및 기타가공품</td>
+                                            </tr>
+                                            <tr>
+                                                <td> 2018.5.4</br>
+                                                	 2018.5.14</br>
+                                                </td>
+                                                <td>
+													폴란드
+												</td>
+                                                <td>1) KMD PROJECT SP. Z.O.O(LTD. CO)</br>
+                                                    2) P.P.H.U BIO JUICE, P.P.H.U BIO JUICE PIORT MICHALAK</br>
+                                                    3) MICROSTRUCTURESP.Z.O.O</br>
+                                                                                           에서 수출 또는 제조된 건조과실류, 과채가공품</td>
+                                            </tr>
+                                            <tr>
+                                                <td> 2018.6.20</br>
+                                                </td>
+                                                <td>
+													이탈리아
+												</td>
+                                                <td>AZIENDA AGRIMONTANA S.P.A에서 수출 또는 제조된 베리류를 주원료로 하는 잼류, 과채가공품</td>
+                                            </tr>
+                                            <tr>
+                                                <td> 2018.6.21</br>
+                                                </td>
+                                                <td>
+													독일
+												</td>
+                                                <td>MAINFRUCHT GMBH & CO. KG에서 수출 또는 제조된 베리류를 주원료로 하는 잼류, 과채가공품</td>
+                                            </tr>
+                                            <tr>
+                                                <td> 2018.7.27</br>
+                                                </td>
+                                                <td>
+													키르기스스탄
+												</td>
+												<td>버섯류</br>(검사명령 대상은 제외)</td>
+                                            </tr>
+                                            <tr>
+                                                <td> 2018.8.21</br>
+                                                </td>
+                                                <td>
+													핀란드
+												</td>
+												<td>MAUSTAJA에서 수출 또는 제조된 과일류 및 과일을 주원료로 하는 잼류, 과채가공품</td>
+                                            </tr>
+                                            <tr>
+                                                <td> 2019.6.17</br>
+                                                </td>
+                                                <td>
+													오스트리아
+												</td>
+												<td>AUSTRIA JUICE GMBH에서 수출 또는 제조한베리류를 주원료로 하는 잼류, 과채가공품</td>
+                                            </tr>
+                                            <tr>
+                                                <td> 2019.12.27</br>
+                                                </td>
+                                                <td>
+													스웨덴
+												</td>
+												<td>빌베리 및 이를 원료로 제조한 잼류, 과채가공품</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div> 
+
+                            <ul class="info"> 
+                                <li>* 축산물 : 체르노빌 사고 발생 후 방사능 오염우려 국가 축산물 등 검사지시</li>
+                                <li>* 수산물 : 체르노빌 사고 발생 후 모든 국가를 대상으로 담수산 해수산 6개월에 1회(국가별 년 4회) 검사 지시</li>
+                                <li>* 후쿠시마 사고 이후 태평양산 수산물 등 방사능 검사 추가 지시 중</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+<!--                 체르노빌 추가작업  끝-->
+            </div>
+            <script>
+               
+
+                new Swiper('.swiper1', {
+                    loop: true,
+                    slidesPerView :6,
+                    spaceBetween: 20,
+                    pagination : { // 페이징 설정
+                        el : '.swiper-pagination',
+                        clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+                    },
+                    navigation : { // 네비게이션 설정
+                        nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+                        prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+                    },
+
+                    breakpoints: {
+                        767: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        centeredSlides: true
+                        },
+                        1024: {
+                        slidesPerView:2,
+                        spaceBetween: 20
+                        },
+                        1440: {
+                        slidesPerView:3,
+                        spaceBetween: 20
+                        },
+                    }
+                });
+
+                new Swiper('.swiper2', {
+                    loop: true,
+                    slidesPerView : 3,
+                    spaceBetween: 20,
+                    pagination : { // 페이징 설정
+                        el : '.swiper-pagination',
+                        clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+                    },
+                    navigation : { // 네비게이션 설정
+                        nextEl : '.swiper-button-next2', // 다음 버튼 클래스명
+                        prevEl : '.swiper-button-prev2', // 이번 버튼 클래스명
+                    },
+
+                    breakpoints: {
+                        767: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        centeredSlides: true
+                        },
+                        1024: {
+                        slidesPerView:1,
+                        spaceBetween: 20
+                        },
+                        1440: {
+                        slidesPerView:2,
+                        spaceBetween: 20
+                        },
+                    }
+                });
+
+
+            
+            </script>
+        </div>
+    </div>
+ 
+
+
+	
+
+</div><!-- //body_layout -->
+
+
+<!-- 서브레이아웃  영역입니다. -->	
+
+
+
+
+
+
+
+<!-- footer 영역입니다. -->	
+<!--<footer id="foot_layout">-->
+<!--	<footer th:replace="~{fragments/radFooter :: radFooterFragment}"></footer>-->
+<!--</footer>-->
+<!-- footer 영역입니다. -->	
+
+<!--<link rel="stylesheet" href="/css/common/font/font_score.css" />-->
+<!--<script src="/js/acego.gnb.js"></script>-->
+<!--<script src="/js/acego.snb.js"></script>-->
+<script>
+$(function(){
+    var param = "#gnb_layout",
+        obj = ".depth2_ul",
+        btn = ".depth1_ul>li",
+        wrap = "#gnb_layout",
+        dur = 300,
+        meth = "easeOutCubic";
+    gnb(param,obj,btn,wrap,dur,meth);
+    gnb_open();
+}());
+
+$(".clickOpen > a").on("click",function(){
+    $(this).parent().addClass("on");  
+});
+$(".clickOpen a.clickClose").on("click",function(){
+    $(this).parents(".clickOpen").removeClass("on");
+});
+
+$(".clickOpen > button").on("click",function(){
+    $(this).parent().addClass("on");  
+});
+$(".clickOpen button.clickClose").on("click",function(){
+    $(this).parents(".clickOpen").removeClass("on");
+});
+
+
+$(function(){
+    $("[data-print=print]").on('click', function() {
+	    $("#txt").print({
+	        globalStyles : true,
+	        mediaPrint : false,
+	        iframe : true,
+	        noPrintSelector : ".avoid-this",
+	        deferred: $.Deferred().done(function() { console.log('Printing done', arguments); })
+	    });
+    });
+});
+
+
+</script>
+</section>
+						<!-- //content -->
+					</div>
+					<!-- //content_wrap -->
+				</div>
+			<!-- //container -->
+			</div>
+		</div>
+		<!-- //container_wrap -->
+	
+		<!-- footer -->
+		<div class="footer_wrap">
+			<div class="area">
+				<footer id="footer">
+<!-- footer 영역입니다. -->	
+<footer id="foot_layout">
+	<div class="layout2">
+		<div class="linksite clickOpen">
+	        <button type="button">관련사이트 바로가기 <span class="skip">열기버튼</span></button>
+	        <div>
+	            <ul>
+	           		<li><a href="javascript:return;" onclick="window.open('https://www.mof.go.kr/page/ko/selectPage.do?menuSeq=1052&pageSeq=469')">해양수산부 </a></li>
+	                <li><a href="javascript:return;" onclick="window.open('https://nsic.nssc.go.kr/rad/environRadiation.do#ocean')">	원자력안전위원회</a></li>
+	                <li><a href="javascript:return;" onclick="window.open('https://impfood.mfds.go.kr')">수입식품정보마루</a></li>
+	                <li><a href="javascript:return;" onclick="window.open('https://foodsafetykorea.go.kr/main.do')">식품안전나라</a></li>
+	            </ul>
+	            <button type="button" class="clickClose">관련사이트 바로가기 닫기버튼</button>
+	        </div>
+	    </div>
+		<div class="footer-info">
+			<ul class="clear">
+<!-- 				<li><a href="#none">개인정보처리방침</a></li> -->
+<!-- 				<li><a href="#none">저작권정책</a></li> -->
+<!-- 				<li><a href="#none">부서별전화번호</a></li> -->
+<!-- 				<li><a href="#none">RSS</a></li> -->
+<!-- 				<li><a href="#none">이용안내</a></li> -->
+			</ul>
+			<address align="left">
+				(우) 28159 충청북도 청주시 흥덕구 오송읍 오송생명2로 187 오송보건의료행정타운 식품의약품안전처<br>정부민원안내콜센터 국번없이 110(무료), 식품의약품안전처 종합상담실 : 1577-1255(유료), 수입식품시스템 상담센터 : 1811-6496(유료)
+	        </address>
+		    <p align="left" class="copy">Copyrightⓒ By Ministry of Food and Drug Safety. All rights reserved</p>
+		</div>
+    </div><!-- //layout2 -->
+</footer>
+<!-- footer 영역입니다. -->
+
+<script>
+// $(function(){
+//     var param = "#gnb_layout",
+//         obj = ".depth2_ul",
+//         btn = ".depth1_ul>li",
+//         wrap = "#gnb_layout",
+//         dur = 300,
+//         meth = "easeOutCubic";
+//     gnb(param,obj,btn,wrap,dur,meth);
+//     gnb_open();
+// }());
+
+$(".clickOpen > a").on("click",function(){
+    $(this).parent().addClass("on");  
+});
+$(".clickOpen a.clickClose").on("click",function(){
+    $(this).parents(".clickOpen").removeClass("on");
+});
+
+$(".clickOpen > button").on("click",function(){
+    $(this).parent().addClass("on");  
+});
+$(".clickOpen button.clickClose").on("click",function(){
+    $(this).parents(".clickOpen").removeClass("on");
+});
+
+</script>
+			</div>
+		</div>
+		<!-- //footer -->
+	</div>
+</body>
+</html>

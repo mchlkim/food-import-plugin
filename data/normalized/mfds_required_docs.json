@@ -1,0 +1,291 @@
+{
+  "source_id": "mfds_required_docs",
+  "title": "(공지)수입식품 수입신고 시 제출해야 하는 구비서류 목록('26.8.4)",
+  "retrieved_at": "2026-11-10T14:22:25+09:00",
+  "url": "https://impfood.mfds.go.kr/CFCII04F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=666431",
+  "publication_date": "2026-08-04",
+  "effective_date": "2026-08-03",
+  "attachment_name": "수입신고시 제출하여야 하는 구비서류 목록(2026.8.3.현재).xlsx",
+  "attachment_url": "https://impfood.mfds.go.kr/file/downloadFile?fileSeq=10014663362&servFileName=1785830962757EqPZo.xlsx",
+  "newer_posts": [
+    {
+      "sn": "666497",
+      "title": "스페인 수산물 위생증명서 추가 변경사항 알림",
+      "date": "2026-08-05"
+    }
+  ],
+  "content": {
+    "sheet": "수입신고 시 제출해야하는 구비서류",
+    "preamble": "* 제조사 증명서의 경우 증명내용 이외의 다음의 기재사항이 포함되어야 합니다. - 제조회사명(소재지 포함), 발행인(직책 포함), 발행일, 연락처(e-mail, 전화번호 등)",
+    "items": [
+      {
+        "seq": 1,
+        "sub": 0,
+        "countries_text": "모든국가",
+        "product_text": "죽염, 구운소금 등 태움·용융소금 및 이를 함유한 가공소금",
+        "certificate_text": "다이옥신 잔류량 검사성적서(최초 수입 시 제출하고, 이후 동일사 동일수입식품인 경우 생략 / 기준 : 3pgTEQ/g 이하)",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 4행 (연번 1)"
+      },
+      {
+        "seq": 2,
+        "sub": 0,
+        "countries_text": "모든국가(BSE관련 36개국 제외)",
+        "product_text": "반추동물(소, 사슴, 양 등) 및 부산물을 원료로 제조∙가공한 식품(건강기능식품 포함) 및 식품첨가물",
+        "certificate_text": "BSE발생국 원료를 사용하지 않았거나 비발생국가의 BSE에 감염되지 아니한 원료를 사용하였다는 수출국 정부증명서(관련단체, 협회등 공적기관에서 발행한 증명서 또는 자가서류에 공적기관이 공증한 증명서 포함)",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 5행 (연번 2)"
+      },
+      {
+        "seq": 3,
+        "sub": 0,
+        "countries_text": "모든국가",
+        "product_text": "복어를 원료로 가공한 식품",
+        "certificate_text": "매 수입 시 수출국 정부 또는 정부가 인정하는 검사기관에서 발행하는 다음의 서류를 모두 제출 1) 원산지 증명서(학명) 2) 복어독 검사성적서(원료 및 최종제품) 3) 복어유전자 검사성적서* * 종 특이 프라이머를 이용한 복어의 진위판별법에 따라 시험한 결과, 신고한 원재료 복어의 종류(학명)와 일치여부 확인",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 6행 (연번 3)"
+      },
+      {
+        "seq": 4,
+        "sub": 0,
+        "countries_text": "중국",
+        "product_text": "천일염",
+        "certificate_text": "식염으로 인증되고 요오드가 첨가되지 않았음을 입증하는 제조사의 증빙서류(중국에서 식염 생산 염전에 발급하는 허가증(중국 국가시장총국에서 발급하는 식품생산허가증 등)과 요오드가 첨가되지 않았음을 나타내는 제조사 서류) 제출",
+        "original_or_copy": "사본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 7행 (연번 4)"
+      },
+      {
+        "seq": 5,
+        "sub": 0,
+        "countries_text": "뉴질랜드",
+        "product_text": "꿀 또는 소밀(comb honey)",
+        "certificate_text": "뉴질랜드 법령에 적합하게 식용으로 생산되었음이 기재된 수출국 정부증명서",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 8행 (연번 5)"
+      },
+      {
+        "seq": 6,
+        "sub": 0,
+        "countries_text": "일본",
+        "product_text": "13개 도·현(후쿠시마, 이바라키, 토치키, 군마, 사이타마, 치바, 미야기, 가나가와, 도쿄, 나가노, 야마가타, 니이가타, 시즈오카)에서 생산·제조되는 농·임산물, 가공식품, 건강기능식품, 식품첨가물(기구 및 용기·포장재, 2011년 3월11일 이전 일본에서 제조된 식품, 제3국에서 제조한 후 일본을 단순 경유하여 수입되는 식품은 제외)",
+        "certificate_text": "○ 일본 정부의 검사기관 또는 일본 정부가 인정한 공인검사기관에서 ‘요오드(131I) 및 세슘(134Cs+137Cs)’을 검사한 검사성적서를 포함한 일본 정부(도·도·부·현 및 기초단체 정부포함)의 증명서 ○ 정부증명서는 요오드와 세슘을 검사하여 발급하도록 하되 요오드나 세슘이 수입단계에서 검출된 경우 스트론튬과 플루토늄 등에 대한 검사 증명을 수입자에게 추가로 요구",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 9행 (연번 6)"
+      },
+      {
+        "seq": 6,
+        "sub": 1,
+        "countries_text": "일본",
+        "product_text": "일본 13개도·현을 제외한 34개도·부·현에서 생산·제조된 농·임산물, 가공식품, 건강기능식품, 식품첨가물(기구 및 용기·포장재, 2011년 3월11일 이전 일본에서 제조된 식품, 제3국에서 제조한 후 일본을 단순 경유하여 수입되는 식품은 제외)",
+        "certificate_text": "○ 일본 정부(도·도·부·현 및 기초단체 정부 포함)가 해당 농·임산물 이나 가공식품등이 방사성 물질에 오염되지 않은 지역에서 생산되었거나, 제조·가공되었음을 입증하는 증명서 ○ 생산지 증명서를 제출한 경우에도 수입단계 검사에서 요오드나 세슘이 검출된 경우 스트론튬과 플루토늄 등에 대한 검사 증명을 수입자에게 추가로 요구",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 10행 (연번 6)"
+      },
+      {
+        "seq": 7,
+        "sub": 0,
+        "countries_text": "BSE관련 36개국",
+        "product_text": "우지가공품 및 이를 원료로 제조∙가공한 식품(건강기능식품 포함) 및 식품첨가물",
+        "certificate_text": "원료로 사용한 우지가 불용성 불순물 함량이 0.15%이하임을 증명하는 수출국 정부 증명서 제출",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 11행 (연번 7)"
+      },
+      {
+        "seq": 7,
+        "sub": 1,
+        "countries_text": "BSE관련 36개국",
+        "product_text": "우피(소의 원피 및 가죽)유래 젤라틴 및 콜라겐과 이를 원료로 제조∙가공한 식품(건강기능식품 포함) 및 식품첨가물",
+        "certificate_text": "다음의 증명내용을 포함하는 수출국 정부 증명서 또는 농림축산식품부 고시에 따라 협의된 콜라겐 및 젤라틴 검역증명서 제출 ① 가축전염병 병원체에 오염이 되지 않도록 생산되었음 ② 젤라틴과 콜라겐을 생산하기 위한 소는 수출국 정부에서 실시한 생체 및 해체검사를 통과하였음 * 협의된 증명서 확인방법 농림축산검역본부 홈페이지 접속(https://www.qia.go.kr) > 동물검역 > 국가별 검역증명서 승인 현황 > 품목에서 '콜라겐' 또는 '젤라틴' 검색",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 12행 (연번 7)"
+      },
+      {
+        "seq": 7,
+        "sub": 2,
+        "countries_text": "BSE관련 36개국",
+        "product_text": "소 뼈 유래 젤라틴 및 콜라겐과 이를 원료로 제조∙가공한 식품(건강기능식품 포함) 및 식품첨가물",
+        "certificate_text": "다음의 증명내용을 포함하는 수출국 정부 증명서 또는 농림축산식품부 고시에 따라 협의된 콜라겐 및 젤라틴 검역증명서 제출 ① 가축전염병 병원체에 오염이 되지 않도록 생산되었음 ② 젤라틴과 콜라겐을 생산하기 위한 소는 수출국 정부에서 실시한 생체 및 해체검사를 통과하였음 ③ 도축 당시 30개월 이상 소에서 나온 뇌, 눈, 척수, 머리뼈, 척주 및 모든 월령의 소에서 나온 편도와 회장원위부를 사용되지 않았음 ④ 소뼈는 다음의 모든 공정 또는 이와 동등하거나 그 이상의 감염력 감소 효과가 있는 절차를 거쳤음 1) 탈지(degreasing), 2) 산성 탈염(acid deminerlaisation), 3) 산 또는 알칼리처리(acid or alkaline treatment), 4) 여과(filtration), 5) 살균(138℃에서 최소 4초간) 혹은 전염성을 감소시킬 수 있는 이와 동등 이상 처리(고압 열처리 등) ⑤ 「콜라겐 및 젤라틴 수입위생조건(농식품부 고시)」에 따라 승인된 제조시설에서 생산된 젤라틴 및 콜라겐을 사용하였음을 증명 * 협의된 증명서 확인방법 농림축산검역본부 홈페이지 접속(https://www.qia.go.kr) > 동물검역 > 국가별 검역증명서 승인 현황 > 품목에서 '콜라겐' 또는 '젤라틴' 검색",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 13행 (연번 7)"
+      },
+      {
+        "seq": 7,
+        "sub": 3,
+        "countries_text": "BSE관련 36개국",
+        "product_text": "제2인산칼슘(반추동물을 원료로 제조한 경우에 한함)",
+        "certificate_text": "단백질과 지방이 함유되지 않았다는 수출국 정부 증명서 제출(단, 소석회를 원료로 사용한 경우는 제외)",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 14행 (연번 7)"
+      },
+      {
+        "seq": 8,
+        "sub": 0,
+        "countries_text": "모든 국가",
+        "product_text": "대마(삼, hemp, 학명: Cannabis sativa)씨를 원료로 사용한 제품(단, 대마씨유(대마씨 원료 100%)는 제외)",
+        "certificate_text": "수출국 정부 또는 수출국 정부에서 인정한 검사기관에서 발행한 아래의 내용을 증명하는 검사성적서(매 수입시 제출) - 증명내용: 제품에 사용된 원료 대마씨 제품의 THC 및 CBD가 국내기준(① 삼(대마)씨앗: THC 5 mg/kg이하, CBD 10 mg/kg이하 / ② 삼(대마)씨유: THC 10 mg/kg이하, CBD 20 mg/kg이하)에 적합 함 (제품 사용원료에 대한 검사 불가 시, 최종 제품에 대한 THC, CBD 검사 성적서로 징구 가능(원료 배합비율에 따라 THC, CBD 검출 환산))",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 15행 (연번 8)"
+      },
+      {
+        "seq": 9,
+        "sub": 0,
+        "countries_text": "베트남",
+        "product_text": "<베트남 쥐치포 수입가능 해외제조업소(1등급 업체)> 1) EXPORT SEAPRODUCT PROCESSIG ENTERPRISE IV-BARIA-VUNG TAU SEAFOOD PROCESSING AND IMPORT-EXPORT JOINT STOCK COMPANY(BASEAFOOD) (HK173) 2) SAI GON FOOD IMPORT EXPORT JOINT STOCK COMPANY-DONG NAI BRANCH (HK789) 3) Anh Long Food MTV Company Limited (ANH LONG FOOD CO., LTD) (HK136) 4) LOC AN BRANCH OF THUAN HUE CORP (HK770) 5) Phouc My Hung Company Limited(PHOUC MY HUNG CO.,LTD.) (HK808) 6) MINH HIEN CO.,LTD. (HK258) 7) Tu Hai Company Limited (Tu Hai Co., Ltd) (HK748) 8) SEA WEALTH VN COMPANY LIMITED (SEA WEALTH VN CO., LTD) (TS807) 9) AN LAC-TRA VINH SEAFOOD CO.,LTD(HK839) 10) NGOC HONG SEAFOOD CO. LTD(HK893) 11) THIEN AN- LONG DIEN COMPANY LIMITED (THIEN AN - LONG DIEN CO., LTD)(TS882)",
+        "certificate_text": "매 수입시마다 NAFIQAD 발급 성적서(위생증명서) 첨부 시 수입 가능",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 16행 (연번 9)"
+      },
+      {
+        "seq": 9,
+        "sub": 1,
+        "countries_text": "베트남",
+        "product_text": "<베트남 조미쥐치포 수입가능 해외제조업소(수입가능업체)> 1) WORKSHOP NO. 2 - HAI NAM CO., LTD. (HK238) 2) MINH HAI CO.,LTD (HK235) 3) BRANCH OF BINH THUAN IMPORT EXPORT JOINT STOCK COMPANY - PHAN THIET SEAFOOD PROCESSING FACTORY (PHAN THIET FACTORY) (HK48) 4) TRUNG HAI FISHERIES CO.,LTD. - MIOFISH (HK63) 5) SEAFOOD VN.CO.LTD (HK300) 6) CAN GIO SERVICE AND TRADING JOINT STOCK COMPANY(CAGICO) (HK436) 7) BH CO.,LTD (HK761) 8) LOC AN BRANCH OF THUAN HUE CORP (HK770) 9) CHOLON TRADING PRODUCING CO.,LTD-BRANCH FACTORY 01 (CHOLON CO., LTD) (HK444) 10) HUY SON CO.,LTD (HK454) 11) AN LAC SEAFOOD CO.,LTD. - ALSF CO.,LTD.(HK216)",
+        "certificate_text": "매 수입시마다 NAFIQAD 발급 성적서(위생증명서) 첨부 시 수입 가능",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 17행 (연번 9)"
+      },
+      {
+        "seq": 9,
+        "sub": 2,
+        "countries_text": "베트남",
+        "product_text": "<베트남 조미쥐치포 수입가능 해외제조업소(조건부 수입가능 업체)> 1) SEO NAM COMPANY LIMITED (SEO NAM Co., LTD) (HK 475) 2) DONG AN CO.,LTD (HK 442) 3) HAI THANH CO.,LTD (HK 52)",
+        "certificate_text": "베트남 정부로부터 위생관련 규정에 적합하게 생산되었다는 증명서(성적서)를 첨부하여 수입신고서 제출하는 조건으로 수입 허용 The products were processed compatible with the food sanitation relevant rules of Vietnam.",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 18행 (연번 9)"
+      },
+      {
+        "seq": 9,
+        "sub": 3,
+        "countries_text": "베트남",
+        "product_text": "<베트남 조미쥐치포 수입가능 해외제조업소(조건부 수입가능 업체)> 1) Anh Long Food MTV Company Limited (ANH LONG FOOD CO., LTD) (HK136) 2) BASEAFOOD 1 COMPANY LIMITED (HK549) 3) PHU YEN SEAFOOD PROCESSING COMPANY LIMITED(HK554)",
+        "certificate_text": "쥐포제조시 일부‘필렛 및 조미 공정’을 식약처 실사결과 기 수입허용된 제조업체에 위탁하여 위생적으로 제조하였다는 베트남 정부의 증명서(성적서)를 첨부하는 경우에 한하여 조건부 수입허용 Some fillet and seosoning process are performed sanitarily in approved establishment.",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 19행 (연번 9)"
+      },
+      {
+        "seq": 10,
+        "sub": 0,
+        "countries_text": "모든국가",
+        "product_text": "젤라틴을 원료로 한 제품",
+        "certificate_text": "사용한 젤라틴의 원료유래 물질을 확인할 수 있는 제조회사에서 발행한 증명서 제출(단, 현품에 표시(예, Gelatin(Pork) 등)되어 있는 등 담당 공무원이 젤라틴의 원료를 명확히 확인할 수 있는 경우에는 별도의 증명서 징구 불필요)",
+        "original_or_copy": "사본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 20행 (연번 10)"
+      },
+      {
+        "seq": 11,
+        "sub": 0,
+        "countries_text": "모든국가",
+        "product_text": "파피 씨드(Poppy seed; papaver neuga, papaver przemko) 100% 제품",
+        "certificate_text": "모르핀이 검출되지 않았다는 검사성적서(정부 또는 정부에서 인정한 검사기관에서 발행)를 매수입시마다 제출 - 현행 식품공전 상 ‘파피 씨드’는 마약성분인 모르핀이 검출되지 않는다는 조건하에 가열처리한 씨앗에 한하여 식품원료로 사용 가능",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 21행 (연번 11)"
+      },
+      {
+        "seq": 12,
+        "sub": 0,
+        "countries_text": "중국",
+        "product_text": "다진마늘",
+        "certificate_text": "1) 중국 정부 위생증명서 - \"해당 제품은 중국 정부가 검사한 것으로서 식용에 적절함\" 과 \"제조업체가 중국 정부에 등록된 수출가공업체임을 증명(위탁가공의 경우, 위탁가공업체를 포함하여 확인)\"하는 문구를 포함한 증명서 2) 마늘(원료마늘) 구매계약서 3) 국내외 공인검사기관 발행 무, 양파 미혼입 검사성적서(유전자분석법) 4) 제조업체 증명서(알마늘만을 사용하였다는 증명)",
+        "original_or_copy": "원본(①,③) 사본(②,④)",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 22행 (연번 12)"
+      },
+      {
+        "seq": 13,
+        "sub": 0,
+        "countries_text": "모든국가",
+        "product_text": "LED완구와 캔디가 직접 접촉하는 형태로 결합된 형태의 제품",
+        "certificate_text": "어린이제품안전특별법 제22조 및 같은법 시행규칙 제29조에 따른 안전확인신고확인증과 안전확인신고서 첨부서류(제품설명서(사진을 포함), 같은법 제22조제3항에 따른 안전확인대상어린이제품 시험·검사기관의 해당 어린이 제품에 대한 제품검사 결과서(최초 수입 시 제출하고, 이후 동일사 동일수입식품인 경우 생략)",
+        "original_or_copy": "사본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 23행 (연번 13)"
+      },
+      {
+        "seq": 14,
+        "sub": 0,
+        "countries_text": "ASF발생국가 (73개국)",
+        "product_text": "‘돼지’를 원재료로 제조‧가공한 모든 수입식품등(축산물 제외) * 제외대상 원재료 : 젤라틴(돼지), 돼지기름(라드), 돼지고기향(합성향료)",
+        "certificate_text": "매 수입 시, 다음 중 하나의 원본서류 제출 1) 열처리 증명서 - 수출국 정부기관에서 최종 제품에 사용한 원재료 돼지가 열처리(70℃ 30분 또는 동등 효력 이상) 하였음을 증명 2) ASF 검사성적서 - 수출국 정부 또는 정부가 인정하는 검사기관에서 발행한, 최종 제품에 ASF 바이러스가 검출되지 않았다는 검사성적서 3) ASF FREE 증명서 - 수출국 정부기관에서 최종 제품에 ASF감염 우려가 없는 건강한 돼지를 원료로 사용하여 제조‧가공하였음을 증명",
+        "original_or_copy": "원본",
+        "note": "* 대만, 체코공화국 제외, 케냐, 핀란드 추가(2026.8.7.선적분부터)",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 24행 (연번 14)"
+      },
+      {
+        "seq": 15,
+        "sub": 0,
+        "countries_text": "중국, 대만, 베트남, 태국",
+        "product_text": "폴리에틸렌테레프탈레이트(PET) 재질의 식품용 기구* * 컵, 트레이, 도시락, 반찬통, 물병 등 주방용품(본체 및 뚜껑 포함)",
+        "certificate_text": "매 수입 시, 다음 중 어느 하나에 해당하는 증명내용의 '제조회사 재질 확인증명서' 원본 제출 - (재활용 PET를 사용하지 않은 경우) 재활용 PET를 사용하지 않음 - (재활용 PET를 사용한 경우) 가열, 화학반응 등에 의해 원료물질 등으로 분해하고 정제한 후, 이를 다시 중합하여 제조하였음",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 26행 (연번 15)"
+      },
+      {
+        "seq": 16,
+        "sub": 0,
+        "countries_text": "천일염 수입이 허용된 모든 국가",
+        "product_text": "벌크 형태로 수입되는 천일염 (최종 소비자에게 그대로 유통∙판매하도록 포장된 제품 제외)",
+        "certificate_text": "식용 천일염으로 분류∙인증되었음을 증명하는 정부기관 또는 공적기관(상공회의소 등)의 확인서류 제출",
+        "original_or_copy": "원본",
+        "note": "2020.5.1.선적분부터",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 27행 (연번 16)"
+      },
+      {
+        "seq": 17,
+        "sub": 0,
+        "countries_text": "모든국가",
+        "product_text": "기능성을 표시한 일반식품(건강기능식품 제외)",
+        "certificate_text": "① 건강기능식품 원료요건 충족자료(제조방법 설명서, 기능성 성분 함량 시험 성적서) ② 최종 제품에 대한 기능성 성분 함량 시험성적서",
+        "original_or_copy": "사본(①) 원본(②)",
+        "note": "최초로 수입한 제품에 한함 (동일사 동일수입식품등의 경우 최초로 기능성을 표시하여 수입한 제품)",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 28행 (연번 17)"
+      },
+      {
+        "seq": 18,
+        "sub": 0,
+        "countries_text": "모든국가",
+        "product_text": "선박벌크 농산물을 2곳 이상의 통관장소에 나누어 반입하고 사전 수입신고하는 제품",
+        "certificate_text": "선적물량에 대한 공인검사기관 검사성적서",
+        "original_or_copy": "원본",
+        "note": "",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 29행 (연번 18)"
+      },
+      {
+        "seq": 19,
+        "sub": 0,
+        "countries_text": "모든국가",
+        "product_text": "식품 원재료분류에서 학명이 정하여져 있는 농·임산물(식품원료 명칭 외에 생약명이 존재하는 식품원료 포함), 수산물",
+        "certificate_text": "학명이 기재된 자료(사용부위가 정해진 경우 사용부위 확인증명 포함) 중 택 1 ① 해외제조업소가 발행한 증명서(또는 수출회사가 발행한 증명서) (학명이 기재된 선하증권 또는 송장 등 인정) ② 정부증명서(또는 공증서) ③ 식물검역증 ※ 단, 위생약정 대상 수산물인 경우 수출국 정부가 발행한 증명서만 인정",
+        "original_or_copy": "사본 (위생약정 대상 수산물의 정부증명서인 경우 원본)",
+        "note": "2026.7.1. 선적분부터 적용",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 30행 (연번 19)"
+      }
+    ],
+    "footnotes": [
+      {
+        "seq": 14,
+        "text": "* ASF 발생국가(73개국) : 네팔, 동티모르, 라오스, 말레이시아, 몽골, 미얀마, 방글라데시, 베트남, 부탄, 북한, 스리랑카, 인도, 인도네시아, 중국(홍콩 포함), 캄보디아, 필리핀, 태국, 가나, 가봉, 감비아, 기니비사우, 나미비아, 나이지리아, 남아프리카공화국, 르완다, 마다가스카르, 말라위, 말리, 모잠비크, 베냉, 부룬디, 부르키나파소, 세네갈, 시에라리온, 앙골라, 우간다, 잠비아, 중앙아프리카공화국, 짐바브웨, 차드, 카메룬, 카보베르데, 케냐, 코트디부아르, 콩고공화국, 콩고민주공화국, 탄자니아, 토고, 그리스, 독일, 리트비아, 러시아, 루마니아, 리투아니아, 몬테네그로, 몰도바, 보스니아헤르체고비나, 북마케도니아, 불가리아, 세르비아, 스페인, 슬로바키아, 알바니아, 에스토니아, 우크라이나, 이탈리아, 크로아티아, 폴란드, 핀란드, 헝가리, 파푸아뉴기니, 도미니카공화국, 아이티",
+        "location": "시트 '수입신고 시 제출해야하는 구비서류' 25행 B열"
+      }
+    ]
+  },
+  "content_hash": "3fde6a673f0fcd67add902820263ffb9980002824ac2ef52839f2f1bcd56f8d5"
+}

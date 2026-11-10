@@ -1,0 +1,20 @@
+# 실행 설정. 민감한 값(API 키)은 여기에 적지 않고 환경변수(.env.example 참고)로 넣는다.
+
+data_dir: data            # 프로젝트 루트 기준 상대 경로. 환경변수 SEAFOOD_IMPORT_DATA_DIR 로 바꿀 수 있다.
+
+http:
+  user_agent: "seafood-import-plugin/0.2 (regulatory document checker)"
+  min_interval_seconds: 1.5   # 같은 호스트 요청 사이 최소 간격
+  timeout_seconds: 60
+  max_retries: 2
+
+freshness:
+  warn_after_days: 7          # 출처를 마지막으로 확인한 뒤 이 일수가 지나면 조회 결과에 경고를 붙인다
+  auto_check_after_hours: 24  # CLI·MCP 조회 때 마지막 확인이 이 시간보다 오래됐으면 공식 출처를 먼저 확인한다. 0 이면 매번, -1 이면 하지 않는다
+
+update:
+  # never: 규칙 내용이 바뀌면 항상 검토 대기(pending)로 두고 사람이 승인한다.
+  # 다른 값은 지원하지 않는다. 법적 의무가 달라지는 변경을 자동 적용하지 않기 위해서다.
+  auto_apply: never
+
+query_log: true               # 조회 입력·규칙 버전·결과 요약을 data/history/queries.jsonl 에 남긴다

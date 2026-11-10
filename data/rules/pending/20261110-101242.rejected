@@ -1,0 +1,1122 @@
+{
+  "pending_id": "20261110-101242",
+  "created_at": "2026-11-10T10:12:42+09:00",
+  "ruleset": {
+    "schema": 1,
+    "built_at": "2026-11-10T10:12:42+09:00",
+    "rules": [
+      {
+        "topic": "general",
+        "priority_class": 5,
+        "when": {},
+        "effective_from": "2026-09-30",
+        "effective_to": null,
+        "date_basis": "declaration",
+        "id": "GEN-ART27-DECLARATION",
+        "effect": "REQUIRE",
+        "documents": [
+          {
+            "name": "수입식품등의 수입신고서(별지 제25호서식)",
+            "category": "식약처 수입신고 기본 구비서류"
+          }
+        ],
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항 각 호 외의 부분"
+        ],
+        "source": {
+          "source_id": "law_enforcement_rule_27",
+          "title": "수입식품안전관리 특별법 시행규칙 제27조(수입식품등의 수입신고)",
+          "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290799&efYd=20260930",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:21+09:00",
+          "location": "제27조(수입식품등의 수입신고) 제1항 각 호 외의 부분",
+          "quote": "제27조(수입식품등의 수입신고) ① 법 제20조 제1항 에 따라 수입신고를 하려는 자(수입식품등 인터넷 구매 대행업자는 제외한다)는 별지 제25호서식 의 수입식품등의 수입신고서에 다음 각 호의 서류(식품의약품안전처장이 인정하는 통신망을 통하여 수출국 정부기관에서 발급한 증명서로 확인할 수 있는 경우는 제외한다)를 첨부하여 수입식품등의 통관장소를 관할하는 지방식품의약품안전청장에게 제출해야 한다. 이 경우 수입식품등의 도착 예정일 5일 전부터 미리 신고할 수 있으며, 미리 신고한 도착항, 도착 예정일, 반입 장소 및 반입 예정일 등 주요 사항이 변경되는 경우에는 즉시 그 내용을 문서로 신고해야 한다. <개정 2018. 2. 9., 2018. 12. 20., 2019. 6. 19., 2019. 11. 18., 2022. 3. 2., 2022. 6. 30., 2022. 11. 25., 2024. 6. 14., 2026. 9. 30.>"
+        }
+      },
+      {
+        "topic": "general",
+        "priority_class": 5,
+        "when": {},
+        "effective_from": "2026-09-30",
+        "effective_to": null,
+        "date_basis": "declaration",
+        "id": "GEN-ART27-1-LABEL",
+        "effect": "REQUIRE",
+        "documents": [
+          {
+            "name": "한글표시가 된 포장지 또는 한글표시 내용이 적힌 서류",
+            "category": "식약처 수입신고 기본 구비서류"
+          }
+        ],
+        "condition_note": "",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제1호"
+        ],
+        "source": {
+          "source_id": "law_enforcement_rule_27",
+          "title": "수입식품안전관리 특별법 시행규칙 제27조(수입식품등의 수입신고)",
+          "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290799&efYd=20260930",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:21+09:00",
+          "location": "제27조(수입식품등의 수입신고) 제1항제1호",
+          "quote": "한글표시가 된 포장지(한글표시가 인쇄된 스티커를 붙인 포장지를 포함한다) 또는 한글표시 내용이 적힌 서류"
+        }
+      },
+      {
+        "topic": "general",
+        "priority_class": 5,
+        "when": {},
+        "effective_from": "2026-09-30",
+        "effective_to": null,
+        "date_basis": "declaration",
+        "id": "GEN-ART27-1-2-PHOTO",
+        "effect": "CONDITIONAL",
+        "documents": [
+          {
+            "name": "수입식품등의 사진",
+            "category": "조건부 제출서류"
+          }
+        ],
+        "condition_note": "조문 단서(별표 9 제2호가목1)~3) 해당 식품, 식약처 홈페이지 게시 제외 식품)에 해당하면 내지 않는다.",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제1의2호"
+        ],
+        "source": {
+          "source_id": "law_enforcement_rule_27",
+          "title": "수입식품안전관리 특별법 시행규칙 제27조(수입식품등의 수입신고)",
+          "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290799&efYd=20260930",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:21+09:00",
+          "location": "제27조(수입식품등의 수입신고) 제1항제1의2호",
+          "quote": "수입식품등의 사진(한글 표시사항, 수출국 표시사항 등 주요 정보를 확인할 수 있는 천연색 사진을 말한다). 다만, 다음 각 목의 어느 하나에 해당하는 수입식품등은 제외한다. 가. 별표 9 제2호가목1)부터 3)까지의 어느 하나에 해당하는 수입식품등 나. 그 밖에 식품의약품안전처장이 정하여 식품의약품안전처의 인터넷 홈페이지에 게시하는 수입식품등"
+        }
+      },
+      {
+        "topic": "general",
+        "priority_class": 5,
+        "when": {},
+        "effective_from": "2026-09-30",
+        "effective_to": null,
+        "date_basis": "declaration",
+        "id": "GEN-ART27-2-FOREIGN-LAB",
+        "effect": "CONDITIONAL",
+        "documents": [
+          {
+            "name": "국외시험·검사기관 시험·검사성적서",
+            "category": "조건부 제출서류"
+          }
+        ],
+        "condition_note": "별표 9 제2호다목의 정밀검사 대상 식품만 해당한다.",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제2호"
+        ],
+        "source": {
+          "source_id": "law_enforcement_rule_27",
+          "title": "수입식품안전관리 특별법 시행규칙 제27조(수입식품등의 수입신고)",
+          "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290799&efYd=20260930",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:21+09:00",
+          "location": "제27조(수입식품등의 수입신고) 제1항제2호",
+          "quote": "「식품ㆍ의약품분야 시험ㆍ검사 등에 관한 법률」 제8조 에 따른 국외시험ㆍ검사기관이 정밀검사를 하여 발행한 시험ㆍ검사성적서( 별표 9 제2호다목에 따른 정밀검사 대상 수입식품등만 해당한다)"
+        }
+      },
+      {
+        "topic": "general",
+        "priority_class": 5,
+        "when": {},
+        "effective_from": "2026-09-30",
+        "effective_to": null,
+        "date_basis": "declaration",
+        "id": "GEN-ART27-3-GMO",
+        "effect": "CONDITIONAL",
+        "documents": [
+          {
+            "name": "구분유통증명서 등 유전자변형식품 관련 서류",
+            "category": "조건부 제출서류"
+          }
+        ],
+        "condition_note": "유전자변형식품등 표시대상인데 표시하지 않은 경우만 해당한다.",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제3호"
+        ],
+        "source": {
+          "source_id": "law_enforcement_rule_27",
+          "title": "수입식품안전관리 특별법 시행규칙 제27조(수입식품등의 수입신고)",
+          "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290799&efYd=20260930",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:21+09:00",
+          "location": "제27조(수입식품등의 수입신고) 제1항제3호",
+          "quote": "다음 각 목의 어느 하나에 해당하는 서류[유전자변형식품등( 「식품위생법」 제12조의2 제1항 각 호의 어느 하나에 해당하는 생명공학기술을 활용하여 재배ㆍ육성된 농ㆍ축ㆍ수산물 등으로서 안전성 심사를 받은 식품, 이를 원재료로 제조ㆍ가공한 식품 또는 식품첨가물을 말한다. 이하 같다) 표시대상에 해당하는 식품으로서 유전자변형식품등임을 표시하지 아니한 경우만 해당한다] 가. 구분유통증명서(종자구입ㆍ생산ㆍ제조ㆍ보관ㆍ선별ㆍ운반ㆍ선적 등 취급과정에서 유전자변형식품등과 구분하여 관리하였음을 증명하는 서류를 말한다. 이하 같다) 나. 구분유통증명서와 동등한 효력이 있음을 생산국의 정부가 인정하는 증명서 다. 「식품ㆍ의약품분야 시험ㆍ검사 등에 관한 법률」 제6조 및 제8조 에 따라 지정되었거나 지정된 것으로 보는 시험ㆍ검사기관에서 발행한 유전자변형식품등 표시대상이 아님을 입증하는 시험ㆍ검사성적서"
+        }
+      },
+      {
+        "topic": "general",
+        "priority_class": 5,
+        "when": {},
+        "effective_from": "2026-09-30",
+        "effective_to": null,
+        "date_basis": "declaration",
+        "id": "GEN-ART27-4-OEM",
+        "effect": "CONDITIONAL",
+        "documents": [
+          {
+            "name": "소비기한 설정사유서 또는 연장사유서",
+            "category": "조건부 제출서류"
+          }
+        ],
+        "condition_note": "주문자상표부착(OEM) 수입식품등만 해당한다.",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제4호"
+        ],
+        "source": {
+          "source_id": "law_enforcement_rule_27",
+          "title": "수입식품안전관리 특별법 시행규칙 제27조(수입식품등의 수입신고)",
+          "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290799&efYd=20260930",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:21+09:00",
+          "location": "제27조(수입식품등의 수입신고) 제1항제4호",
+          "quote": "법 제20조 제9항 에 따른 소비기한 설정사유서 또는 제29조 에 따른 소비기한 연장사유서( 법 제18조 제2항 에 따른 주문자상표부착수입식품등만 해당한다)"
+        }
+      },
+      {
+        "topic": "general",
+        "priority_class": 5,
+        "when": {},
+        "effective_from": "2026-09-30",
+        "effective_to": null,
+        "date_basis": "declaration",
+        "id": "GEN-ART27-5-EXPORT-PLAN",
+        "effect": "CONDITIONAL",
+        "documents": [
+          {
+            "name": "수출계획서",
+            "category": "조건부 제출서류"
+          }
+        ],
+        "condition_note": "대외무역법에 따라 외화획득용으로 수입하는 경우만 해당한다.",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제5호"
+        ],
+        "source": {
+          "source_id": "law_enforcement_rule_27",
+          "title": "수입식품안전관리 특별법 시행규칙 제27조(수입식품등의 수입신고)",
+          "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290799&efYd=20260930",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:21+09:00",
+          "location": "제27조(수입식품등의 수입신고) 제1항제5호",
+          "quote": "수출계획서(국내 반입 후 계획이 구체적으로 적혀 있어야 하며, 「대외무역법」 에 따라 외화획득용으로 수입하는 경우만 해당한다)"
+        }
+      },
+      {
+        "topic": "general",
+        "priority_class": 5,
+        "when": {},
+        "effective_from": "2026-09-30",
+        "effective_to": null,
+        "date_basis": "declaration",
+        "id": "GEN-ART27-6-LICENSE",
+        "effect": "CONDITIONAL",
+        "documents": [
+          {
+            "name": "영업허가 등 인허가 서류 사본 또는 품목제조보고서 사본",
+            "category": "조건부 제출서류"
+          }
+        ],
+        "condition_note": "외화획득용 원료나 자사제품 제조용 원료로 수입하는 경우만 해당하며, 전산으로 확인되면 내지 않는다.",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제6호"
+        ],
+        "source": {
+          "source_id": "law_enforcement_rule_27",
+          "title": "수입식품안전관리 특별법 시행규칙 제27조(수입식품등의 수입신고)",
+          "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290799&efYd=20260930",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:21+09:00",
+          "location": "제27조(수입식품등의 수입신고) 제1항제6호",
+          "quote": "영업허가 등 인허가 서류 사본 또는 품목제조보고서 사본( 「대외무역법」 에 따라 외화획득용으로 수입하는 원료나 자사제품 제조용 원료로 수입하는 경우만 해당하며, 전산상으로 확인되는 경우는 제외한다)"
+        }
+      },
+      {
+        "id": "HYG-AR",
+        "topic": "hygiene",
+        "priority_class": 3,
+        "effect": "CONDITIONAL",
+        "when": {
+          "export_country": [
+            "AR"
+          ],
+          "product_type": [
+            "raw"
+          ]
+        },
+        "documents": [
+          {
+            "name": "위생증명서 또는 검사증명서(수출국 정부 발행)",
+            "issuer": "수출국 정부기관",
+            "category": "국가별 추가 구비서류"
+          }
+        ],
+        "condition_note": "약정이 적용되는 수산물일 때 제출한다. 약정별 대상 품목과 등록시설(해외제조업소) 요건은 약정 고시와 공지 첨부에서 확인한다(이 규칙에는 수록되지 않았다).",
+        "effective_from": "2024-08-10",
+        "effective_to": null,
+        "date_basis": "shipment",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제7호"
+        ],
+        "source": {
+          "source_id": "mfds_hygiene_agreement_notices",
+          "title": "한-아르헨티나 수산물 위생약정 관련 위생증명서 양식 및 해외제조업소 명단 알림",
+          "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=572258",
+          "publication_date": "2024-07-30",
+          "retrieved_at": "2026-11-10T10:12:42+09:00",
+          "location": "공지 본문(게시물 번호 572258)",
+          "quote": "한 -아르헨티나 수산물 위생약정 시행 ('24.8.10. 선적분부터) 과 관련하여 아르헨티나 위생당국과 협의완료하여 통보받은 위생증명서 양식과 아르헨티나측 수산물 해외제조업소 (등록시설) 명단 (293 개소) 을 붙임과 같이 알려드리오니 수입수산물 검사 업무에 참고하시기 바랍니다. 참고: 한-아르헨티나 수산물 위생약정 관련 수입영업자 설명회 자료를 붙임과 같이 첨부함"
+        }
+      },
+      {
+        "id": "HYG-CL",
+        "topic": "hygiene",
+        "priority_class": 3,
+        "effect": "CONDITIONAL",
+        "when": {
+          "export_country": [
+            "CL"
+          ],
+          "product_type": [
+            "raw"
+          ]
+        },
+        "documents": [
+          {
+            "name": "위생증명서 또는 검사증명서(수출국 정부 발행)",
+            "issuer": "수출국 정부기관",
+            "category": "국가별 추가 구비서류"
+          }
+        ],
+        "condition_note": "약정이 적용되는 수산물일 때 제출한다. 약정별 대상 품목과 등록시설(해외제조업소) 요건은 약정 고시와 공지 첨부에서 확인한다(이 규칙에는 수록되지 않았다). 공지 본문에서 시행일을 읽지 못해 시행일을 비워 두었다.",
+        "effective_from": null,
+        "effective_to": null,
+        "date_basis": "declaration",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제7호"
+        ],
+        "source": {
+          "source_id": "mfds_hygiene_agreement_notices",
+          "title": "'한-칠레 수산물 위생약정'에 따른 해외제조업소 목록 게시",
+          "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=219479",
+          "publication_date": "2020-03-31",
+          "retrieved_at": "2026-11-10T10:12:42+09:00",
+          "location": "공지 본문(게시물 번호 219479)",
+          "quote": "'한-칠레 수산물 위생약정'에 따른 수산물 해외제조업소 목록을 올려드리니, 수입신고에 참고하시기 바랍니다."
+        }
+      },
+      {
+        "id": "HYG-ES",
+        "topic": "hygiene",
+        "priority_class": 3,
+        "effect": "CONDITIONAL",
+        "when": {
+          "export_country": [
+            "ES"
+          ],
+          "product_type": [
+            "raw"
+          ]
+        },
+        "documents": [
+          {
+            "name": "위생증명서 또는 검사증명서(수출국 정부 발행)",
+            "issuer": "수출국 정부기관",
+            "category": "국가별 추가 구비서류"
+          }
+        ],
+        "condition_note": "약정이 적용되는 수산물일 때 제출한다. 약정별 대상 품목과 등록시설(해외제조업소) 요건은 약정 고시와 공지 첨부에서 확인한다(이 규칙에는 수록되지 않았다).",
+        "effective_from": "2025-06-24",
+        "effective_to": null,
+        "date_basis": "shipment",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제7호"
+        ],
+        "source": {
+          "source_id": "mfds_hygiene_agreement_notices",
+          "title": "한-스페인 수산물 위생약정 관련 위생증명서 양식 및 해외제조업소 명단 알림",
+          "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=607441",
+          "publication_date": "2025-06-17",
+          "retrieved_at": "2026-11-10T10:12:42+09:00",
+          "location": "공지 본문(게시물 번호 607441)",
+          "quote": "한 -스페인 수산물 위생약정 시행 ('25. 6.24. 선적분부터) 과 관련하여 수페인 위생당국과 협의완료하여 통보받은 위생증명서 양식과 스페인측 수산물 해외제조업소 (등록시설) 명단 (15 개소) 을 붙임과 같이 알려드리오니 수입수산물 검사 업무에 참고하시기 바랍니다. ※ 스페인 해외제조업소 15개소 등록에 대한 질의한 결과 \"스페인 답변\" -수개월 전부터 관심 있는 기업들이 신청을 제출할 수 있도록 절차가 개시되었으며, 스페인 규정에 따라 해당 시설이 한국으로의 수출 기준을 충족하는지 확인하기 위한 필요한 검사가 진행됩니다. 이러한 검사가 완료되면 식약처에 추가 목록을 전달해 드릴 예정입니다. 앞서 제출한 목록(15개소)에는 해당 절차를 완료한 모든 시설이 포함되어 있습니다. 현재 처리 중인 다른 많은 "
+        }
+      },
+      {
+        "id": "HYG-NO",
+        "topic": "hygiene",
+        "priority_class": 3,
+        "effect": "CONDITIONAL",
+        "when": {
+          "export_country": [
+            "NO"
+          ],
+          "product_type": [
+            "raw"
+          ]
+        },
+        "documents": [
+          {
+            "name": "위생증명서 또는 검사증명서(수출국 정부 발행)",
+            "issuer": "수출국 정부기관",
+            "category": "국가별 추가 구비서류"
+          }
+        ],
+        "condition_note": "약정이 적용되는 수산물일 때 제출한다. 약정별 대상 품목과 등록시설(해외제조업소) 요건은 약정 고시와 공지 첨부에서 확인한다(이 규칙에는 수록되지 않았다).",
+        "effective_from": "2021-09-23",
+        "effective_to": null,
+        "date_basis": "shipment",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제7호"
+        ],
+        "source": {
+          "source_id": "mfds_hygiene_agreement_notices",
+          "title": "노르웨이 수산물 해외제조업소(등록시설) 명단(223개소)_시행 '21.9.23.선적분부터",
+          "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=415958",
+          "publication_date": "2021-09-13",
+          "retrieved_at": "2026-11-10T10:12:42+09:00",
+          "location": "공지 본문(게시물 번호 415958)",
+          "quote": "한-노르웨이 수산물 위생약정 시행('21.9.23.선적분부터)과 관련하여 노르웨이 식품안전청으로부터 통보받은 노르웨이측 수산물 해외제조업소(등록시설) 명단(223개소)을 붙임과 같이 알려드리오니 수입수산물 검사 업무에 참고하시기 바랍니다."
+        }
+      },
+      {
+        "id": "HYG-PE",
+        "topic": "hygiene",
+        "priority_class": 3,
+        "effect": "CONDITIONAL",
+        "when": {
+          "export_country": [
+            "PE"
+          ],
+          "product_type": [
+            "raw"
+          ]
+        },
+        "documents": [
+          {
+            "name": "위생증명서 또는 검사증명서(수출국 정부 발행)",
+            "issuer": "수출국 정부기관",
+            "category": "국가별 추가 구비서류"
+          }
+        ],
+        "condition_note": "약정이 적용되는 수산물일 때 제출한다. 약정별 대상 품목과 등록시설(해외제조업소) 요건은 약정 고시와 공지 첨부에서 확인한다(이 규칙에는 수록되지 않았다).",
+        "effective_from": "2024-01-13",
+        "effective_to": null,
+        "date_basis": "shipment",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제7호"
+        ],
+        "source": {
+          "source_id": "mfds_hygiene_agreement_notices",
+          "title": "한-페루 수산물 위생약정 관련 위생증명서 양식 및 해외제조업소 명단 알림",
+          "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=550048",
+          "publication_date": "2023-12-22",
+          "retrieved_at": "2026-11-10T10:12:42+09:00",
+          "location": "공지 본문(게시물 번호 550048)",
+          "quote": "한 -페루 수산물 위생약정 시행 ('24.1.13. 선적분부터) 과 관련하여 페루 수산청과 협의완료하여 통보받은 위생증명서 양식과 페루측 수산물 해외제조업소 (등록시설) 명단 (199 개소) 을 붙임과 같이 알려드리오니 수입수산물 검사 업무에 참고하시기 바랍니다."
+        }
+      },
+      {
+        "id": "HYG-PH",
+        "topic": "hygiene",
+        "priority_class": 3,
+        "effect": "CONDITIONAL",
+        "when": {
+          "export_country": [
+            "PH"
+          ],
+          "product_type": [
+            "raw"
+          ]
+        },
+        "documents": [
+          {
+            "name": "위생증명서 또는 검사증명서(수출국 정부 발행)",
+            "issuer": "수출국 정부기관",
+            "category": "국가별 추가 구비서류"
+          }
+        ],
+        "condition_note": "약정이 적용되는 수산물일 때 제출한다. 약정별 대상 품목과 등록시설(해외제조업소) 요건은 약정 고시와 공지 첨부에서 확인한다(이 규칙에는 수록되지 않았다).",
+        "effective_from": "2022-06-20",
+        "effective_to": null,
+        "date_basis": "shipment",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제7호"
+        ],
+        "source": {
+          "source_id": "mfds_hygiene_agreement_notices",
+          "title": "한-필리핀 수산물 위생약정 관련 위생증명서 양식 및 해외제조업소 명단 알림",
+          "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=470604",
+          "publication_date": "2022-05-20",
+          "retrieved_at": "2026-11-10T10:12:42+09:00",
+          "location": "공지 본문(게시물 번호 470604)",
+          "quote": "한-필리핀 수산물 위생약정 시행('22.6.20.선적분부터)과 관련하여 필리핀 수산청과 협의한 으로부터 통보받은 위생증명서 양식과 필리핀측 수산물 해외제조업소(등록시설) 명단(246개소)을 붙임과 같이 알려드리오니 수입수산물 검사 업무에 참고하시기 바랍니다. 아울러, 32개 업소(초록색, 노란색)에서 대해서는 추가적으로 확인하고 있음을 알려드립니다."
+        }
+      },
+      {
+        "topic": "jp_seafood",
+        "effective_to": null,
+        "date_basis": "declaration",
+        "legal_basis": [
+          "식품의약품안전처 일본산 식품 수입제한조치(임시특별조치)"
+        ],
+        "id": "JP-SEAFOOD-BAN",
+        "priority_class": 1,
+        "effect": "PROHIBIT",
+        "exclusive_group": "jp_seafood_region",
+        "when": {
+          "origin_country": [
+            "JP"
+          ],
+          "region_in": [
+            "JP-07",
+            "JP-10",
+            "JP-09",
+            "JP-08",
+            "JP-04",
+            "JP-03",
+            "JP-12",
+            "JP-02"
+          ],
+          "product_type": [
+            "raw"
+          ]
+        },
+        "documents": [],
+        "effective_from": "2013-09-09",
+        "condition_note": "대상 수산물의 범위: 수산물: 식품첨가물이나 다른 원료를 사용하지 아니하고 원형을 알아볼 수 있는 정도로 단순히 절단·가열·숙성·건조 또는 염장한 수산동식물 (수입수산물 검사에 관한 규정(제2019-22호, 2019.3.21.)의 적용대상인 어류, 패류, 연체류, 갑각류, 해조류 등을 말함)",
+        "source": {
+          "source_id": "radsafe_japan_measures",
+          "title": "일본산 식품 수입제한조치 (수입식품방사능안전정보 > 원전사고 이후 대응조치)",
+          "url": "https://radsafe.mfds.go.kr/CFQCC02F01",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:18+09:00",
+          "location": "원전사고 이후 대응조치 > 일본산 식품 수입제한조치 > 수산물 > 수입금지품목",
+          "quote": "8개현* 수입금지 후쿠시마, 군마, 도치기, 이바라키, 미야기, 이와테, 지바, 아오모리"
+        }
+      },
+      {
+        "topic": "jp_seafood",
+        "effective_to": null,
+        "date_basis": "declaration",
+        "legal_basis": [
+          "식품의약품안전처 일본산 식품 수입제한조치(임시특별조치)"
+        ],
+        "id": "JP-SEAFOOD-RADCERT",
+        "priority_class": 2,
+        "effect": "REQUIRE",
+        "exclusive_group": "jp_seafood_region",
+        "when": {
+          "origin_country": [
+            "JP"
+          ],
+          "region_in": [
+            "JP-14",
+            "JP-13",
+            "JP-01",
+            "JP-38",
+            "JP-43",
+            "JP-24",
+            "JP-46",
+            "JP-23"
+          ],
+          "product_type": [
+            "raw"
+          ]
+        },
+        "documents": [
+          {
+            "name": "방사능 검사증명서(세슘·요오드)",
+            "issuer": "일본 정부",
+            "category": "국가별 추가 구비서류"
+          },
+          {
+            "name": "생산지증명서",
+            "issuer": "일본 정부",
+            "category": "국가별 추가 구비서류"
+          }
+        ],
+        "effective_from": null,
+        "source": {
+          "source_id": "radsafe_japan_measures",
+          "title": "일본산 식품 수입제한조치 (수입식품방사능안전정보 > 원전사고 이후 대응조치)",
+          "url": "https://radsafe.mfds.go.kr/CFQCC02F01",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:18+09:00",
+          "location": "원전사고 이후 대응조치 > 일본산 식품 수입제한조치 > 수산물 > 검사증명서+생산지 증명서",
+          "quote": "수입신고시 방사성 세슘( 134+137 Cs) 과 요오드( 131 I) 검사증명서와 생산지증명서 첨부 / 가나가와, 도쿄도, 홋카이도, 에히메, 구마모토, 미에, 가고시마, 아이치"
+        }
+      },
+      {
+        "topic": "jp_seafood",
+        "effective_to": null,
+        "date_basis": "declaration",
+        "legal_basis": [
+          "식품의약품안전처 일본산 식품 수입제한조치(임시특별조치)"
+        ],
+        "id": "JP-SEAFOOD-ORIGINCERT",
+        "priority_class": 2,
+        "effect": "REQUIRE",
+        "exclusive_group": "jp_seafood_region",
+        "when": {
+          "origin_country": [
+            "JP"
+          ],
+          "region_in": [
+            "JP-37",
+            "JP-39",
+            "JP-26",
+            "JP-21",
+            "JP-20",
+            "JP-42",
+            "JP-29",
+            "JP-15",
+            "JP-16",
+            "JP-36",
+            "JP-31",
+            "JP-45",
+            "JP-41",
+            "JP-11",
+            "JP-25",
+            "JP-32",
+            "JP-22",
+            "JP-05",
+            "JP-35",
+            "JP-19",
+            "JP-06",
+            "JP-27",
+            "JP-44",
+            "JP-33",
+            "JP-47",
+            "JP-30",
+            "JP-17",
+            "JP-28",
+            "JP-40",
+            "JP-18",
+            "JP-34"
+          ],
+          "product_type": [
+            "raw"
+          ]
+        },
+        "documents": [
+          {
+            "name": "생산지증명서",
+            "issuer": "일본 정부",
+            "category": "국가별 추가 구비서류"
+          }
+        ],
+        "effective_from": null,
+        "source": {
+          "source_id": "radsafe_japan_measures",
+          "title": "일본산 식품 수입제한조치 (수입식품방사능안전정보 > 원전사고 이후 대응조치)",
+          "url": "https://radsafe.mfds.go.kr/CFQCC02F01",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:18+09:00",
+          "location": "원전사고 이후 대응조치 > 일본산 식품 수입제한조치 > 수산물 > 생산지증명서",
+          "quote": "수입신고시 방사성 세슘( 134+137 Cs) 과 요오드( 131 I) 검사증명서와 생산지증명서 첨부 / * 가가와, 고치, 교토, 기후, 나가노, 나가사키, 나라, 니가타, 도야마, 도쿠시마, 돗토리, 미야자키, 사가, 사이타마, 시가, 시마네, 시즈오카, 아키타, 야마구치, 야마나시, 야마가타, 오사카, 오이타, 오카야마, 오키나와, 와카야마, 이시카와, 효고, 후쿠오카, 후쿠이, 히로시마"
+        }
+      },
+      {
+        "topic": "jp_seafood",
+        "effective_to": null,
+        "date_basis": "declaration",
+        "legal_basis": [
+          "식품의약품안전처 일본산 식품 수입제한조치(임시특별조치)"
+        ],
+        "id": "JP-ADDITIONAL-NUCLIDE",
+        "priority_class": 2,
+        "effect": "CONDITIONAL",
+        "when": {
+          "origin_country": [
+            "JP"
+          ]
+        },
+        "documents": [
+          {
+            "name": "추가 핵종 검사증명서",
+            "issuer": "일본 정부 또는 일본 정부가 인정하는 기관",
+            "category": "조건부 제출서류"
+          }
+        ],
+        "condition_note": "통관단계 방사능 검사에서 세슘 또는 요오드가 검출된 경우 수입자에게 요구된다.",
+        "effective_from": null,
+        "source": {
+          "source_id": "radsafe_japan_measures",
+          "title": "일본산 식품 수입제한조치 (수입식품방사능안전정보 > 원전사고 이후 대응조치)",
+          "url": "https://radsafe.mfds.go.kr/CFQCC02F01",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:18+09:00",
+          "location": "원전사고 이후 대응조치 > 통관단계 방사능 검사",
+          "quote": "검사결과 방사성 세슘( 134+137 Cs) 또는 요오드( 131 I)가 0.5Bq/kg이상 (소수점 첫 자리를 반올림하여 1Bq/kg이상) 검출되면 수입자에게 17개 추가 핵종 검사증명서가 요구 됨"
+        }
+      },
+      {
+        "id": "MFDS-LIST-PUFFER-PROCESSED",
+        "topic": "item_specific",
+        "priority_class": 4,
+        "effect": "REQUIRE",
+        "when": {
+          "product_tags_any": [
+            "pufferfish"
+          ],
+          "product_type": [
+            "processed"
+          ]
+        },
+        "documents": [
+          {
+            "name": "복어 가공식품 증명서류(원산지 증명서(학명), 복어독 검사성적서, 복어유전자 검사성적서)",
+            "original_or_copy": "원본",
+            "category": "품목별 추가 구비서류"
+          }
+        ],
+        "condition_note": "",
+        "effective_from": null,
+        "effective_to": null,
+        "date_basis": "declaration",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제10호다목"
+        ],
+        "source": {
+          "source_id": "mfds_required_docs",
+          "title": "(공지)수입식품 수입신고 시 제출해야 하는 구비서류 목록('26.8.4)",
+          "url": "https://impfood.mfds.go.kr/CFCII04F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=666431",
+          "publication_date": "2026-08-04",
+          "retrieved_at": "2026-11-10T10:12:16+09:00",
+          "location": "시트 '수입신고 시 제출해야하는 구비서류' 6행 (연번 3)",
+          "quote": "[대상국가] 모든국가 [대상제품] 복어를 원료로 가공한 식품 [증명내용] 매 수입 시 수출국 정부 또는 정부가 인정하는 검사기관에서 발행하는 다음의 서류를 모두 제출 1) 원산지 증명서(학명) 2) 복어독 검사성적서(원료 및 최종제품) 3) 복어유전자 검사성적서* * 종 특이 프라이머를 이용한 복어의 진위판별법에 따라 시험한 결과, 신고한 원재료 복어의 종류(학명)와 일치여부 확인"
+        }
+      },
+      {
+        "id": "JP-PROCESSED-RADCERT",
+        "topic": "jp_radiation_processed",
+        "priority_class": 2,
+        "effect": "REQUIRE",
+        "when": {
+          "origin_country": [
+            "JP"
+          ],
+          "product_type": [
+            "processed"
+          ],
+          "region_in": [
+            "JP-07",
+            "JP-08",
+            "JP-09",
+            "JP-10",
+            "JP-11",
+            "JP-12",
+            "JP-04",
+            "JP-14",
+            "JP-13",
+            "JP-20",
+            "JP-06",
+            "JP-15",
+            "JP-22"
+          ]
+        },
+        "documents": [
+          {
+            "name": "방사능 검사성적서를 포함한 일본 정부 증명서",
+            "original_or_copy": "원본",
+            "category": "국가별 추가 구비서류"
+          }
+        ],
+        "condition_note": "",
+        "effective_from": null,
+        "effective_to": null,
+        "date_basis": "declaration",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제10호다목"
+        ],
+        "source": {
+          "source_id": "mfds_required_docs",
+          "title": "(공지)수입식품 수입신고 시 제출해야 하는 구비서류 목록('26.8.4)",
+          "url": "https://impfood.mfds.go.kr/CFCII04F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=666431",
+          "publication_date": "2026-08-04",
+          "retrieved_at": "2026-11-10T10:12:16+09:00",
+          "location": "시트 '수입신고 시 제출해야하는 구비서류' 9행 (연번 6)",
+          "quote": "[대상국가] 일본 [대상제품] 13개 도·현(후쿠시마, 이바라키, 토치키, 군마, 사이타마, 치바, 미야기, 가나가와, 도쿄, 나가노, 야마가타, 니이가타, 시즈오카)에서 생산·제조되는 농·임산물, 가공식품, 건강기능식품, 식품첨가물(기구 및 용기·포장재, 2011년 3월11일 이전 일본에서 제조된 식품, 제3국에서 제조한 후 일본을 단순 경유하여 수입되는 식품은 제외) [증명내용] ○ 일본 정부의 검사기관 또는 일본 정부가 인정한 공인검사기관에서 ‘요오드(131I) 및 세슘(134Cs+137Cs)’을 검사한 검사성적서를 포함한 일본 정부(도·도·부·현 및 기초단체 정부포함)의 증명서 ○ 정부증명서는 요오드와 세슘을 검사하여 발급하도록 하되 요오드나 세슘이 수입단계에서 검출된 경우 스트론튬과 플루토늄 등에 대한 검사 증명을 수입자에게 추가로 요구"
+        },
+        "exclusive_group": "jp_processed_region"
+      },
+      {
+        "id": "JP-PROCESSED-ORIGINCERT",
+        "topic": "jp_radiation_processed",
+        "priority_class": 2,
+        "effect": "REQUIRE",
+        "when": {
+          "origin_country": [
+            "JP"
+          ],
+          "product_type": [
+            "processed"
+          ],
+          "region_in": [
+            "JP-01",
+            "JP-02",
+            "JP-03",
+            "JP-05",
+            "JP-16",
+            "JP-17",
+            "JP-18",
+            "JP-19",
+            "JP-21",
+            "JP-23",
+            "JP-24",
+            "JP-25",
+            "JP-26",
+            "JP-27",
+            "JP-28",
+            "JP-29",
+            "JP-30",
+            "JP-31",
+            "JP-32",
+            "JP-33",
+            "JP-34",
+            "JP-35",
+            "JP-36",
+            "JP-37",
+            "JP-38",
+            "JP-39",
+            "JP-40",
+            "JP-41",
+            "JP-42",
+            "JP-43",
+            "JP-44",
+            "JP-45",
+            "JP-46",
+            "JP-47"
+          ]
+        },
+        "documents": [
+          {
+            "name": "일본 정부 생산지 증명서",
+            "original_or_copy": "원본",
+            "category": "국가별 추가 구비서류"
+          }
+        ],
+        "condition_note": "",
+        "effective_from": null,
+        "effective_to": null,
+        "date_basis": "declaration",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제10호다목"
+        ],
+        "source": {
+          "source_id": "mfds_required_docs",
+          "title": "(공지)수입식품 수입신고 시 제출해야 하는 구비서류 목록('26.8.4)",
+          "url": "https://impfood.mfds.go.kr/CFCII04F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=666431",
+          "publication_date": "2026-08-04",
+          "retrieved_at": "2026-11-10T10:12:16+09:00",
+          "location": "시트 '수입신고 시 제출해야하는 구비서류' 10행 (연번 6)",
+          "quote": "[대상국가] 일본 [대상제품] 일본 13개도·현을 제외한 34개도·부·현에서 생산·제조된 농·임산물, 가공식품, 건강기능식품, 식품첨가물(기구 및 용기·포장재, 2011년 3월11일 이전 일본에서 제조된 식품, 제3국에서 제조한 후 일본을 단순 경유하여 수입되는 식품은 제외) [증명내용] ○ 일본 정부(도·도·부·현 및 기초단체 정부 포함)가 해당 농·임산물 이나 가공식품등이 방사성 물질에 오염되지 않은 지역에서 생산되었거나, 제조·가공되었음을 입증하는 증명서 ○ 생산지 증명서를 제출한 경우에도 수입단계 검사에서 요오드나 세슘이 검출된 경우 스트론튬과 플루토늄 등에 대한 검사 증명을 수입자에게 추가로 요구"
+        },
+        "exclusive_group": "jp_processed_region"
+      },
+      {
+        "id": "VN-FILEFISH-JERKY",
+        "topic": "item_specific",
+        "priority_class": 4,
+        "effect": "CONDITIONAL",
+        "when": {
+          "export_country": [
+            "VN"
+          ],
+          "product_tags_any": [
+            "filefish_jerky"
+          ]
+        },
+        "documents": [
+          {
+            "name": "베트남 쥐치포·조미쥐치포 정부 증명서(성적서)",
+            "original_or_copy": "원본",
+            "category": "국가별 추가 구비서류"
+          }
+        ],
+        "condition_note": "해외제조업소별로 요구 증명서가 다르다. 제조업소가 목록의 어느 구분에 있는지 원문에서 확인한다.",
+        "effective_from": null,
+        "effective_to": null,
+        "date_basis": "declaration",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제10호다목"
+        ],
+        "source": {
+          "source_id": "mfds_required_docs",
+          "title": "(공지)수입식품 수입신고 시 제출해야 하는 구비서류 목록('26.8.4)",
+          "url": "https://impfood.mfds.go.kr/CFCII04F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=666431",
+          "publication_date": "2026-08-04",
+          "retrieved_at": "2026-11-10T10:12:16+09:00",
+          "location": "시트 '수입신고 시 제출해야하는 구비서류' 16행 (연번 9), 시트 '수입신고 시 제출해야하는 구비서류' 17행 (연번 9), 시트 '수입신고 시 제출해야하는 구비서류' 18행 (연번 9), 시트 '수입신고 시 제출해야하는 구비서류' 19행 (연번 9)",
+          "quote": "[대상국가] 베트남 [대상제품] <베트남 쥐치포 수입가능 해외제조업소(1등급 업체)> 1) EXPORT SEAPRODUCT PROCESSIG ENTERPRISE IV-BARIA-VUNG TAU SEAFOOD PROCESSING AND IMPORT-EXPORT JOINT STOCK COMPANY(BASEAFOOD) (HK173) 2) SAI GON FOOD IMPORT EXPORT JOINT STOCK COMPANY-DONG NAI BRANCH (HK789) 3) Anh Long Food MTV Company Limited (ANH LONG FOOD CO., LTD) (HK136) 4) LOC AN BRANCH OF THUAN HUE CORP (HK770) 5) Phouc My Hung Company Limited(PHOUC MY HUNG CO.,LTD.) (HK808) 6) MINH HIEN CO.,LTD. (HK258) 7) Tu Hai Company Limited (Tu Hai Co., Ltd) (HK748) 8) SEA WEALTH VN COMPANY LIMITED (SEA WEALTH VN CO., LTD) (TS807) 9) AN LAC-TRA VINH SEAFOOD CO.,LTD(HK839) 10) NGOC HONG SEAFOOD CO. LTD(HK893) 11) THIEN AN- LONG DIEN COMPANY LIMITED (THIEN AN - LONG DIEN CO., LTD)(TS882) [증명내용] 매 수입시마다 NAFIQAD 발급 성적서(위생증명서) 첨부 시 수입 가능\n[대상국가] 베트남 [대상제품] <베트남 조미쥐치포 수입가능 해외제조업소(수입가능업체)> 1) WORKSHOP NO. 2 - HAI NAM CO., LTD. (HK238) 2) MINH HAI CO.,LTD (HK235) 3) BRANCH OF BINH THUAN IMPORT EXPORT JOINT STOCK COMPANY - PHAN THIET SEAFOOD PROCESSING FACTORY (PHAN THIET FACTORY) (HK48) 4) TRUNG HAI FISHERIES CO.,LTD. - MIOFISH (HK63) 5) SEAFOOD VN.CO.LTD (HK300) 6) CAN GIO SERVICE AND TRADING JOINT STOCK COMPANY(CAGICO) (HK436) 7) BH CO.,LTD (HK761) 8) LOC AN BRANCH OF THUAN HUE CORP (HK770) 9) CHOLON TRADING PRODUCING CO.,LTD-BRANCH FACTORY 01 (CHOLON CO., LTD) (HK444) 10) HUY SON CO.,LTD (HK454) 11) AN LAC SEAFOOD CO.,LTD. - ALSF CO.,LTD.(HK216) [증명내용] 매 수입시마다 NAFIQAD 발급 성적서(위생증명서) 첨부 시 수입 가능\n[대상국가] 베트남 [대상제품] <베트남 조미쥐치포 수입가능 해외제조업소(조건부 수입가능 업체)> 1) SEO NAM COMPANY LIMITED (SEO NAM Co., LTD) (HK 475) 2) DONG AN CO.,LTD (HK 442) 3) HAI THANH CO.,LTD (HK 52) [증명내용] 베트남 정부로부터 위생관련 규정에 적합하게 생산되었다는 증명서(성적서)를 첨부하여 수입신고서 제출하는 조건으로 수입 허용 The products were processed compatible with the food sanitation relevant rules of Vietnam.\n[대상국가] 베트남 [대상제품] <베트남 조미쥐치포 수입가능 해외제조업소(조건부 수입가능 업체)> 1) Anh Long Food MTV Company Limited (ANH LONG FOOD CO., LTD) (HK136) 2) BASEAFOOD 1 COMPANY LIMITED (HK549) 3) PHU YEN SEAFOOD PROCESSING COMPANY LIMITED(HK554) [증명내용] 쥐포제조시 일부‘필렛 및 조미 공정’을 식약처 실사결과 기 수입허용된 제조업체에 위탁하여 위생적으로 제조하였다는 베트남 정부의 증명서(성적서)를 첨부하는 경우에 한하여 조건부 수입허용 Some fillet and seosoning process are performed sanitarily in approved establishment."
+        }
+      },
+      {
+        "id": "MFDS-LIST-SCIENTIFIC-NAME",
+        "topic": "item_specific",
+        "priority_class": 4,
+        "effect": "CONDITIONAL",
+        "when": {
+          "product_type": [
+            "raw"
+          ]
+        },
+        "documents": [
+          {
+            "name": "학명이 기재된 자료",
+            "original_or_copy": "사본 (위생약정 대상 수산물의 정부증명서인 경우 원본)",
+            "category": "품목별 추가 구비서류"
+          }
+        ],
+        "condition_note": "식품 원재료분류에서 학명이 정해진 수산물일 때 제출한다. 해당 품목의 학명 지정 여부는 식품원료 조회(수입식품정보마루 /CFBDD03F01)에서 확인한다.",
+        "effective_from": "2026-07-01",
+        "effective_to": null,
+        "date_basis": "shipment",
+        "legal_basis": [
+          "수입식품안전관리 특별법 시행규칙 제27조제1항제10호다목"
+        ],
+        "source": {
+          "source_id": "mfds_required_docs",
+          "title": "(공지)수입식품 수입신고 시 제출해야 하는 구비서류 목록('26.8.4)",
+          "url": "https://impfood.mfds.go.kr/CFCII04F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=666431",
+          "publication_date": "2026-08-04",
+          "retrieved_at": "2026-11-10T10:12:16+09:00",
+          "location": "시트 '수입신고 시 제출해야하는 구비서류' 30행 (연번 19)",
+          "quote": "[대상국가] 모든국가 [대상제품] 식품 원재료분류에서 학명이 정하여져 있는 농·임산물(식품원료 명칭 외에 생약명이 존재하는 식품원료 포함), 수산물 [증명내용] 학명이 기재된 자료(사용부위가 정해진 경우 사용부위 확인증명 포함) 중 택 1 ① 해외제조업소가 발행한 증명서(또는 수출회사가 발행한 증명서) (학명이 기재된 선하증권 또는 송장 등 인정) ② 정부증명서(또는 공증서) ③ 식물검역증 ※ 단, 위생약정 대상 수산물인 경우 수출국 정부가 발행한 증명서만 인정 [기타] 2026.7.1. 선적분부터 적용"
+        }
+      },
+      {
+        "id": "ORDER-03",
+        "topic": "inspection_order",
+        "priority_class": 2,
+        "effect": "CONDITIONAL",
+        "when": {
+          "export_country": [
+            "JP"
+          ],
+          "product_tags_any": [
+            "bluefin_tuna"
+          ]
+        },
+        "documents": [
+          {
+            "name": "검사명령 이행 시험·검사성적서(검사항목: 살모넬라)",
+            "issuer": "식약처 지정 시험·검사기관 또는 국외 공인검사기관",
+            "category": "조건부 제출서류"
+          }
+        ],
+        "condition_note": "검사명령 대상(참다랑어(생식용 수산물), 일본(수출국))에 해당할 때 제출한다. 세부 대상(제조업소, 용도 등)은 검사명령서에서 확인한다.",
+        "effective_from": "2021-03-31",
+        "effective_to": "2027-03-30",
+        "date_basis": "declaration",
+        "legal_basis": [
+          "수입식품안전관리 특별법에 따른 검사명령(식약처 검사명령제 안내)"
+        ],
+        "source": {
+          "source_id": "mfds_inspection_orders",
+          "title": "검사명령 대상 식품 현황 (수입식품정보마루 > 검사명령제)",
+          "url": "https://impfood.mfds.go.kr/CFBEE01F01",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:22+09:00",
+          "location": "검사명령 대상 식품 현황 표 순번 3",
+          "quote": "[시행일자] '21.3.31.~'27.3.30. [대상식품] 참다랑어(생식용 수산물) [국가] 일본(수출국) [검사항목] 살모넬라 / 수입식품등 수입판매업자는 수입신고 관할 지방식약청장에게 수입신고 시 구비서류로 제출(미 제출시 수입신고서 반려)"
+        }
+      },
+      {
+        "id": "ORDER-09",
+        "topic": "inspection_order",
+        "priority_class": 2,
+        "effect": "CONDITIONAL",
+        "when": {
+          "any_country": [
+            "CN"
+          ],
+          "product_tags_any": [
+            "bluefin_croaker_buse"
+          ]
+        },
+        "documents": [
+          {
+            "name": "검사명령 이행 시험·검사성적서(검사항목: 에톡시퀸)",
+            "issuer": "식약처 지정 시험·검사기관 또는 국외 공인검사기관",
+            "category": "조건부 제출서류"
+          }
+        ],
+        "condition_note": "검사명령 대상(냉동부세, 중국)에 해당할 때 제출한다. 세부 대상(제조업소, 용도 등)은 검사명령서에서 확인한다.",
+        "effective_from": "2024-12-30",
+        "effective_to": "2026-12-29",
+        "date_basis": "declaration",
+        "legal_basis": [
+          "수입식품안전관리 특별법에 따른 검사명령(식약처 검사명령제 안내)"
+        ],
+        "source": {
+          "source_id": "mfds_inspection_orders",
+          "title": "검사명령 대상 식품 현황 (수입식품정보마루 > 검사명령제)",
+          "url": "https://impfood.mfds.go.kr/CFBEE01F01",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:22+09:00",
+          "location": "검사명령 대상 식품 현황 표 순번 9",
+          "quote": "[시행일자] '24.12.30.~'26.12.29. [대상식품] 냉동부세 [국가] 중국 [검사항목] 에톡시퀸 / 수입식품등 수입판매업자는 수입신고 관할 지방식약청장에게 수입신고 시 구비서류로 제출(미 제출시 수입신고서 반려)"
+        }
+      },
+      {
+        "id": "ORDER-11",
+        "topic": "inspection_order",
+        "priority_class": 2,
+        "effect": "CONDITIONAL",
+        "when": {
+          "any_country": [
+            "VN"
+          ],
+          "product_tags_any": [
+            "shrimp"
+          ]
+        },
+        "documents": [
+          {
+            "name": "검사명령 이행 시험·검사성적서(검사항목: 독시싸이클린)",
+            "issuer": "식약처 지정 시험·검사기관 또는 국외 공인검사기관",
+            "category": "조건부 제출서류"
+          }
+        ],
+        "condition_note": "검사명령 대상(새우 및 기타 수산물가공품(새우 함유량 30% 이상), 베트남 (4개 제조업소))에 해당할 때 제출한다. 세부 대상(제조업소, 용도 등)은 검사명령서에서 확인한다.",
+        "effective_from": "2025-06-30",
+        "effective_to": "2027-06-29",
+        "date_basis": "declaration",
+        "legal_basis": [
+          "수입식품안전관리 특별법에 따른 검사명령(식약처 검사명령제 안내)"
+        ],
+        "source": {
+          "source_id": "mfds_inspection_orders",
+          "title": "검사명령 대상 식품 현황 (수입식품정보마루 > 검사명령제)",
+          "url": "https://impfood.mfds.go.kr/CFBEE01F01",
+          "publication_date": null,
+          "retrieved_at": "2026-11-10T10:12:22+09:00",
+          "location": "검사명령 대상 식품 현황 표 순번 11",
+          "quote": "[시행일자] '25.6.30.~'27.6.29 [대상식품] 새우 및 기타 수산물가공품(새우 함유량 30% 이상) [국가] 베트남 (4개 제조업소) [검사항목] 독시싸이클린 / 수입식품등 수입판매업자는 수입신고 관할 지방식약청장에게 수입신고 시 구비서류로 제출(미 제출시 수입신고서 반려)"
+        }
+      }
+    ],
+    "coverage": {
+      "hygiene": {
+        "exhaustive": false,
+        "confirmed_countries": [
+          "AR",
+          "CL",
+          "ES",
+          "NO",
+          "PE",
+          "PH"
+        ],
+        "note": "공지로 약정 시행을 확인한 국가만 수록했다. 수록되지 않은 국가는 약정이 없다는 뜻이 아니다."
+      },
+      "jp_seafood": {
+        "exhaustive": true,
+        "unlisted_regions": []
+      },
+      "required_docs_list": {
+        "exhaustive": true,
+        "note": "식약처 게재 구비서류 목록의 수산물 관련 행을 결합표로 연결했다. 결합되지 않은 수산물 관련 행은 경고로 표시한다."
+      }
+    },
+    "warnings": [
+      "규칙에 반영되지 않은 위생약정 관련 공지: 한-필리핀 수산물 위생약정에 따른 해외제조업소 명단 변경 알림 (게시일 2022-06-18, 게시물 번호 474218)",
+      "구비서류 목록 공지 이후 증명서제출 게시판에 올라온 게시물: 스페인 수산물 위생증명서 추가 변경사항 알림 (게시일 2026-08-05)"
+    ],
+    "sources": {
+      "law_enforcement_rule_27": {
+        "title": "수입식품안전관리 특별법 시행규칙 제27조(수입식품등의 수입신고)",
+        "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290799&efYd=20260930",
+        "publication_date": null,
+        "effective_date": "2026-09-30",
+        "retrieved_at": "2026-11-10T10:12:21+09:00",
+        "content_hash": "0d5480d73ec891b3f3c976b3c7b9246e828143b1b3229a5d5573f5e93849df06"
+      },
+      "mfds_hygiene_agreement_notices": {
+        "title": "수산물 위생약정 관련 공지 (수입식품정보마루 > 공지사항, 증명서제출)",
+        "url": "https://impfood.mfds.go.kr/CFBAA01F01",
+        "publication_date": null,
+        "effective_date": null,
+        "retrieved_at": "2026-11-10T10:12:42+09:00",
+        "content_hash": "cdbca4d5faf4c6f7fcf705a03cc7c600519695aa889e4801c1f6f268a4983d99"
+      },
+      "mfds_inspection_orders": {
+        "title": "검사명령 대상 식품 현황 (수입식품정보마루 > 검사명령제)",
+        "url": "https://impfood.mfds.go.kr/CFBEE01F01",
+        "publication_date": null,
+        "effective_date": null,
+        "retrieved_at": "2026-11-10T10:12:22+09:00",
+        "content_hash": "ceb33eef192f679792e7561939829defd2d4f91a407c65c8e19d15495276d3c3"
+      },
+      "mfds_required_docs": {
+        "title": "(공지)수입식품 수입신고 시 제출해야 하는 구비서류 목록('26.8.4)",
+        "url": "https://impfood.mfds.go.kr/CFCII04F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=666431",
+        "publication_date": "2026-08-04",
+        "effective_date": "2026-08-03",
+        "retrieved_at": "2026-11-10T10:12:16+09:00",
+        "content_hash": "3fde6a673f0fcd67add902820263ffb9980002824ac2ef52839f2f1bcd56f8d5"
+      },
+      "radsafe_japan_measures": {
+        "title": "일본산 식품 수입제한조치 (수입식품방사능안전정보 > 원전사고 이후 대응조치)",
+        "url": "https://radsafe.mfds.go.kr/CFQCC02F01",
+        "publication_date": null,
+        "effective_date": null,
+        "retrieved_at": "2026-11-10T10:12:18+09:00",
+        "content_hash": "22a26fd5f9ea7db82183c1e711693029067f69eff720e1f86476ae647d3b8e0d"
+      }
+    }
+  },
+  "report": {
+    "summary": "최초 규칙 묶음",
+    "diff": {
+      "added": [
+        "GEN-ART27-1-2-PHOTO",
+        "GEN-ART27-1-LABEL",
+        "GEN-ART27-2-FOREIGN-LAB",
+        "GEN-ART27-3-GMO",
+        "GEN-ART27-4-OEM",
+        "GEN-ART27-5-EXPORT-PLAN",
+        "GEN-ART27-6-LICENSE",
+        "GEN-ART27-DECLARATION",
+        "HYG-AR",
+        "HYG-CL",
+        "HYG-ES",
+        "HYG-NO",
+        "HYG-PE",
+        "HYG-PH",
+        "JP-ADDITIONAL-NUCLIDE",
+        "JP-PROCESSED-ORIGINCERT",
+        "JP-PROCESSED-RADCERT",
+        "JP-SEAFOOD-BAN",
+        "JP-SEAFOOD-ORIGINCERT",
+        "JP-SEAFOOD-RADCERT",
+        "MFDS-LIST-PUFFER-PROCESSED",
+        "MFDS-LIST-SCIENTIFIC-NAME",
+        "ORDER-03",
+        "ORDER-09",
+        "ORDER-11",
+        "VN-FILEFISH-JERKY"
+      ],
+      "removed": [],
+      "changed": [],
+      "coverage_changed": false,
+      "warnings_added": [
+        "구비서류 목록 공지 이후 증명서제출 게시판에 올라온 게시물: 스페인 수산물 위생증명서 추가 변경사항 알림 (게시일 2026-08-05)",
+        "규칙에 반영되지 않은 위생약정 관련 공지: 한-필리핀 수산물 위생약정에 따른 해외제조업소 명단 변경 알림 (게시일 2022-06-18, 게시물 번호 474218)"
+      ],
+      "warnings_removed": [],
+      "has_changes": true,
+      "summary": "최초 규칙 묶음"
+    },
+    "validation": {
+      "errors": [],
+      "warnings": []
+    }
+  }
+}

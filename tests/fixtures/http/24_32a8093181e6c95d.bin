@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head></head>
+ <body>
+  <input type="hidden" id="admRulSeq" name="admRulSeq" value="2100000219398" /> 
+  <input type="hidden" id="lsiSeq" name="lsiSeq" value="2100000219398" /> 
+  <input type="hidden" id="sideAdmRulSeq" value="2100000219398" /> 
+  <input type="hidden" id="admRulId" name="admRulId" value="84542" /> 
+  <input type="hidden" id="admNm" value="대한민국과 태국 간 수출·입 수산물·수산제품의 품질관리 및 위생안전" /> 
+  <input type="hidden" id="addressNm" value="대한민국과 태국 간 수출·입 수산물·수산제품의 품질관리 및 위생안전" /> 
+  <input type="hidden" id="prmlYd" name="prmlYd" value="20230228" /> 
+  <input type="hidden" id="prmlNo" name="prmlNo" value="2023-37" /> 
+  <input type="hidden" name="admRulJoTpYn" id="admRulJoTpYn" value="Y" /> 
+  <input type="hidden" id="lsNm" value="대한민국과 태국 간 수출·입 수산물·수산제품의 품질관리 및 위생안전" /> 
+  <input type="hidden" id="rrClsCd" value="200401" /> 
+  <input type="hidden" id="admRulKndCd" value="B0003" /> 
+  <input type="hidden" id="lsBdyChrCls" value="010201" /> 
+  <input type="hidden" id="isExistAdmrulLnkFlCvtYn" value="N" /> 
+  <div class="viewwrap" id="viewwrapCenter"> 
+   <div id="contentBody"> 
+    <div id="conTop"> 
+     <a id="top"></a> 
+     <!-- 조제목 영역 --> 
+     <h2>대한민국과 태국 간 수출·입 수산물·수산제품의 품질관리 및 위생안전</h2> 
+     <!-- 요약정보 영역 --> 
+     <div class="subtit1">
+       [시행 2023. 2. 28.] [해양수산부고시 제2023-37호, 2023. 2. 28., 제정] 
+     </div> 
+    </div> 
+    <div id="conScroll" style="overflow-y:auto;"> 
+     <!-- 소관부처 영역 --> 
+     <div class="subtit2" style="margin-bottom:20px;">
+       해양수산부(수산물안전기획과), 051-773-5416 
+      <br />
+      <br /> 
+     </div> 
+     <!-- 조 표시 영역 --> 
+     <!-- 조문 --> 
+     <a name="J1-0:0" id="J1-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0001000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="1-0:0::0001000000:15951459" /> <span class="bl"><label for="Y0001000000">제1조(목적)</label></span> 이 고시는 대한민국과 태국 간 수출입 수산물의 안전성 확보를 위해 2006년 6월 27일 체결한 「대한민국 해양수산부와 태국 농업협력부 간 수출ㆍ입 수산물ㆍ수산제품의 품질관리 및 위생안전에 관한 약정」 이행에 관한 사항을 규정함을 목적으로 한다.<span class="sfon2"></span> 
+        <!-- 항 표시 end --> </p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J2-0:0" id="J2-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0002000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="2-0:0::0002000000:15951461" /> <span class="bl"><label for="Y0002000000">제2조(적용범위)</label></span> 이 고시의 적용대상은 식용 원료수산물과 식용 소금을 제외한 첨가물이나 다른 원료를 사용하지 않은 절단ㆍ가열ㆍ자숙(쪄서 익힘) 또는 염장ㆍ염수장ㆍ훈제ㆍ냉장ㆍ동결 등과 같이 가공한 수산동물에 한정한다.<span class="sfon2"></span> 
+        <!-- 항 표시 end --> </p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J3-0:0" id="J3-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0003000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="3-0:0::0003000000:15951463" /> <span class="bl"><label for="Y0003000000">제3조(운영)</label></span> <span class="sfon2"></span> ① 각 당사국은 수산물ㆍ수산가공품에 있어 원료, 보관, 처리, 운송, 가공, 포장 및 유통을 관리하는 상대국의 수산물ㆍ수산제품의 검사 및 관리 제도를 인정한다. <span class="sfon2"></span> 
+        <!-- 호 표시 start --> 
+        <!-- 호 표시 end --> </p>
+       <p class="pty1_de2_1">② 양국의 수출입 수산제품에 대한 검사 및 위생증명서 발급은 다음 각 호의 관할기관이 담당한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <p class="pty1_de2h">1. 대한민국 국립수산물품질관리원 <span class="sfon2"></span></p> 
+       <p class="pty1_de2h">2. 태국 농업협력부 수산과 <span class="sfon2"></span></p> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J4-0:0" id="J4-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0004000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="4-0:0::0004000000:15951465" /> <span class="bl"><label for="Y0004000000">제4조(가공시설 등록)</label></span> <span class="sfon2"></span> ① 수산물ㆍ수산가공품 가공시설은 수출국의 검사당국에 등록되어 있어야 한다. 이 경우 수출국의 검사당국은 가공시설의 위생 및 안전기준이 수입국의 기준에 부합됨을 보증해야 한다. <span class="sfon2"></span> 
+        <!-- 호 표시 start --> 
+        <!-- 호 표시 end --> </p>
+       <p class="pty1_de2_1">② 수출국은 상대국에 대해 등록된 가공시설 명단을 통보해야 한다. 이 경우 수출국에 등록된 가공시설이 수입국에 의해 승인되면, 등록된 가공시설로부터 수입된 수산가공품의 위생검사를 완화할 수 있다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">③ 수출국의 검사당국은 수입국의 위생안전기준에 부합하는지를 보증하기 위해 정기적으로 등록시설의 위생 상태를 점검하고 기록을 유지해야 한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">④ 양국은 수입국이 본 약정의 이행 여부를 확인하기 위해 수출국에 등록된 가공시설에 대한 무작위 검사를 실시할 수 있음을 보증한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">⑤ 양국은 상대국에게 주기적(매 분기)으로 등록시설에 대한 세부내역(공장명, 주소 및 승인번호 등을 포함한다)을 통보해야 하며, 상대국으로 수산제품 수출이 중단된 공장에 대한 정보도 제공해야 한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J5-0:0" id="J5-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0005000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="5-0:0::0005000000:15951467" /> <span class="bl"><label for="Y0005000000">제5조(검사항목 및 기준)</label></span> <span class="sfon2"></span> ① 양국은 수입국에서 사용하고 수출국에 통보된 검사항목 및 기준에 따라 수출입 수산물 및 수산가공품에 대한 검사를 수행해야 한다. <span class="sfon2"></span> 
+        <!-- 호 표시 start --> 
+        <!-- 호 표시 end --> </p>
+       <p class="pty1_de2_1">② 양국은 이 약정이 발효되기 전에 수산물ㆍ수산가공품의 검사항목 및 기준을 상대국에 통보해야 한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J6-0:0" id="J6-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0006000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="6-0:0::0006000000:15951469" /> <span class="bl"><label for="Y0006000000">제6조(검사증명서)</label></span> <span class="sfon2"></span> ① 상대국으로 수출하는 각각의 수산물ㆍ수산가공품에 대해서는 수출국의 검사기관에서 발행한 검사증명서를 첨부해야 한다. <span class="sfon2"></span> 
+        <!-- 호 표시 start --> 
+        <!-- 호 표시 end --> </p>
+       <p class="pty1_de2_1">② 수출되는 수산제품의 포장에는 제품명, 국가명, 가공공장명 및 등록번호 등과 같은 정보가 지워지지 않게 표시되어야 한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">③ 수출국의 검사증명서는 수출된 수산물ㆍ수산가공품이 수입국이 규정하고 있는 세균 및 인체에 유해한 독성물질에 오염되지 않고, 이물질 등이 수산물ㆍ수산가공품에 포함되지 않음을 증명해야 한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J7-0:0" id="J7-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0007000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="7-0:0::0007000000:15951471" /> <span class="bl"><label for="Y0007000000">제7조(통보절차)</label></span> <span class="sfon2"></span> ① 통보는 관계 당국의 통보절차에 따른다. <span class="sfon2"></span> 
+        <!-- 호 표시 start --> 
+        <!-- 호 표시 end --> </p>
+       <p class="pty1_de2_1">② 정보의 제공과 관련하여, 양국은 각각의 수산물ㆍ수산제품의 검사 및 관리제도에 대한 상호 간의 신뢰성 확보 및 타당성을 증명하기 위해 정기적으로 이 약정의 이행과 관련된 정보를 교환한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J8-0:0" id="J8-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0008000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="8-0:0::0008000000:15951473" /> <span class="bl"><label for="Y0008000000">제8조(보호조치)</label></span> <span class="sfon2"></span> ① 수입된 수산물ㆍ수산가공품에서 위생 및 안전과 관련된 문제점이 발견되었을 경우, 수입국은 수출국으로 하여금 문제점의 원인에 대한 조사를 실시하게 하여 같은 사고가 다시 발생하는 것을 방지할 수 있도록 수출국에게 관련 사항 및 정보를 신속하게 통보해야 한다. 수입국은 문제점이 완전히 해결될 때까지 동일한 가공 또는 생산시설에서 생산, 가공 및 포장된 수산제품의 수입을 잠정 중단할 수 있다. 이 경우 수입중단 조치는 양국 간 협의로 해제할 수 있다. <span class="sfon2"></span> 
+        <!-- 호 표시 start --> 
+        <!-- 호 표시 end --> </p>
+       <p class="pty1_de2_1">② 제1항에 따라 통보 받은 수출국은 검사, 실험, 검증 및 수출 선적의 승인절차를 조사해야 하며, 원인규명 및 조사결과에 대해 수입국에게 통보해야 할 의무가 있다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <p class="pty1_de2_1">③ 만약 어느 한쪽에서 수산물ㆍ수산가공품의 검사결과에 대한 합동조사를 요청할 경우, 상대국의 관계 당국은 요구사항에 대해 협조해야 한다. <span class="sfon2"></span></p> 
+       <!-- 호 표시 start --> 
+       <!-- 호 표시 end --> 
+       <!-- 항 표시 end --> 
+       <p></p> 
+      </div> 
+     </div> 
+     <!-- 조문 --> 
+     <a name="J9-0:0" id="J9-0:0"></a> 
+     <div class="pgroup"> 
+      <ul class="lawico01"></ul> 
+      <div class="lawcon"> 
+       <p class="pty1_p4"> <input name="joNoList" id="Y0009000000" style="vertical-align: middle;" onclick="javascript:getJoSelectLayer(this, '');" type="checkbox" value="9-0:0::0009000000:15951475" /> <span class="bl"><label for="Y0009000000">제9조(재검토기한)</label></span> 해양수산부장관은 이 고시에 대해 <a title="팝업으로 이동" class="link" onclick="javascript:fncLawPop('훈령ㆍ예규 등의 발령 및 관리에 관한 규정', 'LN', '', '84542', 'true', '', '', 'Admrul', '', '', '', '', '');" href="#AJAX">「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」</a>에 따라 2023년 1월 1일 기준으로 매 3년이 되는 시점(매 3년째의 12월 31일까지를 말한다)마다 그 타당성을 검토하여 개선 등의 조치를 해야 한다.<span class="sfon2"></span> 
+        <!-- 항 표시 end --> </p> 
+      </div> 
+     </div> 
+     <!-- 조 표시 영역 --> 
+     <!-- 행정규칙 첨부파일 사이냅뷰어  --> 
+     <!-- 행정규칙 첨부파일 사이냅뷰어  --> 
+     <!-- 부칙 영역 --> 
+     <div id="arDivArea"> 
+      <a name="arArea"></a> 
+      <a name="ar"></a> 
+      <a name="J1124347"></a> 
+      <div class="pgroup"> 
+       <p class="pty3"> <img id="ar1124347btn" style="vertical-align: middle;" alt="부칙<제2023-37호, 2023.02.28>조문목록 없음" src="/LSW/images/button/btn_dot.gif" /> <input type="checkbox" name="arInf" id="chk1124347" style="vertical-align: middle;" alt="부칙<제2023-37호, 2023.02.28>체크박스" value="1124347" /> <a class="nun" onclick="javascript:arView('ar1124347', '<제2023-37호, 2023.02.28>');return false;" href="#AJAX"> <label for="chk1124347"> <span class="bl">부      칙</span> </label> <span class="sfon">&lt;제2023-37호, 2023. 2. 28.&gt;</span> </a> </p> 
+       <p class="pty3_dep1" style="margin-top: -10px;"> 이 고시는 2023년 2월 28일부터 시행한다. </p> 
+       <!-- 부칙 조번호 --> 
+       <!-- 부칙 조번호 --> 
+      </div> 
+     </div> 
+     <!-- 부칙 영역 끝 --> 
+     <!-- 별표 영역 --> 
+     <!-- 별표 영역 끝 --> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+	(function (){
+		initEDotXPress('\uB300\uD55C\uBBFC\uAD6D\uACFC \uD0DC\uAD6D \uAC04 \uC218\uCD9C\u00B7\uC785 \uC218\uC0B0\uBB3C\u00B7\uC218\uC0B0\uC81C\uD488\uC758 \uD488\uC9C8\uAD00\uB9AC \uBC0F \uC704\uC0DD\uC548\uC804');
+	})();
+</script> 
+ </body>
+</html>

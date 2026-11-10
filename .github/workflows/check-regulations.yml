@@ -1,0 +1,31 @@
+# 정기 확인 예시. 스케줄링은 이 워크플로에 종속되지 않는다: cron, launchd 등 어디서든 scripts/update_data 를 부르면 된다.
+name: check-regulations
+on:
+  schedule:
+    - cron: "0 22 * * *"   # 매일 07:00 KST
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --extra dev
+      - run: uv run pytest -q
+      - name: 공식 출처 확인
+        id: update
+        run: |
+          set +e
+          uv run seafood-import update > update-report.json
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: update-report
+          path: |
+            update-report.json
+            data/rules/pending/
+      - name: 변경 감지 또는 실패 시 작업 실패로 표시
+        if: steps.update.outputs.code != '0'
+        run: |
+          echo "종료 코드 ${{ steps.update.outputs.code }}: 3=변경 감지(검토 필요), 2=수집·파싱 실패"
+          exit 1

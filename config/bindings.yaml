@@ -1,0 +1,206 @@
+# 원문 항목을 판정 조건에 연결하는 결합표.
+#
+# 원문(엑셀 행, 조문 호)의 문장은 수집기가 그대로 가져온다. 이 파일은 "그 문장이 어떤 조회 조건에서
+# 적용되는가"만 정한다. 서류명·증명내용·국가·지역 목록 같은 사실 값은 여기에 적지 않고 원문에서 읽는다.
+#
+# must_contain: 해당 원문에 반드시 들어 있어야 하는 낱말. 없으면 원문 구조가 바뀐 것으로 보고
+#               규칙 생성을 중단한다(기존 승인 규칙 유지).
+# 이 표를 고치면 규칙이 달라지므로 변경분은 검토 대기를 거쳐 승인해야 반영된다.
+
+required_docs_rows:
+  # 「수입신고 시 제출하여야 하는 구비서류 목록」 엑셀의 연번(seq)과 그 안의 순서(sub, 0부터)
+  - seq: 3
+    sub: 0
+    must_contain: [복어]
+    rule_id: MFDS-LIST-PUFFER-PROCESSED
+    topic: item_specific
+    effect: REQUIRE
+    when:
+      product_tags_any: [pufferfish]
+      product_type: [processed]
+    category: 품목별 추가 구비서류
+    document_name: 복어 가공식품 증명서류(원산지 증명서(학명), 복어독 검사성적서, 복어유전자 검사성적서)
+
+  - seq: 6
+    sub: 0
+    must_contain: [일본, 가공식품]
+    rule_id: JP-PROCESSED-RADCERT
+    topic: jp_radiation_processed
+    effect: REQUIRE
+    regions_from_text: listed          # 대상제품 문장의 괄호 안 도·현 목록을 읽는다
+    expected_region_count: 13
+    when:
+      origin_country: [JP]
+      product_type: [processed]
+    category: 국가별 추가 구비서류
+    document_name: 방사능 검사성적서를 포함한 일본 정부 증명서
+
+  - seq: 6
+    sub: 1
+    must_contain: [일본, 34]
+    rule_id: JP-PROCESSED-ORIGINCERT
+    topic: jp_radiation_processed
+    effect: REQUIRE
+    regions_from_text: complement_of_previous   # 위 13개 도·현을 뺀 나머지
+    expected_region_count: 34
+    when:
+      origin_country: [JP]
+      product_type: [processed]
+    category: 국가별 추가 구비서류
+    document_name: 일본 정부 생산지 증명서
+
+  - seq: 9
+    sub: all
+    must_contain: [쥐치포]
+    rule_id: VN-FILEFISH-JERKY
+    topic: item_specific
+    effect: CONDITIONAL
+    when:
+      export_country: [VN]
+      product_tags_any: [filefish_jerky]
+    category: 국가별 추가 구비서류
+    document_name: 베트남 쥐치포·조미쥐치포 정부 증명서(성적서)
+    condition_note: 해외제조업소별로 요구 증명서가 다르다. 제조업소가 목록의 어느 구분에 있는지 원문에서 확인한다.
+
+  - seq: 19
+    sub: 0
+    must_contain: [학명, 수산물]
+    rule_id: MFDS-LIST-SCIENTIFIC-NAME
+    topic: item_specific
+    effect: CONDITIONAL
+    when:
+      product_type: [raw]
+    category: 품목별 추가 구비서류
+    document_name: 학명이 기재된 자료
+    condition_note: 식품 원재료분류에서 학명이 정해진 수산물일 때 제출한다. 해당 품목의 학명 지정 여부는 식품원료 조회(수입식품정보마루 /CFBDD03F01)에서 확인한다.
+    date_basis: shipment
+    effective_from_note: F        # 적용 시작일을 엑셀 '기타' 열(F)에서 읽는다
+
+# 수산물과 관련 있어 보이는데 위 표에 없는 행을 찾을 때 쓰는 낱말
+seafood_keywords: [수산, 어류, 패류, 해조, 갑각, 연체, 복어, 쥐치, 새우, 오징어, 젓갈, 어육, 어묵, 생선, 조개]
+
+law_article_27_items:
+  # 시행규칙 제27조제1항 각 호. key 는 호 번호.
+  - key: "1"
+    must_contain: [한글표시]
+    rule_id: GEN-ART27-1-LABEL
+    effect: REQUIRE
+    document_name: 한글표시가 된 포장지 또는 한글표시 내용이 적힌 서류
+  - key: "1의2"
+    must_contain: [사진]
+    rule_id: GEN-ART27-1-2-PHOTO
+    effect: CONDITIONAL
+    document_name: 수입식품등의 사진
+    condition_note: 조문 단서(별표 9 제2호가목1)~3) 해당 식품, 식약처 홈페이지 게시 제외 식품)에 해당하면 내지 않는다.
+  - key: "2"
+    must_contain: [국외시험]
+    rule_id: GEN-ART27-2-FOREIGN-LAB
+    effect: CONDITIONAL
+    document_name: 국외시험·검사기관 시험·검사성적서
+    condition_note: 별표 9 제2호다목의 정밀검사 대상 식품만 해당한다.
+  - key: "3"
+    must_contain: [유전자변형]
+    rule_id: GEN-ART27-3-GMO
+    effect: CONDITIONAL
+    document_name: 구분유통증명서 등 유전자변형식품 관련 서류
+    condition_note: 유전자변형식품등 표시대상인데 표시하지 않은 경우만 해당한다.
+  - key: "4"
+    must_contain: [소비기한]
+    rule_id: GEN-ART27-4-OEM
+    effect: CONDITIONAL
+    document_name: 소비기한 설정사유서 또는 연장사유서
+    condition_note: 주문자상표부착(OEM) 수입식품등만 해당한다.
+  - key: "5"
+    must_contain: [수출계획서]
+    rule_id: GEN-ART27-5-EXPORT-PLAN
+    effect: CONDITIONAL
+    document_name: 수출계획서
+    condition_note: 대외무역법에 따라 외화획득용으로 수입하는 경우만 해당한다.
+  - key: "6"
+    must_contain: [영업허가]
+    rule_id: GEN-ART27-6-LICENSE
+    effect: CONDITIONAL
+    document_name: 영업허가 등 인허가 서류 사본 또는 품목제조보고서 사본
+    condition_note: 외화획득용 원료나 자사제품 제조용 원료로 수입하는 경우만 해당하며, 전산으로 확인되면 내지 않는다.
+  # 7호(위생증명서·검사증명서)는 위생약정 규칙의 법적 근거로 쓴다.
+  - key: "7"
+    must_contain: [위생증명서, 수산물]
+    use_as: hygiene_legal_basis
+  # 8호(축산물·동물성 식품), 10호 가·나목(반추동물, 열처리 소금)은 조문이 대상을 한정하므로 수산물 규칙을 만들지 않는다.
+
+inspection_orders:
+  # 검사명령 현황표에서 수산물 행을 가려내는 낱말 → 품목 태그
+  product_keywords:
+    참다랑어: bluefin_tuna
+    부세: buse
+    새우: shrimp
+  seafood_keywords: [수산, 다랑어, 부세, 새우, 어류, 패류, 오징어, 조개, 해조]
+
+# 국가별 수산물 위생약정 고시 → 위생증명서 규칙.
+# key 는 config/sources.yaml 의 law_hygiene_agreements.params.rules[].key.
+# scope_article / cert_article: 조 제목. 고시의 그 조 본문을 그대로 인용한다.
+# excluded_states: 고시가 적용대상에서 뺀 상태. excluded_must_contain 낱말이 적용대상 조문에 있어야 한다.
+hygiene_agreements:
+  - {key: CN, rule_id: HYG-CN, effect: REQUIRE, scope_article: 적용대상, cert_article: 위생증명서 첨부,
+     scope_must_contain: [수산동물], cert_must_contain: [위생증명서, 첨부], document_name: 위생증명서,
+     excluded_states: [live], excluded_must_contain: [활수생, 제외]}
+  - {key: CN-WILD, rule_id: HYG-CN-WILD, effect: CONDITIONAL, scope_article: 야생 수산물의 정의, cert_article: 위생증명서의 발급,
+     scope_must_contain: [중국에서 한국으로, 야생 수산물], cert_must_contain: [위생증명서, 중국에서 한국으로],
+     document_name: 야생 수산물 위생증명서(고시 별지 제2호 서식),
+     condition_note_prefix: 중국에서 수출하는 야생 수산물일 때 이 고시의 위생증명서를 낸다(같은 고시 제3조에 따라 일반 약정 고시보다 우선 적용).,
+     excluded_states: [live], excluded_must_contain: [살아 있는 수생동물은 제외]}
+  - {key: RU, rule_id: HYG-RU, effect: REQUIRE, scope_article: 적용대상, cert_article: 수출검사증명서,
+     scope_must_contain: [수산물, 수산가공품], cert_must_contain: [수출검사증명서], document_name: 수출검사증명서,
+     processed_effect: CONDITIONAL}
+  - {key: VN, rule_id: HYG-VN, effect: REQUIRE, scope_article: 적용대상, cert_article: 위생 및 검역증명서 발급,
+     scope_must_contain: [원형, 수산동식물], cert_must_contain: [위생 또는 검역증명서, 첨부], document_name: 위생증명서 또는 검역증명서}
+  - {key: TH, rule_id: HYG-TH, effect: REQUIRE, scope_article: 적용범위, cert_article: 검사증명서,
+     scope_must_contain: [수산동물], cert_must_contain: [검사증명서, 첨부], document_name: 검사증명서}
+  - {key: ID, rule_id: HYG-ID, effect: REQUIRE, scope_article: 정의, cert_article: 위생증명서,
+     scope_must_contain: [수산물, 수산가공품], cert_must_contain: [위생 증명서, 첨부], document_name: 위생증명서}
+  - {key: EC, rule_id: HYG-EC, effect: REQUIRE, scope_article: 적용범위, cert_article: 위생증명서 첨부,
+     scope_must_contain: [수산 동·식물], cert_must_contain: [위생증명서, 첨부], document_name: 위생증명서}
+  - {key: "NO", rule_id: HYG-NO, effect: REQUIRE, scope_article: 적용 범위, cert_article: 위생증명서 발급,
+     scope_must_contain: [노르웨이, 수산동식물], cert_must_contain: [위생증명서], document_name: 위생증명서}
+  - {key: CL, rule_id: HYG-CL, effect: REQUIRE, scope_article: 적용범위, cert_article: 위생증명서 발급,
+     scope_must_contain: [칠레, 수산동식물], cert_must_contain: [위생증명서], document_name: 위생증명서}
+  - {key: PH, rule_id: HYG-PH, effect: REQUIRE, scope_article: 적용범위, cert_article: 위생증명서 발급,
+     scope_must_contain: [필리핀, 수산동식물], cert_must_contain: [위생증명서], document_name: 위생증명서}
+  - {key: PE, rule_id: HYG-PE, effect: REQUIRE, scope_article: 적용범위, cert_article: 위생증명서 발급,
+     scope_must_contain: [페루, 수산동식물], cert_must_contain: [위생증명서], document_name: 위생증명서}
+  - {key: AR, rule_id: HYG-AR, effect: REQUIRE, scope_article: 적용범위, cert_article: 위생증명서 발급,
+     scope_must_contain: [아르헨티나, 수산동식물], cert_must_contain: [위생증명서], document_name: 위생증명서}
+  - {key: ES, rule_id: HYG-ES, effect: REQUIRE, scope_article: 적용범위, cert_article: 위생증명서 발급,
+     scope_must_contain: [스페인, 수산동식물], cert_must_contain: [위생증명서], document_name: 위생증명서}
+
+# 식약처 고시 「수입식품등 신고 및 검사에 관한 규정」
+inspection_notice:
+  hygiene_original: {article: "9", must_contain: [수출국 정부, 원본]}     # 위생증명서의 원본 요건
+  articles:
+    - {rule_id: GEN-NOTICE22-RETURNED, article: "22", paragraph: "①", must_contain: [반송사유서, 처리계획서], effect: CONDITIONAL,
+       document_name: "반송사유서, 수출상대국의 부적합 사유서, 품목제조보고서(또는 신고서), 수출 또는 처리계획서",
+       condition_note: 수출했다가 외국에서 반송된 수입식품등을 수입할 때만 해당한다. 각 서류의 단서는 조문 인용을 본다.}
+    - {rule_id: GEN-NOTICE23-RESEARCH, article: "23", must_contain: [연구ㆍ조사계획서], effect: CONDITIONAL,
+       document_name: "연구ㆍ조사계획서(제조방법설명서, 연구ㆍ조사기간, 성분배합비율 포함)",
+       condition_note: 연구ㆍ조사 목적으로 수입할 때만 해당한다.}
+    - {rule_id: PRECHECK-ART17-5, article: "17", paragraph: "⑤", must_contain: [위생약정, 등록시설명, 반려], effect: NOTICE,
+       title: 위생약정국 수산물의 포장 표시(등록시설명·등록번호), when_hygiene_countries: true, when: {product_type: [raw]}}
+  annex2:
+    - {rule_id: ANNEX2-SURVEY-REPORT, start: 수입신고는 폐사된 양을, end: 선별하게 한 후 판정한다., must_contain: [검량서(Survey Report)],
+       effect: CONDITIONAL, when: {state_in: [live], product_type: [raw]}, document_name: 검량서(Survey Report),
+       condition_note: 활어·패류를 폐사된 양을 미리 빼고 신고할 때 첨부한다.}
+    - {rule_id: ANNEX2-PUFFER-RAW, start: 수입이 인정되는 복어는, end: 복어독 검사를 실시해야 한다., must_contain: [원산지증명서, 공관장, 면제],
+       effect: CONDITIONAL, when: {product_tags_any: [pufferfish], product_type: [raw]}, skip_when_unknown: true,
+       document_name: "원산지증명서(수출국 정부기관) 또는 합작어획물의 현지 공관장 확인서(복어 학명, 어획 해역명 기재)",
+       condition_note: 복어독 검사를 면제받으려 할 때 내는 서류다. 면제 요건과 예외는 인용문을 본다.}
+
+# 수입식품안전관리 특별법 제5조 → 신고 전 확인사항
+special_act_5:
+  - {rule_id: PRECHECK-FOREIGN-FACILITY, paragraphs: ["①", "⑤", "⑥"], must_contain: [해외제조업소, 수입신고 전까지, 수리를 거부], effect: NOTICE,
+     title: 해외제조업소 등록}
+
+# 검사지시(검사강화) 게시물을 조회 결과에 붙일 때 쓰는 낱말. 제목에 이 낱말이 있어야 수산물 관련으로 본다.
+advisories:
+  max_age_days: 180
+  # 한 글자 낱말(김, 게, 굴)은 '김치', '에게' 같은 다른 말에 걸리므로 넣지 않는다.
+  seafood_keywords: [수산, 어류, 패류, 해조, 새우, 오징어, 낙지, 문어, 꽃게, 대게, 조개, 가리비, 연어, 참치, 다랑어, 명태, 고등어, 장어, 복어, 젓갈, 어묵, 미역, 활어]

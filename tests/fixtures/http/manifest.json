@@ -1,0 +1,317 @@
+{
+ "7ffc48789d72a7bb": {
+  "url": "https://impfood.mfds.go.kr/CFCII04F01?page=1&limit=30",
+  "data": {},
+  "file": "00_7ffc48789d72a7bb.bin"
+ },
+ "8803e11ad1f98573": {
+  "url": "https://impfood.mfds.go.kr/CFCII04F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=666431",
+  "data": {},
+  "file": "01_8803e11ad1f98573.bin"
+ },
+ "017d95928b18272f": {
+  "url": "https://impfood.mfds.go.kr/file/downloadFile?fileSeq=10014663362&servFileName=1785830962757EqPZo.xlsx",
+  "data": {},
+  "file": "02_017d95928b18272f.bin"
+ },
+ "c10e3962479d9a12": {
+  "url": "https://radsafe.mfds.go.kr/CFQCC02F01",
+  "data": {},
+  "file": "03_c10e3962479d9a12.bin"
+ },
+ "561d90cb01343c3a": {
+  "url": "https://www.law.go.kr/법령/수입식품안전관리특별법시행규칙",
+  "data": {},
+  "file": "04_561d90cb01343c3a.bin"
+ },
+ "e15a2c73e556935a": {
+  "url": "https://www.law.go.kr/LSW/lsInfoR.do",
+  "data": {
+   "lsiSeq": "290799",
+   "efYd": "20260930",
+   "chrClsCd": "010202",
+   "urlMode": "lsInfoP",
+   "ancYnChk": "0"
+  },
+  "file": "05_e15a2c73e556935a.bin"
+ },
+ "e3b8e71f0c0b6be1": {
+  "url": "https://impfood.mfds.go.kr/CFBEE01F01",
+  "data": {},
+  "file": "06_e3b8e71f0c0b6be1.bin"
+ },
+ "2001d8339a2ea494": {
+  "url": "https://impfood.mfds.go.kr/CFBAA01F01?searchCondition=all&searchInpText=%EC%9C%84%EC%83%9D%EC%95%BD%EC%A0%95&limit=50",
+  "data": {},
+  "file": "07_2001d8339a2ea494.bin"
+ },
+ "9c8a6cc84923449e": {
+  "url": "https://impfood.mfds.go.kr/CFBAA01F01?searchCondition=all&searchInpText=%EC%9C%84%EC%83%9D%EC%A6%9D%EB%AA%85%EC%84%9C&limit=50",
+  "data": {},
+  "file": "08_9c8a6cc84923449e.bin"
+ },
+ "ec9dffc4f0ef29f3": {
+  "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=607441",
+  "data": {},
+  "file": "09_ec9dffc4f0ef29f3.bin"
+ },
+ "9fd8a4eb960e49ae": {
+  "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=572258",
+  "data": {},
+  "file": "10_9fd8a4eb960e49ae.bin"
+ },
+ "97026a713e83376e": {
+  "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=550048",
+  "data": {},
+  "file": "11_97026a713e83376e.bin"
+ },
+ "4f4c4f67602ba623": {
+  "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=470604",
+  "data": {},
+  "file": "12_4f4c4f67602ba623.bin"
+ },
+ "f4f2f689ff99dde0": {
+  "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=415958",
+  "data": {},
+  "file": "13_f4f2f689ff99dde0.bin"
+ },
+ "75af642cced59b7c": {
+  "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=219479",
+  "data": {},
+  "file": "14_75af642cced59b7c.bin"
+ },
+ "9aa0cc341351897c": {
+  "url": "https://www.law.go.kr/행정규칙/대한민국과중화인민공화국간수출·입수산물위생관리",
+  "data": {},
+  "file": "15_9aa0cc341351897c.bin"
+ },
+ "843eb5242c5e4606": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000219394",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "16_843eb5242c5e4606.bin"
+ },
+ "caefca30a2c1ef51": {
+  "url": "https://www.law.go.kr/행정규칙/대한민국과중화인민공화국간수출입야생수산물의검사및위생요건에관한고시",
+  "data": {},
+  "file": "17_caefca30a2c1ef51.bin"
+ },
+ "a5639c98601c7fac": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000282018",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "18_a5639c98601c7fac.bin"
+ },
+ "fbca895afd8f98b6": {
+  "url": "https://www.law.go.kr/행정규칙/대한민국과러시아간수출·입수산물및수산가공품의품질관리및위생안전",
+  "data": {},
+  "file": "19_fbca895afd8f98b6.bin"
+ },
+ "17d5c130b267b3f8": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000219396",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "20_17d5c130b267b3f8.bin"
+ },
+ "fd66b49d9e8edae1": {
+  "url": "https://www.law.go.kr/행정규칙/대한민국과베트남사회주의공화국간수산물위생및식품안전관리와검역에관한고시",
+  "data": {},
+  "file": "21_fd66b49d9e8edae1.bin"
+ },
+ "40ebff4af9257c69": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000212307",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "22_40ebff4af9257c69.bin"
+ },
+ "93fe51410a3858cb": {
+  "url": "https://www.law.go.kr/행정규칙/대한민국과태국간수출·입수산물·수산제품의품질관리및위생안전",
+  "data": {},
+  "file": "23_93fe51410a3858cb.bin"
+ },
+ "32a8093181e6c95d": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000219398",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "24_32a8093181e6c95d.bin"
+ },
+ "51ce8d7053bfb859": {
+  "url": "https://www.law.go.kr/행정규칙/대한민국과인도네시아공화국간수출입수산물·수산가공품의품질관리및위생안전협력에관한고시",
+  "data": {},
+  "file": "25_51ce8d7053bfb859.bin"
+ },
+ "bcb593ea4f50e937": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000250588",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "26_bcb593ea4f50e937.bin"
+ },
+ "fbd2e3236c421eec": {
+  "url": "https://www.law.go.kr/행정규칙/대한민국과에콰도르공화국간수산물의품질관리및위생안전에관한고시",
+  "data": {},
+  "file": "27_fbd2e3236c421eec.bin"
+ },
+ "ac35c1c38df3321d": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000181691",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "28_ac35c1c38df3321d.bin"
+ },
+ "34137e9b1215f529": {
+  "url": "https://www.law.go.kr/행정규칙/대한민국과노르웨이간수입수산물식품안전에관한규정",
+  "data": {},
+  "file": "29_34137e9b1215f529.bin"
+ },
+ "dbdd5bcc91970bef": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000199382",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "30_dbdd5bcc91970bef.bin"
+ },
+ "4524504b88fadaaf": {
+  "url": "https://www.law.go.kr/행정규칙/대한민국과칠레공화국간수입수산물식품안전에관한규정",
+  "data": {},
+  "file": "31_4524504b88fadaaf.bin"
+ },
+ "9c9ba74e076102c9": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000181951",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "32_9c9ba74e076102c9.bin"
+ },
+ "0715584e901da305": {
+  "url": "https://www.law.go.kr/행정규칙/대한민국과필리핀간수입수산물식품안전에관한규정",
+  "data": {},
+  "file": "33_0715584e901da305.bin"
+ },
+ "0cc0e1362ee83d45": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000211236",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "34_0cc0e1362ee83d45.bin"
+ },
+ "4e31372be172594d": {
+  "url": "https://www.law.go.kr/행정규칙/대한민국과페루간수입수산물안전에관한규정",
+  "data": {},
+  "file": "35_4e31372be172594d.bin"
+ },
+ "17defa4d9a144207": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000228958",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "36_17defa4d9a144207.bin"
+ },
+ "0259c516b071e795": {
+  "url": "https://www.law.go.kr/행정규칙/대한민국과아르헨티나간수입수산물식품안전에관한규정",
+  "data": {},
+  "file": "37_0259c516b071e795.bin"
+ },
+ "cbe786835d00ed69": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000238150",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "38_cbe786835d00ed69.bin"
+ },
+ "2595b7a5958f18d8": {
+  "url": "https://www.law.go.kr/행정규칙/대한민국과스페인간수입수산물식품안전에관한규정",
+  "data": {},
+  "file": "39_2595b7a5958f18d8.bin"
+ },
+ "429c0dbaa0b1724a": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000257276",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "40_429c0dbaa0b1724a.bin"
+ },
+ "658cca4dccf3348b": {
+  "url": "https://www.law.go.kr/행정규칙/수입식품등신고및검사에관한규정",
+  "data": {},
+  "file": "41_658cca4dccf3348b.bin"
+ },
+ "e42a693c2778fbed": {
+  "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do",
+  "data": {
+   "admRulSeq": "2100000263512",
+   "chrClsCd": "010201",
+   "urlMode": "admRulLsInfoP"
+  },
+  "file": "42_e42a693c2778fbed.bin"
+ },
+ "9707a99722fbbe4e": {
+  "url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=155942251&bylClsCd=200201",
+  "data": {},
+  "file": "43_9707a99722fbbe4e.bin"
+ },
+ "acdd3e84ef83b3d1": {
+  "url": "https://www.law.go.kr/법령/수입식품안전관리특별법",
+  "data": {},
+  "file": "44_acdd3e84ef83b3d1.bin"
+ },
+ "154b31bce48dae0f": {
+  "url": "https://www.law.go.kr/LSW/lsInfoR.do",
+  "data": {
+   "lsiSeq": "285337",
+   "efYd": "20261008",
+   "chrClsCd": "010202",
+   "urlMode": "lsInfoP",
+   "ancYnChk": "0"
+  },
+  "file": "45_154b31bce48dae0f.bin"
+ },
+ "74b52bdabc7054f8": {
+  "url": "https://www.foodsafetykorea.go.kr/portal/board/boardList.do",
+  "data": {
+   "menu_no": "4457",
+   "menu_grp": "MENU_NEW01",
+   "bbs_no": "bbs031",
+   "ctgry_no": "577",
+   "ctgType": "CTG_TYPE01",
+   "ctgry_type_cd": "CTG_TYPE01",
+   "start_idx": "1",
+   "show_cnt": "50",
+   "bbs_type_cd": "01",
+   "nticmatr_yn": "N",
+   "ans_yn": "N"
+  },
+  "file": "46_74b52bdabc7054f8.bin"
+ }
+}

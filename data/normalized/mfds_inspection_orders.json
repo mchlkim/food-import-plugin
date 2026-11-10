@@ -1,0 +1,133 @@
+{
+  "source_id": "mfds_inspection_orders",
+  "title": "검사명령 대상 식품 현황 (수입식품정보마루 > 검사명령제)",
+  "retrieved_at": "2026-11-10T14:22:30+09:00",
+  "url": "https://impfood.mfds.go.kr/CFBEE01F01",
+  "publication_date": null,
+  "content": {
+    "orders": [
+      {
+        "seq": 1,
+        "period_text": "'16.2.29.~'27.2.28.",
+        "effective_from": "2016-02-29",
+        "effective_to": "2027-02-28",
+        "product_text": "천연향신료 중 분말형태의 제품",
+        "country_text": "인도",
+        "test_items": "금속성이물",
+        "location": "검사명령 대상 식품 현황 표 순번 1"
+      },
+      {
+        "seq": 2,
+        "period_text": "'18.10.22.~'27.10.21.",
+        "effective_from": "2018-10-22",
+        "effective_to": "2027-10-21",
+        "product_text": "베리류(블루베리, 링곤베리, 빌베리) 및 이를 원료로 제조한 잼류, 과․채가공품",
+        "country_text": "폴란드, 프랑스, 이탈리아, 독일, 핀란드, 오스트리아, 스웨덴",
+        "test_items": "방사능 (요오드, 세슘)",
+        "location": "검사명령 대상 식품 현황 표 순번 2"
+      },
+      {
+        "seq": 3,
+        "period_text": "'21.3.31.~'27.3.30.",
+        "effective_from": "2021-03-31",
+        "effective_to": "2027-03-30",
+        "product_text": "참다랑어(생식용 수산물)",
+        "country_text": "일본(수출국)",
+        "test_items": "살모넬라",
+        "location": "검사명령 대상 식품 현황 표 순번 3"
+      },
+      {
+        "seq": 4,
+        "period_text": "'21.10.22.~'27.10.21.",
+        "effective_from": "2021-10-22",
+        "effective_to": "2027-10-21",
+        "product_text": "과자 (밀봉제품에 한하며, 발효제품 또는 유산균 함유제품 제외)",
+        "country_text": "인도 (1개 제조업소)",
+        "test_items": "세균수",
+        "location": "검사명령 대상 식품 현황 표 순번 4"
+      },
+      {
+        "seq": 5,
+        "period_text": "'22.3.31.~'27.3.30.",
+        "effective_from": "2022-03-31",
+        "effective_to": "2027-03-30",
+        "product_text": "기타소금",
+        "country_text": "파키스탄",
+        "test_items": "불용분",
+        "location": "검사명령 대상 식품 현황 표 순번 5"
+      },
+      {
+        "seq": 6,
+        "period_text": "'22.12.24.~'26.12.23.",
+        "effective_from": "2022-12-24",
+        "effective_to": "2026-12-23",
+        "product_text": "목이버섯(자실체, 건조)",
+        "country_text": "중국",
+        "test_items": "잔류농약 1종 (카벤다짐)",
+        "location": "검사명령 대상 식품 현황 표 순번 6"
+      },
+      {
+        "seq": 7,
+        "period_text": "'23.3.31.~'27.3.30.",
+        "effective_from": "2023-03-31",
+        "effective_to": "2027-03-30",
+        "product_text": "고추(열매)",
+        "country_text": "베트남",
+        "test_items": "잔류농약 5종 (퍼메트린, 트리사이클로라졸, 아이소프로티올레인, 퀴날포스, 티플루자마이드)",
+        "location": "검사명령 대상 식품 현황 표 순번 7"
+      },
+      {
+        "seq": 8,
+        "period_text": "'23.6.30.~'27.6.29",
+        "effective_from": "2023-06-30",
+        "effective_to": "2027-06-29",
+        "product_text": "침출차",
+        "country_text": "중국",
+        "test_items": "잔류농약 5종 (피리다벤, 디노테퓨란, 오쏘페닐페놀, 프로클로라즈, 클로르피리포스)",
+        "location": "검사명령 대상 식품 현황 표 순번 8"
+      },
+      {
+        "seq": 9,
+        "period_text": "'24.12.30.~'26.12.29.",
+        "effective_from": "2024-12-30",
+        "effective_to": "2026-12-29",
+        "product_text": "냉동부세",
+        "country_text": "중국",
+        "test_items": "에톡시퀸",
+        "location": "검사명령 대상 식품 현황 표 순번 9"
+      },
+      {
+        "seq": 10,
+        "period_text": "'25.3.31.~'27.3.30.",
+        "effective_from": "2025-03-31",
+        "effective_to": "2027-03-30",
+        "product_text": "불로초",
+        "country_text": "중국",
+        "test_items": "잔류농약 15종 (말라티온, 사이퍼메트린, 사이할로트린, 아세타미프리드, 아세토클로르, 이미다클로포프리드, 이프로디온, 카벤다짐, 클로르페나피르, 클로르피리포스, 트리아조포스, 트리폴록시스트로빈, 펜프로파트린, 포레이트, 프로클로라즈)",
+        "location": "검사명령 대상 식품 현황 표 순번 10"
+      },
+      {
+        "seq": 11,
+        "period_text": "'25.6.30.~'27.6.29",
+        "effective_from": "2025-06-30",
+        "effective_to": "2027-06-29",
+        "product_text": "새우 및 기타 수산물가공품(새우 함유량 30% 이상)",
+        "country_text": "베트남 (4개 제조업소)",
+        "test_items": "독시싸이클린",
+        "location": "검사명령 대상 식품 현황 표 순번 11"
+      },
+      {
+        "seq": 12,
+        "period_text": "'25.12.30.~'26.12.29",
+        "effective_from": "2025-12-30",
+        "effective_to": "2026-12-29",
+        "product_text": "금박",
+        "country_text": "일본",
+        "test_items": "동 ",
+        "location": "검사명령 대상 식품 현황 표 순번 12"
+      }
+    ],
+    "compliance_text": "수입식품등 수입판매업자는 수입신고 관할 지방식약청장에게 수입신고 시 구비서류로 제출(미 제출시 수입신고서 반려)"
+  },
+  "content_hash": "ceb33eef192f679792e7561939829defd2d4f91a407c65c8e19d15495276d3c3"
+}

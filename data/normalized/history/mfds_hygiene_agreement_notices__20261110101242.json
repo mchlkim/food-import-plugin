@@ -1,0 +1,79 @@
+{
+  "source_id": "mfds_hygiene_agreement_notices",
+  "title": "수산물 위생약정 관련 공지 (수입식품정보마루 > 공지사항, 증명서제출)",
+  "retrieved_at": "2026-11-10T10:12:42+09:00",
+  "url": "https://impfood.mfds.go.kr/CFBAA01F01",
+  "publication_date": null,
+  "content": {
+    "notices": [
+      {
+        "country": "AR",
+        "sn": "572258",
+        "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=572258",
+        "title": "한-아르헨티나 수산물 위생약정 관련 위생증명서 양식 및 해외제조업소 명단 알림",
+        "publication_date": "2024-07-30",
+        "body": "한 -아르헨티나 수산물 위생약정 시행 ('24.8.10. 선적분부터) 과 관련하여 아르헨티나 위생당국과 협의완료하여 통보받은 위생증명서 양식과 아르헨티나측 수산물 해외제조업소 (등록시설) 명단 (293 개소) 을 붙임과 같이 알려드리오니 수입수산물 검사 업무에 참고하시기 바랍니다. 참고: 한-아르헨티나 수산물 위생약정 관련 수입영업자 설명회 자료를 붙임과 같이 첨부함",
+        "effective_from": "2024-08-10",
+        "effective_basis": "shipment"
+      },
+      {
+        "country": "CL",
+        "sn": "219479",
+        "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=219479",
+        "title": "'한-칠레 수산물 위생약정'에 따른 해외제조업소 목록 게시",
+        "publication_date": "2020-03-31",
+        "body": "'한-칠레 수산물 위생약정'에 따른 수산물 해외제조업소 목록을 올려드리니, 수입신고에 참고하시기 바랍니다.",
+        "effective_from": null,
+        "effective_basis": null
+      },
+      {
+        "country": "ES",
+        "sn": "607441",
+        "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=607441",
+        "title": "한-스페인 수산물 위생약정 관련 위생증명서 양식 및 해외제조업소 명단 알림",
+        "publication_date": "2025-06-17",
+        "body": "한 -스페인 수산물 위생약정 시행 ('25. 6.24. 선적분부터) 과 관련하여 수페인 위생당국과 협의완료하여 통보받은 위생증명서 양식과 스페인측 수산물 해외제조업소 (등록시설) 명단 (15 개소) 을 붙임과 같이 알려드리오니 수입수산물 검사 업무에 참고하시기 바랍니다. ※ 스페인 해외제조업소 15개소 등록에 대한 질의한 결과 \"스페인 답변\" -수개월 전부터 관심 있는 기업들이 신청을 제출할 수 있도록 절차가 개시되었으며, 스페인 규정에 따라 해당 시설이 한국으로의 수출 기준을 충족하는지 확인하기 위한 필요한 검사가 진행됩니다. 이러한 검사가 완료되면 식약처에 추가 목록을 전달해 드릴 예정입니다. 앞서 제출한 목록(15개소)에는 해당 절차를 완료한 모든 시설이 포함되어 있습니다. 현재 처리 중인 다른 많은 신청서가 있으며, 이들이 완료되면 목록의 후속 확장 시 한국에 통보될 것입니다. 이런 지연 문제로 일부 기업은 목록에 포함되지 않아 일시적으로 수출을 중단해야 할 수 있다는 점도 인지 하고 있습니다. 협조에 감사드립니다. 참고: 한-스페인 수산물 위생약정 관련 수입영업자 설명회 자료를 붙임과 같이 첨부함",
+        "effective_from": "2025-06-24",
+        "effective_basis": "shipment"
+      },
+      {
+        "country": "NO",
+        "sn": "415958",
+        "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=415958",
+        "title": "노르웨이 수산물 해외제조업소(등록시설) 명단(223개소)_시행 '21.9.23.선적분부터",
+        "publication_date": "2021-09-13",
+        "body": "한-노르웨이 수산물 위생약정 시행('21.9.23.선적분부터)과 관련하여 노르웨이 식품안전청으로부터 통보받은 노르웨이측 수산물 해외제조업소(등록시설) 명단(223개소)을 붙임과 같이 알려드리오니 수입수산물 검사 업무에 참고하시기 바랍니다.",
+        "effective_from": "2021-09-23",
+        "effective_basis": "shipment"
+      },
+      {
+        "country": "PE",
+        "sn": "550048",
+        "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=550048",
+        "title": "한-페루 수산물 위생약정 관련 위생증명서 양식 및 해외제조업소 명단 알림",
+        "publication_date": "2023-12-22",
+        "body": "한 -페루 수산물 위생약정 시행 ('24.1.13. 선적분부터) 과 관련하여 페루 수산청과 협의완료하여 통보받은 위생증명서 양식과 페루측 수산물 해외제조업소 (등록시설) 명단 (199 개소) 을 붙임과 같이 알려드리오니 수입수산물 검사 업무에 참고하시기 바랍니다.",
+        "effective_from": "2024-01-13",
+        "effective_basis": "shipment"
+      },
+      {
+        "country": "PH",
+        "sn": "470604",
+        "url": "https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=470604",
+        "title": "한-필리핀 수산물 위생약정 관련 위생증명서 양식 및 해외제조업소 명단 알림",
+        "publication_date": "2022-05-20",
+        "body": "한-필리핀 수산물 위생약정 시행('22.6.20.선적분부터)과 관련하여 필리핀 수산청과 협의한 으로부터 통보받은 위생증명서 양식과 필리핀측 수산물 해외제조업소(등록시설) 명단(246개소)을 붙임과 같이 알려드리오니 수입수산물 검사 업무에 참고하시기 바랍니다. 아울러, 32개 업소(초록색, 노란색)에서 대해서는 추가적으로 확인하고 있음을 알려드립니다.",
+        "effective_from": "2022-06-20",
+        "effective_basis": "shipment"
+      }
+    ],
+    "unregistered_notices": [
+      {
+        "sn": "474218",
+        "title": "한-필리핀 수산물 위생약정에 따른 해외제조업소 명단 변경 알림",
+        "date": "2022-06-18"
+      }
+    ]
+  },
+  "content_hash": "cdbca4d5faf4c6f7fcf705a03cc7c600519695aa889e4801c1f6f268a4983d99"
+}
