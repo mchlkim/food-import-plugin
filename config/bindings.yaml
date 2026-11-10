@@ -8,79 +8,79 @@
 # 이 표를 고치면 규칙이 달라지므로 변경분은 검토 대기를 거쳐 승인해야 반영된다.
 
 required_docs_rows:
-  # 「수입신고 시 제출하여야 하는 구비서류 목록」 엑셀의 연번(seq)과 그 안의 순서(sub, 0부터)
-  - seq: 3
-    sub: 0
-    must_contain: [복어]
-    rule_id: MFDS-LIST-PUFFER-PROCESSED
-    topic: item_specific
-    effect: REQUIRE
-    when:
-      product_tags_any: [pufferfish]
-      product_type: [processed]
-    category: 품목별 추가 구비서류
-    document_name: 복어 가공식품 증명서류(원산지 증명서(학명), 복어독 검사성적서, 복어유전자 검사성적서)
-
-  - seq: 6
-    sub: 0
-    must_contain: [일본, 가공식품]
-    rule_id: JP-PROCESSED-RADCERT
-    topic: jp_radiation_processed
-    effect: REQUIRE
-    regions_from_text: listed          # 대상제품 문장의 괄호 안 도·현 목록을 읽는다
-    expected_region_count: 13
-    when:
-      origin_country: [JP]
-      product_type: [processed]
-    category: 국가별 추가 구비서류
-    document_name: 방사능 검사성적서를 포함한 일본 정부 증명서
-
-  - seq: 6
-    sub: 1
-    must_contain: [일본, 34]
-    rule_id: JP-PROCESSED-ORIGINCERT
-    topic: jp_radiation_processed
-    effect: REQUIRE
-    regions_from_text: complement_of_previous   # 위 13개 도·현을 뺀 나머지
-    expected_region_count: 34
-    when:
-      origin_country: [JP]
-      product_type: [processed]
-    category: 국가별 추가 구비서류
-    document_name: 일본 정부 생산지 증명서
-
-  - seq: 9
-    sub: all
-    must_contain: [쥐치포]
-    rule_id: VN-FILEFISH-JERKY
-    topic: item_specific
-    effect: CONDITIONAL
-    when:
-      export_country: [VN]
-      product_tags_any: [filefish_jerky]
-    category: 국가별 추가 구비서류
-    document_name: 베트남 쥐치포·조미쥐치포 정부 증명서(성적서)
-    condition_note: 해외제조업소별로 요구 증명서가 다르다. 제조업소가 목록의 어느 구분에 있는지 원문에서 확인한다.
-
-  - seq: 19
-    sub: 0
-    must_contain: [학명, 수산물]
-    rule_id: MFDS-LIST-SCIENTIFIC-NAME
-    topic: item_specific
-    effect: CONDITIONAL
-    when:
-      product_type: [raw]
-    category: 품목별 추가 구비서류
-    document_name: 학명이 기재된 자료
-    condition_note: 식품 원재료분류에서 학명이 정해진 수산물일 때 제출한다. 해당 품목의 학명 지정 여부는 식품원료 조회(수입식품정보마루 /CFBDD03F01)에서 확인한다.
-    date_basis: shipment
-    effective_from_note: F        # 적용 시작일을 엑셀 '기타' 열(F)에서 읽는다
-
-# 수산물과 관련 있어 보이는데 위 표에 없는 행을 찾을 때 쓰는 낱말
-seafood_keywords: [수산, 어류, 패류, 해조, 갑각, 연체, 복어, 쥐치, 새우, 오징어, 젓갈, 어육, 어묵, 생선, 조개]
+  # 「수입신고 시 제출하여야 하는 구비서류 목록」 엑셀의 연번(seq)과 그 안의 순서(sub, 0부터. 목록이나 all 도 된다)
+  # countries: column = '대상국가' 열의 국가명을 읽는다 / footnote = 같은 연번의 각주에 열거된 국가를 읽는다 / 없으면 모든 국가
+  # when.ingredient_any: 원재료 조건. 원재료를 입력하지 않은 조회에는 '조건부'로 답한다.
+  # 연번 2, 7 의 'BSE관련 36개국'은 목록이 엑셀에 없어 국가 조건을 걸지 못한다. 그래서 조건부로만 답한다.
+  - {seq: 1, sub: 0, must_contain: [소금], rule_id: MFDS-LIST-BURNT-SALT, topic: item_specific, effect: REQUIRE,
+     when: {product_tags_any: [burnt_salt]}, document_name: 다이옥신 잔류량 검사성적서}
+  - {seq: 2, sub: 0, must_contain: [반추동물], rule_id: MFDS-LIST-RUMINANT, topic: item_specific, effect: CONDITIONAL,
+     when: {category_in: [processed, health_functional, additive], ingredient_any: [ruminant]},
+     document_name: BSE 미감염 원료 사용 수출국 정부증명서,
+     condition_note: "반추동물과 그 부산물을 원료로 쓴 제품일 때 해당한다. 대상국가는 '모든국가(BSE관련 36개국 제외)'인데 36개국 목록이 엑셀에 없어 국가를 판정하지 못했다."}
+  - {seq: 3, sub: 0, must_contain: [복어], rule_id: MFDS-LIST-PUFFER-PROCESSED, topic: item_specific, effect: REQUIRE,
+     when: {product_tags_any: [pufferfish], product_type: [processed]},
+     document_name: "복어 가공식품 증명서류(원산지 증명서(학명), 복어독 검사성적서, 복어유전자 검사성적서)"}
+  - {seq: 4, sub: 0, must_contain: [중국, 천일염], rule_id: CN-SOLAR-SALT, topic: item_specific, effect: REQUIRE, countries: column,
+     when: {product_tags_any: [solar_salt]}, document_name: 식염 인증·요오드 무첨가 제조사 증빙서류}
+  - {seq: 5, sub: 0, must_contain: [뉴질랜드, 꿀], rule_id: NZ-HONEY, topic: item_specific, effect: REQUIRE, countries: column,
+     when: {product_tags_any: [honey]}, document_name: 뉴질랜드 정부증명서(식용 생산 확인)}
+  - {seq: 6, sub: 0, must_contain: [일본, 가공식품], rule_id: JP-PROCESSED-RADCERT, topic: jp_radiation_processed, effect: REQUIRE,
+     regions_from_text: listed, expected_region_count: 13,
+     when: {origin_country: [JP], category_in: [agricultural, processed, health_functional, additive]},
+     document_name: 방사능 검사성적서를 포함한 일본 정부 증명서}
+  - {seq: 6, sub: 1, must_contain: [일본, 34], rule_id: JP-PROCESSED-ORIGINCERT, topic: jp_radiation_processed, effect: REQUIRE,
+     regions_from_text: complement_of_previous, expected_region_count: 34,
+     when: {origin_country: [JP], category_in: [agricultural, processed, health_functional, additive]},
+     document_name: 일본 정부 생산지 증명서}
+  - {seq: 7, sub: 0, must_contain: [우지], rule_id: MFDS-LIST-BSE-TALLOW, topic: item_specific, effect: CONDITIONAL,
+     when: {category_in: [processed, health_functional, additive], ingredient_any: [tallow]}, document_name: 우지 불용성 불순물 함량 수출국 정부 증명서,
+     condition_note: "대상국가가 'BSE관련 36개국'인데 목록이 엑셀에 없어 국가를 판정하지 못했다. 우지가공품이거나 이를 원료로 쓴 제품일 때 해당한다."}
+  - {seq: 7, sub: [1, 2], must_contain: [젤라틴, 콜라겐], rule_id: MFDS-LIST-BSE-GELATIN, topic: item_specific, effect: CONDITIONAL,
+     when: {category_in: [processed, health_functional, additive], ingredient_any: [gelatin, collagen]}, document_name: 소 유래 젤라틴·콜라겐 수출국 정부 증명서(또는 협의된 검역증명서),
+     condition_note: "대상국가가 'BSE관련 36개국'인데 목록이 엑셀에 없어 국가를 판정하지 못했다. 우피 또는 소 뼈 유래 젤라틴·콜라겐이거나 이를 원료로 쓴 제품일 때 해당한다."}
+  - {seq: 7, sub: 3, must_contain: [제2인산칼슘], rule_id: MFDS-LIST-BSE-DCP, topic: item_specific, effect: CONDITIONAL,
+     when: {category_in: [processed, health_functional, additive], ingredient_any: [dcp]}, document_name: 제2인산칼슘 단백질·지방 불함유 수출국 정부 증명서,
+     condition_note: "대상국가가 'BSE관련 36개국'인데 목록이 엑셀에 없어 국가를 판정하지 못했다. 반추동물을 원료로 만든 제2인산칼슘일 때 해당한다."}
+  - {seq: 8, sub: 0, must_contain: [대마], rule_id: MFDS-LIST-HEMP-SEED, topic: item_specific, effect: REQUIRE,
+     when: {category_in: [agricultural, processed, health_functional, additive], ingredient_any: [hemp_seed]}, document_name: 대마씨 THC·CBD 검사성적서}
+  - {seq: 9, sub: all, must_contain: [쥐치포], rule_id: VN-FILEFISH-JERKY, topic: item_specific, effect: CONDITIONAL,
+     when: {export_country: [VN], product_tags_any: [filefish_jerky]},
+     document_name: 베트남 쥐치포·조미쥐치포 정부 증명서(성적서),
+     condition_note: 해외제조업소별로 요구 증명서가 다르다. 제조업소가 목록의 어느 구분에 있는지 원문에서 확인한다.}
+  - {seq: 10, sub: 0, must_contain: [젤라틴], rule_id: MFDS-LIST-GELATIN-ORIGIN, topic: item_specific, effect: REQUIRE,
+     when: {category_in: [processed, health_functional, additive], ingredient_any: [gelatin]}, document_name: 젤라틴 원료 유래 확인 제조회사 증명서}
+  - {seq: 11, sub: 0, must_contain: [파피], rule_id: MFDS-LIST-POPPY-SEED, topic: item_specific, effect: REQUIRE,
+     when: {product_tags_any: [poppy_seed]}, document_name: 모르핀 불검출 검사성적서}
+  - {seq: 12, sub: 0, must_contain: [중국, 다진마늘], rule_id: CN-MINCED-GARLIC, topic: item_specific, effect: REQUIRE, countries: column,
+     when: {product_tags_any: [minced_garlic]},
+     document_name: "중국 정부 위생증명서, 원료마늘 구매계약서, 무·양파 미혼입 검사성적서, 제조업체 증명서"}
+  - {seq: 13, sub: 0, must_contain: [LED완구, 캔디], rule_id: MFDS-LIST-LED-CANDY, topic: item_specific, effect: REQUIRE,
+     when: {product_tags_any: [led_candy]}, document_name: 어린이제품 안전확인신고확인증과 안전확인신고서 첨부서류}
+  - {seq: 14, sub: 0, must_contain: [ASF, 돼지], rule_id: MFDS-LIST-ASF-PORK, topic: item_specific, effect: REQUIRE, countries: footnote,
+     when: {category_in: [agricultural, seafood, processed, health_functional, additive], ingredient_any: [pork]},
+     document_name: "열처리 증명서, ASF 검사성적서, ASF FREE 증명서 중 하나",
+     condition_note: "돼지를 원재료로 제조·가공한 제품(축산물 제외)일 때 해당한다. 제외 원재료와 국가 변경 사항은 원문을 본다."}
+  - {seq: 15, sub: 0, must_contain: [PET], rule_id: MFDS-LIST-PET-WARE, topic: item_specific, effect: CONDITIONAL, countries: column,
+     when: {category_in: [apparatus]}, document_name: 제조회사 재질 확인증명서,
+     condition_note: 폴리에틸렌테레프탈레이트(PET) 재질의 식품용 기구일 때 해당한다.}
+  - {seq: 16, sub: 0, must_contain: [천일염, 벌크], rule_id: MFDS-LIST-BULK-SOLAR-SALT, topic: item_specific, effect: CONDITIONAL,
+     when: {product_tags_any: [solar_salt]}, document_name: 식용 천일염 분류·인증 확인서류(정부기관 또는 공적기관),
+     condition_note: 벌크 형태로 수입하는 천일염일 때 해당한다(최종 소비자용 포장 제품 제외)., date_basis: shipment, effective_from_note: F}
+  - {seq: 17, sub: 0, must_contain: [기능성], rule_id: MFDS-LIST-FUNCTIONAL-LABEL, topic: item_specific, effect: CONDITIONAL,
+     when: {category_in: [agricultural, seafood, processed]}, document_name: "건강기능식품 원료요건 충족자료, 기능성 성분 함량 시험성적서",
+     condition_note: 기능성을 표시한 일반식품일 때 해당한다(건강기능식품 제외).}
+  - {seq: 18, sub: 0, must_contain: [선박벌크, 농산물], rule_id: MFDS-LIST-BULK-AGRI, topic: item_specific, effect: CONDITIONAL,
+     when: {category_in: [agricultural]}, document_name: 선적물량 공인검사기관 검사성적서,
+     condition_note: 선박벌크 농산물을 2곳 이상의 통관장소에 나누어 반입하고 사전 수입신고할 때 해당한다.}
+  - {seq: 19, sub: 0, must_contain: [학명, 수산물], rule_id: MFDS-LIST-SCIENTIFIC-NAME, topic: item_specific, effect: CONDITIONAL,
+     when: {category_in: [agricultural, seafood]}, document_name: 학명이 기재된 자료,
+     condition_note: "식품 원재료분류에서 학명이 정해진 농·임산물, 수산물일 때 제출한다. 해당 품목의 학명 지정 여부는 식품원료 조회(수입식품정보마루 /CFBDD03F01)에서 확인한다.",
+     date_basis: shipment, effective_from_note: F}
 
 law_article_27_items:
   # 시행규칙 제27조제1항 각 호. key 는 호 번호.
+  # 조건부 서류의 조건은 요약하지 않고 그 호의 조문 전체를 그대로 쓴다. annex_quotes 는 조문이 가리키는 별표의 문장이다.
   - key: "1"
     must_contain: [한글표시]
     rule_id: GEN-ART27-1-LABEL
@@ -91,50 +91,80 @@ law_article_27_items:
     rule_id: GEN-ART27-1-2-PHOTO
     effect: CONDITIONAL
     document_name: 수입식품등의 사진
-    condition_note: 조문 단서(별표 9 제2호가목1)~3) 해당 식품, 식약처 홈페이지 게시 제외 식품)에 해당하면 내지 않는다.
+    annex_quotes:      # 조문 단서 가목이 가리키는 별표 9 제2호가목1)~3)
+      - {annex: 별표 9, label: "별표 9 제2호가목1)", start: "1)「대외무역법 시행령」", end: "제외한다.", must_contain: [외화획득용]}
+      - {annex: 별표 9, label: "별표 9 제2호가목2)", start: "2)자사제품 제조용 원료(", end: "어느 하나에 해당하는 수입식품등", must_contain: [자사제품제조용원료]}
+      - {annex: 별표 9, label: "별표 9 제2호가목3)", start: "3)연구ㆍ조사에 사용하는 수입식품등", end: "포함한다)", must_contain: [연구ㆍ조사]}
   - key: "2"
     must_contain: [국외시험]
     rule_id: GEN-ART27-2-FOREIGN-LAB
     effect: CONDITIONAL
     document_name: 국외시험·검사기관 시험·검사성적서
-    condition_note: 별표 9 제2호다목의 정밀검사 대상 식품만 해당한다.
+    annex_quotes:
+      - {annex: 별표 9, label: "별표 9 제2호다목", start: 정밀검사란, end: "대상으로 한다.", must_contain: [정밀검사]}
   - key: "3"
     must_contain: [유전자변형]
     rule_id: GEN-ART27-3-GMO
     effect: CONDITIONAL
     document_name: 구분유통증명서 등 유전자변형식품 관련 서류
-    condition_note: 유전자변형식품등 표시대상인데 표시하지 않은 경우만 해당한다.
   - key: "4"
     must_contain: [소비기한]
     rule_id: GEN-ART27-4-OEM
     effect: CONDITIONAL
     document_name: 소비기한 설정사유서 또는 연장사유서
-    condition_note: 주문자상표부착(OEM) 수입식품등만 해당한다.
   - key: "5"
     must_contain: [수출계획서]
     rule_id: GEN-ART27-5-EXPORT-PLAN
     effect: CONDITIONAL
     document_name: 수출계획서
-    condition_note: 대외무역법에 따라 외화획득용으로 수입하는 경우만 해당한다.
   - key: "6"
     must_contain: [영업허가]
     rule_id: GEN-ART27-6-LICENSE
     effect: CONDITIONAL
     document_name: 영업허가 등 인허가 서류 사본 또는 품목제조보고서 사본
-    condition_note: 외화획득용 원료나 자사제품 제조용 원료로 수입하는 경우만 해당하며, 전산으로 확인되면 내지 않는다.
+  - key: "8"
+    must_contain: [수출 위생증명서, 축산물]
+    rule_id: LIV-EXPORT-CERT
+    effect: REQUIRE
+    when: {category_in: [livestock]}
+    document_name: 수출 위생증명서(수출국 정부 발행)
+    category: 축산물 추가 구비서류
+    verbatim_condition: true
+    original_from_notice: true
+  - key: "8"
+    must_contain: [수출 위생증명서, 동물성 식품]
+    rule_id: LIV-ANIMAL-FOOD-CERT
+    effect: CONDITIONAL
+    when: {category_in: [processed, health_functional], product_class_in: [processed, health_functional], ingredient_any: [meat, milk, egg, pork, ruminant]}
+    document_name: 수출 위생증명서(수출국 정부 발행)
+    original_from_notice: true
+    extra_note: "동물성 식품(법 제2조제1호의2: 식육·원유·알 또는 이를 원료로 제조·가공한 식품 가운데 대통령령으로 정하는 것)에 해당할 때만 낸다. 해당 여부는 신고 전 확인사항의 정의 조문을 본다."
   # 7호(위생증명서·검사증명서)는 위생약정 규칙의 법적 근거로 쓴다.
   - key: "7"
     must_contain: [위생증명서, 수산물]
     use_as: hygiene_legal_basis
-  # 8호(축산물·동물성 식품), 10호 가·나목(반추동물, 열처리 소금)은 조문이 대상을 한정하므로 수산물 규칙을 만들지 않는다.
+  # 10호 가·나목(반추동물, 열처리 소금)과 다목은 구비서류 목록 엑셀의 행으로 규칙을 만든다.
 
 inspection_orders:
-  # 검사명령 현황표에서 수산물 행을 가려내는 낱말 → 품목 태그
+  # 검사명령 현황표의 대상식품 문장에 든 낱말 → 품목 태그. 어느 낱말도 없는 행은 경고로 알린다.
   product_keywords:
     참다랑어: bluefin_tuna
     부세: buse
     새우: shrimp
-  seafood_keywords: [수산, 다랑어, 부세, 새우, 어류, 패류, 오징어, 조개, 해조]
+    향신료: spice
+    베리류: berries
+    과자: snack
+    기타소금: salt
+    목이버섯: wood_ear
+    고추: chili
+    침출차: tea_bag
+    불로초: reishi
+    금박: gold_leaf
+
+# 일본산 축산물: 수입식품방사능안전정보 '가공식품,축산물' 구간의 수입금지품목 문장 → 품목 태그
+jp_livestock:
+  ban_must_contain: [육류, 원유]
+  ban_tags: [meat_generic, beef, pork, chicken, duck, lamb, raw_milk]
 
 # 국가별 수산물 위생약정 고시 → 위생증명서 규칙.
 # key 는 config/sources.yaml 의 law_hygiene_agreements.params.rules[].key.
@@ -184,23 +214,41 @@ inspection_notice:
        document_name: "연구ㆍ조사계획서(제조방법설명서, 연구ㆍ조사기간, 성분배합비율 포함)",
        condition_note: 연구ㆍ조사 목적으로 수입할 때만 해당한다.}
     - {rule_id: PRECHECK-ART17-5, article: "17", paragraph: "⑤", must_contain: [위생약정, 등록시설명, 반려], effect: NOTICE,
-       title: 위생약정국 수산물의 포장 표시(등록시설명·등록번호), when_hygiene_countries: true, when: {product_type: [raw]}}
+       title: 위생약정국 수산물의 포장 표시(등록시설명·등록번호), when_hygiene_countries: true, when: {product_class_in: [seafood], product_type: [raw]}}
   annex2:
     - {rule_id: ANNEX2-SURVEY-REPORT, start: 수입신고는 폐사된 양을, end: 선별하게 한 후 판정한다., must_contain: [검량서(Survey Report)],
-       effect: CONDITIONAL, when: {state_in: [live], product_type: [raw]}, document_name: 검량서(Survey Report),
+       effect: CONDITIONAL, when: {state_in: [live], product_class_in: [seafood], product_type: [raw]}, document_name: 검량서(Survey Report),
        condition_note: 활어·패류를 폐사된 양을 미리 빼고 신고할 때 첨부한다.}
     - {rule_id: ANNEX2-PUFFER-RAW, start: 수입이 인정되는 복어는, end: 복어독 검사를 실시해야 한다., must_contain: [원산지증명서, 공관장, 면제],
        effect: CONDITIONAL, when: {product_tags_any: [pufferfish], product_type: [raw]}, skip_when_unknown: true,
        document_name: "원산지증명서(수출국 정부기관) 또는 합작어획물의 현지 공관장 확인서(복어 학명, 어획 해역명 기재)",
        condition_note: 복어독 검사를 면제받으려 할 때 내는 서류다. 면제 요건과 예외는 인용문을 본다.}
 
-# 수입식품안전관리 특별법 제5조 → 신고 전 확인사항
-special_act_5:
-  - {rule_id: PRECHECK-FOREIGN-FACILITY, paragraphs: ["①", "⑤", "⑥"], must_contain: [해외제조업소, 수입신고 전까지, 수리를 거부], effect: NOTICE,
-     title: 해외제조업소 등록}
+# 수입식품안전관리 특별법 조문 → 신고 전 확인사항(NOTICE). importability_unknown: true 면 수입 가능 여부를 UNKNOWN 으로 답한다.
+special_act:
+  - {rule_id: PRECHECK-FOREIGN-FACILITY, article: 제5조(해외제조업소 등록), paragraphs: ["①", "⑤", "⑥"],
+     must_contain: [해외제조업소, 수입신고 전까지, 수리를 거부], title: 해외제조업소 등록,
+     when: {category_in: [agricultural, seafood, processed, health_functional, additive, apparatus]}}
+  - {rule_id: GATE-LIVESTOCK-ALLOWED, article: 제11조(축산물 및 동물성 식품의 수입위생평가 등), paragraphs: ["③"],
+     must_contain: [수입위생요건, 고시한 국가 또는 지역], title: 축산물은 수입위생요건이 고시된 국가·지역에서만 수입할 수 있다,
+     when: {category_in: [livestock]}, importability_unknown: true}
+  - {rule_id: PRECHECK-LIVESTOCK-ESTABLISHMENT, article: 제12조(해외작업장의 등록 등), paragraphs: ["①"],
+     must_contain: [해외작업장, 수입신고 전, 등록], title: 해외작업장 등록,
+     when: {category_in: [livestock]}}
+  - {rule_id: PRECHECK-ANIMAL-FOOD-DEFINITION, article: 제2조(정의), paragraphs: ["본문"], excerpt_start: "1의2.", excerpt_end: " 2. ",
+     must_contain: [동물성 식품, 식육], title: 동물성 식품의 정의(수출 위생증명서 대상 여부),
+     when: {category_in: [processed, health_functional], product_class_in: [processed, health_functional]}}
 
-# 검사지시(검사강화) 게시물을 조회 결과에 붙일 때 쓰는 낱말. 제목에 이 낱말이 있어야 수산물 관련으로 본다.
+# 검사지시(검사강화) 게시물을 조회 결과에 붙일 때 쓰는 낱말(본문을 받을 게시물은 sources.yaml 의 body_keywords 로 정한다). 제목에 이 낱말이 있어야 수산물 관련으로 본다.
 advisories:
   max_age_days: 180
+  # 게시물 제목에 조회한 품목 이름이 있거나, 조회한 식품 유형의 낱말이 있으면 붙인다.
   # 한 글자 낱말(김, 게, 굴)은 '김치', '에게' 같은 다른 말에 걸리므로 넣지 않는다.
-  seafood_keywords: [수산, 어류, 패류, 해조, 새우, 오징어, 낙지, 문어, 꽃게, 대게, 조개, 가리비, 연어, 참치, 다랑어, 명태, 고등어, 장어, 복어, 젓갈, 어묵, 미역, 활어]
+  keywords_by_class:
+    seafood: [수산, 어류, 패류, 해조, 새우, 오징어, 낙지, 문어, 꽃게, 대게, 조개, 가리비, 연어, 참치, 다랑어, 명태, 고등어, 장어, 복어, 젓갈, 어묵, 미역, 활어]
+    agricultural: [농산물, 농임산물, 임산물, 채소, 과일, 버섯, 향신료, 견과, 곡류, 두류]
+    livestock: [축산, 식육, 소고기, 쇠고기, 돼지고기, 닭고기, 유가공, 치즈, 알가공, 식용란]
+    processed: [가공식품, 가공품, 과자, 빵, 캔디, 음료, 소스, 김치, 면류, 주류, 차류]
+    health_functional: [건강기능식품]
+    additive: [식품첨가물, 첨가물]
+    apparatus: [기구, 용기, 포장, 베이킹컵, 식기]

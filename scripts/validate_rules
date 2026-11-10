@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # 승인된 규칙 묶음의 형식 오류와 규칙 간 충돌을 검사한다. 오류가 있으면 종료 코드 1.
-exec "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/seafood-import" validate "$@"
+exec "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/food-import" validate "$@"

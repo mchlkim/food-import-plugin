@@ -1,0 +1,2134 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        var anyidAdaptor = anyidAdaptor || {};
+
+
+        /*이용기관 수정 영역 Start*/
+        anyidAdaptor.orgLogin = function(data){
+            // alert("이용기관 자체 로그인!!!");
+            //정부 통합인증SDK_연계가이드 4.4.1.3 이용기관 로그인(토글 off) 참조
+            //제공되는 라이브러리 메소드로 인증데이터 decrypt 이후 자체 로그인 로직 개발
+            if (data.ssob){
+                anyidAdaptor.goAnyIdLogin(data);
+            }else{
+                anyidAdaptor.goLogin();
+            }
+
+        }
+        /*이용기관 수정 영역 End*/
+        
+        
+        /*이용기관 문구수정 영역 Start*/
+        anyidAdaptor.JoinConfirm = function(portalJoinUri, memberData){
+            if(!confirm('Any-ID 사용자등록 하시겠습니까?')) {
+                anyidAdaptor.orgLogin(anyidAdaptor.certData);
+                return;
+            }else{
+                anyidAdaptor.receiveAnyIdJoin(portalJoinUri, memberData);
+            }
+        }
+        /*이용기관 문구수정 영역 End*/
+        
+        
+        
+
+        anyidAdaptor.portalJoinUri = "null";
+        anyidAdaptor.certData = null;
+        anyidAdaptor.ssoByPass = "0";
+        anyidAdaptor.niRegYn = "null";
+        anyidAdaptor.agencyContextPath = "";
+        
+        
+        anyidAdaptor.success = function(data){
+            if(anyidAdaptor.ssoByPass != 0 || !data.useSso) {
+                anyidAdaptor.orgLogin(data);
+            } else {
+                anyidAdaptor.certData = data;
+                anyidAdaptor.userCheck();
+            }  
+        }
+        
+        anyidAdaptor.userCheck = function(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", anyidAdaptor.agencyContextPath + "/oidc/userCheck", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        anyidAdaptor.ssoLogin();
+                    } else {
+                        setTimeout(function() {
+                            anyidAdaptor.receiveAnyIdJoin(response.uri, response.data);
+                        }, 100);  
+                    }
+                }
+            };
+
+            let jsonObject = new Object();
+            jsonObject.txId = anyidAdaptor.certData.txId;
+            jsonObject.ssob = anyidAdaptor.certData.ssob;
+            jsonObject.userSeCd = anyidAdaptor.certData.userSeCd;
+            
+            let jsonStr = JSON.stringify(jsonObject);
+            let encodedString = btoa(jsonStr);
+            
+            var data = "data=" + encodedString + "&txId=" + anyidAdaptor.certData.txId;
+            xhr.send(data);
+            
+        }
+
+        //anyid가입
+        anyidAdaptor.receiveAnyIdJoin = function(portalJoinUri, memberData){
+        
+            var url = portalJoinUri+encodeURIComponent(memberData);
+            anyidAdaptor.popup(url,"openAnyIdRegistUserIdv",700,740);
+
+            window.addEventListener("message", function(event) {
+                var result;
+                try {
+                    result = JSON.parse(event.data);
+                } catch (error) {
+                    console.error("Received message is not valid JSON:", error);
+                    return;
+                }
+                
+                if(!result.funcName || (result.funcName !== "trmsAgreComplete" && result.funcName !== "registUserComplete")) {
+                    return;
+                }
+                if(result.status === "success") {
+                    if(result.trmsAgreYn == "Y"){
+                        anyidAdaptor.ssoLogin();
+                    }else{
+                        anyidAdaptor.orgLogin(anyidAdaptor.certData);
+                    }
+                }else{
+                    
+                    anyidAdaptor.orgLogin(anyidAdaptor.certData);
+                }
+
+            }, false);
+        }
+
+        // 팝업 호출
+        anyidAdaptor.popup = function(url, name, width, height){
+            let left = (screen.width) ? (screen.width-width)/2 : 0;
+            let top = (screen.height) ? (screen.height-height)/2 : 0;
+            let popup=window.open(url, name ,"resizable=yes,toolbar=no,scrollbars=yes,location=no,top="+top+"px,left="+left+"px,width="+width+"px,height="+height+"px");
+            if(popup){
+                popup.focus();
+            }
+        }
+
+        anyidAdaptor.ssoLogin = function(){
+            let jsonObject = new Object();
+            jsonObject.txId = anyidAdaptor.certData.txId;
+            jsonObject.ssob = anyidAdaptor.certData.ssob;
+            jsonObject.userSeCd = anyidAdaptor.certData.userSeCd;
+            jsonObject.afData = anyidAdaptor.certData.afData;
+            let jsonStr = JSON.stringify(jsonObject);
+            
+            let encodedString = btoa(jsonStr);
+            var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/ssoLogin";
+            var urlWithParams = baseUrl + "?data=" + encodedString;
+            window.location.href = urlWithParams;
+            
+        }
+        
+        anyidAdaptor.ssoLoginPageSub = function(baseUrl, endPoint, acrValues){
+            var subUrl = "";
+            
+            if (endPoint && endPoint.trim() !== "") {
+                subUrl = "?endPoint=" + encodeURIComponent(endPoint);
+            }
+            
+            if (!acrValues && acrValues.trim() == "") {
+                acrValues = "3";
+            }
+            
+            if (acrValues && acrValues.trim() !== "") {
+                if(subUrl == ""){
+                    subUrl = "?";
+                }else{
+                    subUrl = subUrl + "&";
+                }
+                subUrl = subUrl + "acrValues=" + acrValues;
+            }
+            
+            window.location.replace(baseUrl+subUrl);
+        }
+        
+        /**/
+        anyidAdaptor.ssoLogout = function(endPoint) {
+            endPoint = typeof endPoint !== 'undefined' ? endPoint : "/";
+            var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/ssoLogout";
+            baseUrl = baseUrl + "?endPoint=" + encodeURIComponent(endPoint);
+            window.location.replace(baseUrl);
+        }
+        /**/
+        anyidAdaptor.reAuthLevel = function(endPoint, acrValues){
+            endPoint = typeof endPoint !== 'undefined' ? endPoint : "/";
+            var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/reAuthLevel";
+            anyidAdaptor.ssoLoginPageSub(baseUrl, endPoint, acrValues);
+
+        }
+        /**/
+        anyidAdaptor.ssoLoginPage = function(endPoint, acrValues){
+            endPoint = typeof endPoint !== 'undefined' ? endPoint : "/";
+            var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/auth";
+            anyidAdaptor.ssoLoginPageSub(baseUrl, endPoint, acrValues);
+        }
+        
+        /**/
+        anyidAdaptor.ssoSvcToSvc = function(url, endPoint){
+            var baseUrl = url + "/oidc/svcToSvc?endPoint=" + encodeURIComponent(endPoint);
+            window.open(baseUrl, "_blank");
+        }
+        anyidAdaptor.goAnyIdLogin = function (data) {
+            const params = new URLSearchParams(location.search);
+
+            var obj = {
+                ssob: data.ssob,
+                tag: params.get("tx")
+            };
+
+            $.ajax({
+                url : "/chkLoginAnyid.do",
+                type : "POST",
+                dataType:"json",
+                data: obj,
+                beforeSend: function() { _cfn_loading.show(); },
+                complete: function() { _cfn_loading.hide(); },
+                success:function (response) {
+                    if (response.status === "success") {
+                        console.log("success");
+                        location.href = "/minwonMainNew.do";
+                    }else{
+                        console.log("fail");
+                        anyidAdaptor.goLogin();
+                    }
+                },
+                error:function (xhr, status,error) {
+                    alert('시스템에러가 발생하였습니다. 관리자에게 문의하십시오.');
+                }
+            })
+        }
+        // 이용기과 로그인 함수 추가
+        anyidAdaptor.goLogin = function () {
+            var nowUrl = window.location.protocol;
+
+            var urlSplit = nowUrl.split(":");
+            var firstUrl = urlSplit[0];
+            var fullUrl;
+
+            if(firstUrl == "https"){
+                console.log("url : " + firstUrl);
+                fullUrl = "/portal/loginNew.do?menu_no=3817&amp;menu_grp=MENU_NEW07";
+            }else if (firstUrl == "http"){
+                console.log("url : " + firstUrl);
+                fullUrl = "/portal/loginNew.do?menu_no=3817&amp;menu_grp=MENU_NEW07";
+            }else{
+                console.log("else");
+            }
+
+            console.log("fullUrl : " + fullUrl);
+            location.href=fullUrl;
+        }
+
+
+    </script>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <script>
+        const server_type = "R";
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="google-site-verification" content="UiByJ0VQOiiHjBWytR6Q61XxpaarRuhyiwZ7zgahLRI">
+    <meta http-equiv="X-UA-Compatible" id="document_mode" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <title id="brwsTitle">식품안전나라</title>
+    <meta name="description" content="fullPage fixed header and footer.">
+    <meta name="keywords" content="fullpage,jquery,demo,screen,fixed, header,footer, absolute, positioned,css">
+    <meta name="Resource-type" content="Document">
+
+    <link rel="shortcut icon" href="https://www.foodsafetykorea.go.kr/images/common/favicon.ico">
+
+    <!-- 넷퍼넬 대기열 (김유성 20260414) -->
+    <script
+            src="https://www.foodsafetykorea.go.kr/netfunnel-statics/agents/client/javascript/netfunnel-javascript-agent.js"
+            data-nf-server-url="https://wait.foodsafetykorea.go.kr"
+            data-nf-setting-url="https://wait.foodsafetykorea.go.kr/assets/nf-setting/1/nf-setting.json"
+            data-nf-vwr-page-url="https://www.foodsafetykorea.go.kr/netfunnel-statics/assets/vwr-page/1/index.html"
+            data-nf-error-page-url="https://www.foodsafetykorea.go.kr/netfunnel-statics/assets/vwr-page/error/errorPage.html"
+            data-nf-retry-count="0"
+            data-nf-network-timeout="3000"
+    ></script>
+
+    <!-- 2021 고도화 - 20210728 반응형 웹 개편 추가 -->
+    <link rel="stylesheet" type="text/css" href="/css/2021/fullpage.css"><!-- 화면스크롤 -->
+    <link rel="stylesheet" type="text/css" href="/css/2021/slide-fade.css">
+    <!-- 2021 개편 fullpage fade 효과 -->
+    <link rel="stylesheet" type="text/css" href="/css/2021/owl.carousel.css"><!-- 알림존관련 -->
+    <link rel="stylesheet" type="text/css" href="/css/2021/sub_2021.css">
+    <!-- 해외직구 페이지 전용 css (윤효주 20260430) -->
+    
+    <!-- 2021 개편 css -->
+    <link rel="stylesheet" type="text/css" href="/css/2021/search.css"><!-- 검색관련_20190730 장주연 추가 -->
+    <link rel="stylesheet" type="text/css" href="/js/2021/jquery.scrollbar.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery.selecter.css"> <!-- 누락된 플러그인 추가 (김유성 260315) -->
+
+    <!-- 최근검색레이어 스크롤 관련_20190730 장주연 추가 -->
+    <!-- 20200907. 시각화(인기검색어, 자주보는메뉴) 추가 -->
+    <link rel="stylesheet" type="text/css" href="/css/jquery.mCustomScrollbar.css">
+    <!-- 20200907. 시각화(인기검색어, 자주보는메뉴) 추가 끝-->
+
+    <script type="text/javascript" src="/js/2025/portal/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap .tab('show') 함수 구현 (김유성 20260401) -->
+    <script type="text/javascript">
+    (function($) {
+        if ($.fn.tab) return;
+        $.fn.tab = function(action) {
+            if (action !== 'show') return this;
+            return this.each(function() {
+                var $trigger = $(this);
+                var selector = $trigger.attr('href') || $trigger.data('target');
+                if (!selector) return;
+                var $tabList = $trigger.closest('ul');
+                $tabList.find('li').removeClass('active');
+                $trigger.closest('li').addClass('active');
+                // 웹접근성 : 선택된 탭에 sr-only "선택됨" 갱신
+                $tabList.find('.sr-only-tab-selected').remove();
+                $trigger.append('<span class="sr-only sr-only-tab-selected">선택됨</span>');
+                var $parent = $(selector).parent();
+                $parent.children('.tab-pane').removeClass('active').hide();
+                $(selector).addClass('active').show();
+            });
+        };
+        $(document).on('click', '[data-toggle="tab"]', function(e) {
+           e.preventDefault();
+           $(this).tab('show');
+        });
+        // 웹접근성 : 초기 active 탭에 sr-only "선택됨"
+        $(function() {
+            $('li.active > a[data-toggle="tab"]').each(function() {
+                if (!$(this).children('.sr-only-tab-selected').length) {
+                    $(this).append('<span class="sr-only sr-only-tab-selected">선택됨</span>');
+                }
+            });
+        });
+    })(jQuery);
+    </script>
+
+    <!-- 2021 고도화 - 20210728 반응형 웹 개편 추가 -->
+    <script type="text/javascript" src="/js/2021/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.simplePagination.js"></script>
+    <script type="text/javascript" src="/js/2021/fullpage.js"></script><!-- fullpage -->
+    
+    <script type="text/javascript" src="/js/2025/portal/jquery.easing.1.4.1.js"></script> <!-- jQuery 3.x 호환 js 추가 (김유성 260316) -->
+    <!-- gnb/상단검색레이어 등 공통영역기능들 -->
+    <script type="text/javascript" src="/js/2021/plugins.js"></script><!-- 상단 GNB 관련_2021 개편 -->
+    <!-- 메인관련기능들 -->
+    <script type="text/javascript" src="/js/2021/jquery.scrollbar.js"></script>
+
+    <script type="text/javascript" src="/js/jquery.selecter.min.js"></script> <!-- 누락된 플러그인 추가 (김유성 260315) -->
+    <script type="text/javascript" src="/js/jquery.fancybox.js"></script>
+
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/2021/common.js"></script>
+
+    <!-- 최근검색레이어 스크롤 관련_20190730 장주연 추가 -->
+    <script type="text/javascript" src="/js/2021/html5.js"></script>
+    <script type="text/javascript" src="/js/search_autocomplete_common.js"></script> <!-- 통합검색 -->
+    <script type="text/javascript" src="/js/jquery.cookie.min.js"></script> <!-- 검색어 쿠키 -->
+    <!-- 20200907. 시각화(인기검색어, 자주보는메뉴) 추가 -->
+    
+    <!-- 20220519. 시각화(인기검색어, 자주보는메뉴) D3 추가 -->
+    
+    <!-- 20200907. 시각화(인기검색어, 자주보는메뉴) 추가 끝  -->
+    
+
+    <!-- <link rel="stylesheet" type="text/css" href="/css/2021/main_2024.css"> -->
+    <!-- 2024 main css  -->
+    <link rel="stylesheet" type="text/css" href="/css/2021/slick.css">
+    <link rel="stylesheet" type="text/css" href="/css/2021/slick-theme.css">
+
+
+    <script src="/js/slick/slick.min.js"></script>
+
+
+    <!-- 20250717. 메인 디자인 리뉴얼 -->
+    <link rel="stylesheet" type="text/css" href="/css/2025/portal/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/2025/portal/layout.css">
+    <link rel="stylesheet" type="text/css" href="/css/2025/portal/font.css">
+    <link rel="stylesheet" type="text/css" href="/css/2025/portal/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/2025/portal/modal.css">
+    
+    <script type="text/javascript" src="/js/2025/portal/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="/js/2025/portal/pattern.js"></script>
+    <script type="text/javascript" src="/js/2025/portal/qrcode.min.js"></script>
+    <script type="text/javascript">var QRCodeGen = QRCode;</script>
+    <script type="text/javascript" src="/js/2025/portal/header.js" defer></script>
+    <script type="text/javascript" src="/js/2025/portal/footer.js" defer></script>
+    <script type="text/javascript" src="/js/2025/portal/floating.js" defer></script>
+    <script type="text/javascript" src="/js/2025/portal/layout.js" defer></script>
+    
+    <script type="text/javascript" src="/js/2025/portal/common/common.js" defer></script>
+    
+
+<script type="text/javascript" src="/GPKISecureWebHTML/gpkisecureweb/client/GPKIWeb/js/ext/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/GPKISecureWebHTML/gpkisecureweb/client/GPKIWeb/js/ext/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/GPKISecureWebHTML/gpkisecureweb/client/GPKIWeb/js/ext/json2.js"></script>
+
+
+<script type="text/javascript" src="/GPKISecureWebHTML/gpkisecureweb/client/GPKIWeb/js/GPKIWeb_Config.js"></script>
+<script type="text/javascript" src="/GPKISecureWebHTML/gpkisecureweb/client/GPKIWeb/js/ext/GPKI_Config.js"></script>
+
+<script type="text/javascript" src="/GPKISecureWebHTML/gpkisecureweb/client/gpkijs_1.2.1.3.min.js" id="DSgpkijs"></script>
+<script type="text/javascript" src="/GPKISecureWebHTML/gpkisecureweb/client/GenerateContent.js" id="DSGenInterface"></script>
+<script type="text/javascript" src="/GPKISecureWebHTML/gpkisecureweb/client/GPKISecureWebJS.js"></script>
+<script type="text/javascript" src="/GPKISecureWebHTML/gpkisecureweb/client/GPKIJS_Crypto.js" id="DSGPKIJS_Crypto"></script>
+
+<script type="text/javascript" src="/GPKISecureWebHTML/gpkisecureweb/client/GPKIErrorText.js" ></script>
+<script type="text/javascript" src="/GPKISecureWebHTML/gpkisecureweb/client/var.js"></script>
+<script type="text/javascript" src="/GPKISecureWebHTML/gpkisecureweb/client/GPKISecureWebNP2.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/GPKISecureWebHTML/gpkisecureweb/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/GPKISecureWebHTML/gpkisecureweb/client/jquery-ui.min.css"/>
+<link rel="stylesheet" type="text/css" href="/GPKISecureWebHTML/gpkisecureweb/client/dialog_css/gsw-jquery-ui.min.css"/>
+    <style>
+        #footer .f-link .link-sns .icon {
+            float: unset !important;
+            margin-top: 0 !important;
+            margin-right: 0 !important;
+        }
+        .pagination .prev,	.pagination .next {
+            display: inline-block;
+            box-sizing: border-box;
+            min-width: 24px;
+            min-height: 24px;
+            line-height: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- 본문 바로가기 영역 s  -->
+        <div id="skip-link">
+            <a href="#contents">본문 바로가기</a>
+        </div>
+        <!-- 본문 바로가기 영역 e  -->
+
+        <!-- 헤더(js 공통) s -->
+        <div id="headerWr">
+            <main-header></main-header>
+        </div>
+        <!-- 헤더(js 공통) e -->
+
+        <!-- 컨테이너 영역 s -->
+        <div id="sub-container">
+            <!-- 컨텐츠 영역 s -->
+            <div class="inner">
+                <form id="baseForm" name="baseForm" method="post" onsubmit="return false;">
+                    
+                    <input type="hidden" id="menu_no" name="menu_no" value="4457" />
+                    <input type="hidden" id="menu_grp" name="menu_grp" value="MENU_NEW01" />
+                    <input type="hidden" id="menuNm" name="menuNm"/>
+                    
+                    <input type="hidden" id="copyUrl" name="copyUrl" value="https://www.foodsafetykorea.go.kr:443/portal/board/boardDetail.do?menu_grp=MENU_NEW01&amp;menu_no=4457&amp;bbs_no=bbs031&amp;ntctxt_no=1152028" />
+                    <input type="hidden" id="mberId" name="mberId" value="" />
+                    <input type="hidden" id="mberNo" name="mberNo" value="" />
+                    <input type="hidden" id="favorListCnt" name="favorListCnt" />
+                    <input type="hidden" id="favorRegYn" value="N" />
+                    
+                    
+                    <div id="wrap">
+                        
+                        <div id="contents" tabindex="-1">
+                            <main role="main">
+                                
+                                <div class="asideFrameDiv">
+                                    
+                                    <div id="aside_bottom">
+
+                                        <div>
+                                            <ul class="share_bottom">
+                                                
+                                                <li id="li_print_area"><a title="프린트 창열기" href="javascript://" onclick="javascript:window.print();" class="print">프린트</a></li>
+                                                <li><a title="Outlook 열기" href="mailto:" class="email">이메일</a></li>
+                                                <li><a href="javascript://" onclick="javascript:sendSns('facebook', 'https://www.foodsafetykorea.go.kr:443/portal/board/boardDetail.do?menu_grp=MENU_NEW01&amp;menu_no=4457&amp;bbs_no=bbs031&amp;ntctxt_no=1152028', 'facebook share');" class="fb" title="페이스북 새창열림">페이스북</a></li>
+                                                <li><a href="javascript://" onclick="javascript:sendSns('twitter', 'https://www.foodsafetykorea.go.kr:443/portal/board/boardDetail.do?menu_grp=MENU_NEW01&amp;menu_no=4457&amp;bbs_no=bbs031&amp;ntctxt_no=1152028', 'twitter share');" class="tw" title="트위터 새창열림">트위터</a></li>
+                                                <li><a title="URL 보내기 창열기" href="javascript://" onclick="javascript:copyUrlAddr();" class="url">URL</a></li>
+                                                <li><a title="QR 코드 생성 창열기" href="javascript://" onclick="javascript:fnQrcode();" class="qr">QR코드</a></li>
+                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    
+                                
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<input type="hidden" id="compAuth" value="">
+<input type="hidden" id="id" value="">
+<input type="hidden" id="admin_yn" value="">
+<input type="hidden" id="rm" value="">
+
+
+
+
+
+
+
+<script type="text/javascript" src="/js/2021/jquery.rwdImageMaps.min.js"></script><!-- 이미지맵 반응형 -->
+
+
+<input type="hidden" id="bbs_no" name="bbs_no" value="bbs031">               <!-- 게시판번호 -->
+<input type="hidden" id="ntctxt_no" name="ntctxt_no" value="1152028">      <!-- 글번호 -->
+<input type="hidden" id="brd_id" name="brd_id" value="">      <!-- 글번호 -->
+
+<input type="hidden" id="filePath" name="filePath">               	<!-- 파일경로 -->
+<input type="hidden" id="fileName" name="fileName">     			<!-- 물리파일명 -->
+<input type="hidden" id="orgFileName" name="orgFileName">       	<!-- 논리파일명 -->
+<input type="hidden" id="file_type_cd" name="file_type_cd">         <!-- 확장자 -->
+<input type="hidden" id="ecm_file_no" name="ecm_file_no">			<!-- ecmId-->
+
+<input type="hidden" id="atch_file_posbl_yn" name="atch_file_posbl_yn">         <!-- 파일첨부여부 -->
+
+<input type="hidden" id="saveType" name="saveType">         <!-- 저장구분 C신규 U수정 D삭제 -->
+
+<input type="hidden" id="other_url" name="other_url" value="">         <!-- 게시판이 아닌 페이지에서 접근하였을 경우 돌아갈 URL 경로 -->
+
+<input type="hidden" id="start_idx" name="start_idx" value="">  <!-- 현재페이징 숫자 -->
+<input type="hidden" id="first_idx" name="first_idx" value="">  <!-- 현재페이징 숫자 -->
+<input type="hidden" id="ago_keywrd" name="ago_keywrd" value=""> <!-- 상세화면 들어오기 이전 검색어 -->
+<input type="hidden" id="search_keyword" name="search_keyword" value=""> <!-- 상세화면 들어오기 이전 검색어 -->
+<input type="hidden" id="search_type" name="search_type" value=""> <!-- 상세화면 들어오기 이전 검색타입 -->
+<input type="hidden" id="news_scope" name="news_scope" value=""> <!-- 국내·외뉴스 카테고리 -->
+
+
+<input type="hidden" id="idx_1"   	name="idx_1" value="">                 <!-- 카테고리 인덱스1 -->
+<input type="hidden" id="keywrd"        name="keywrd" value="">       <!-- 키워드 -->
+<!-- <input type="hidden" id="menu_no" name="menu_no">      메뉴번호  header_new.jsp의 공통부분과 중복이므로 제거함 -->
+<input type="hidden" id="ctgryno" name="ctgryno">      <!-- detail.do 카테고리번호-->
+<input type="hidden" id="ctgry_no" name="ctgry_no" value="">      <!-- list.do 카테고리번호-->
+<input type="hidden" id="ctgry_type_cd" name="ctgry_type_cd" >
+
+
+<!-- 데이터활용 추가 컬럼 S  -->
+<input type="hidden" id="ctgry_no_wrte" name="ctgry_no_wrte" value="577" >      <!-- boardWrite.do 보낼 카테고리번호 KSB추가 -->
+<!-- 데이터활용 추가 컬럼 E  -->
+
+<!-- 2016.12.23 cho yong dong change  section style="margin-left:150px;margin-right:150px;margin-top:50px;margin-bottom:50px;" -->
+<style>
+	#sub_header {
+		border-bottom: 2px solid lightgrey;
+	}
+	#_post {
+		border-bottom: 2px solid lightgrey;
+	}
+	#bdt_pre {
+		display: block;
+		max-width: none !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		padding-left: 0 !important;
+		text-indent: 0 !important;
+		text-align: left !important;
+	}
+	.btn:not(.btn-default) {
+		border-color: transparent !important;
+	}
+</style>
+<section>
+	<div id="sub_header">
+		<div class="board-head">
+			
+				
+				
+				
+					<h3 class="h1">수입신고 및 검사</h3>
+				
+			
+		</div>
+	</div>
+
+	<!-- 2020.10.30 공공데이터(데이터활용서비스) 공지사항 주소지 바로가기 기능추가  -->
+	
+
+	
+		<!-- gog 2021 고도화 메뉴정비로 해당 or조건 제거 -> boardSetting.bbs_no == 'bbscodex01' && boardSetting.ctgry_type_cd == 'CTG_TYPE01' -->
+		<!-- CODEX 활동의 경우 연간일정메뉴를 분석결과 당해년도를 매년 카테고리에 직접추가하는것으로 보여
+		클릭해도 동일한 페이지만 반복되고 별도로 이동할 수 있는 페이지가 없으므로 제거해도 무방하다고 판단됨-->
+		<div class="cat-container">
+			<ul class="keyword category">
+				<!-- 일반형 카테고리 -->
+					
+				
+					<li><a title=""	id="div_ctgType01_0" href="javascript:showHCategory('0','','CTG_TYPE01','1138','bbs031')">수입식품검사절차</a></li>
+				
+					<li><a title=""	id="div_ctgType01_1" href="javascript:showHCategory('1','','CTG_TYPE01','2021','bbs031')">구매대행 참고사항</a></li>
+				
+					<li><a title=""	id="div_ctgType01_2" href="javascript:showHCategory('2','','CTG_TYPE01','577','bbs031')">검사지시</a></li>
+				
+					<li><a title=""	id="div_ctgType01_3" href="javascript:showHCategory('3','','CTG_TYPE01','578','bbs031')">수입금지</a></li>
+				
+					<li><a title=""	id="div_ctgType01_4" href="javascript:showHCategory('4','','CTG_TYPE01','579','bbs031')">증명서 제출</a></li>
+				
+			</ul>
+		</div>
+	
+	<!-- gog 2021 고도화 메뉴정비로 탭추가 -->
+	
+
+	<div class="view-container">
+		<article>
+			
+
+			<div class="post" id="_post">
+
+				
+					
+					
+						
+						
+						
+
+						
+						
+						
+						
+						
+					
+				
+
+				<!-- <pre id="bdt_pre" style="white-space: pre-wrap;"> -->
+				
+
+				<p id="bdt_pre">
+					
+						
+						
+							<html> <head></head> <body>  <p class="HStyle0" style="margin: 0pt 0px 0pt 18.4pt; padding: 0px; text-align: justify; text-indent: -18.4pt; line-height: 21.3333px; font-size: 10pt; font-family: 돋움체; color: rgb(0, 0, 0);"> <span style="margin: 0px; padding: 0px; position: relative; font-size: 12pt; letter-spacing: 0.03em; line-height: 25.6px;">해외 위해정보에 따라 다음과 같이 검사강화하고자 합니다.</span></p>   <div data-hjsonver="2.0" data-jsonlen="6544" id="hwpEditorBoardContent" style="margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-size: medium;">    &nbsp;  </div>   <p class="HStyle0" style="margin: 0pt 0px; padding: 0px; text-align: justify; line-height: 21.3333px; font-size: 10pt; font-family: 돋움체; color: rgb(0, 0, 0);"> <span style="margin: 0px; padding: 0px; position: relative; font-size: 12pt; font-weight: bold; line-height: 25.6px;">&nbsp;가. 중국산 식용개구리 항생제 검사</span></p>   <p class="HStyle0" style="margin: 0pt 0px; padding: 0px; text-align: justify; line-height: 21.3333px; font-size: 10pt; font-family: 돋움체; color: rgb(0, 0, 0);"> <span style="margin: 0px; padding: 0px; position: relative; font-size: 12pt; line-height: 25.6px;">&nbsp;&nbsp;&nbsp;&nbsp;○ 검사대상 :</span><span style="margin: 0px; padding: 0px; position: relative; font-size: 12pt; letter-spacing: -0.08em; line-height: 25.6px;"> </span><span style="margin: 0px; padding: 0px; position: relative; font-size: 12pt; letter-spacing: -0.09em; line-height: 25.6px;">중국산 식용개구리 및 이를 원료로 제조한 가공품(기타식육 또는 기타알)</span></p>   <p class="HStyle0" style="margin: 0pt 0px; padding: 0px; text-align: justify; line-height: 21.3333px; font-size: 10pt; font-family: 돋움체; color: rgb(0, 0, 0);"> <span style="margin: 0px; padding: 0px; position: relative; font-size: 12pt; line-height: 25.6px;">&nbsp;&nbsp;&nbsp;&nbsp;○ 검사항목 : 엔로/시프로플록사신, 플로르페니콜, 푸라졸리돈(AOZ)</span></p>   <div data-hjsonver="2.0" data-jsonlen="8888" id="hwpEditorBoardContent" style="margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-size: medium;">    &nbsp;  </div>  </body></html>
+						
+						
+					
+					
+				</p>
+
+			</div>
+
+			
+
+			
+			
+
+			
+			
+
+			<!--첨부파일 -->
+			
+			<!--첨부파일 끝-->
+
+
+			
+			
+				
+				
+					<div class="caution">해당 정보를 무단으로 복제하거나 이용하는 경우 저작권법 등에 따라 법적책임을 질 수 있습니다.</div>
+				
+			
+			
+				
+					<div class="like"><a href="javascript:addLike();" class="btn" role="button" title="좋아요"><span class="icon-heart-empty">좋아요</span>  <span id="rtrvl_cnt">0</span></a></div>
+				
+			
+			
+
+
+			<div class="board-footer">
+				
+					
+						
+					
+					
+				
+			</div>
+
+
+			<!--/*****************댓글 시작*******************/-->
+
+			
+			
+
+			
+			<!--/*****************댓글 끝*******************/-->
+
+
+			
+				<!-- ========== 연관 게시글 ========= -->
+				<!--  jsp:include page="relatedFrame.jsp">< jsp:include -->
+				<!-- ========== 연관 게시글 ========= -->
+			
+		</article>
+
+		
+			<!-- ========== 배너/위젯 게시글 ========= -->
+			<!--  jsp:include page="asideFrame.jsp">< jsp:include -->
+			<!-- ========== 배너/위젯 게시글 ========= -->
+		
+	</div>
+
+
+
+	<div class="list-container" style="display:none;">
+		<h4 class="hide-ir" id="ctgrTitle">카테고리</h4>
+		<fieldset>
+			<legend>검색</legend>
+			<div class="search-container">
+				<span class="total">Total: <strong id="total_cnt"></strong> Articles</span>
+
+				<div class="search-wrap">
+
+					<label for="tSearch_type">검색구분</label>
+					<select title="검색구분 선택" id="tSearch_type" name="tSearch_type" class="selecter_basic" style="width:auto;">
+						<option value="title">제목</option>
+						<option value="content">내용</option>
+					</select>
+					<label for="tSearch_keyword" class="hidden">검색어</label>
+					<input type="text" title="검색어" name="tSearch_keyword" id="tSearch_keyword" value="" onkeyup="if(event.keyCode==13){javascript:resetValue(); setDefault(); }">
+					<a href="javascript:resetValue(); setDefault();" class="btn small btn-default" role="button">검색</a>
+					<div class="search-cnt-wrap">
+						<label for="show_cnt">목록게시글수</label>
+						<select title="목록게시글수 선택" id="show_cnt" name="show_cnt" class="selecter_basic">
+							<option value="10">10개씩</option>
+							<option value="20">20개씩</option>
+							<option value="30">30개씩</option>
+							<option value="40">40개씩</option>
+						</select>
+						<a href="#" class="btn small btn-default" role="button" onclick="setDefault(); return false;">보기</a>
+					</div>
+				</div>
+
+			</div>
+		</fieldset>
+		<table>
+			
+				<caption id="caption">게시판 목록입니다.</caption>
+			
+			
+			
+			<colgroup>
+				<col style="width:5%;">
+				<col style="width:15%;">
+				<col/>
+				<col style="width:15%;">
+				<col style="width:10%;">
+				<col style="width:7%;">
+			</colgroup>
+			<thead>
+			<tr>
+
+				<th class="th_col" scope="col">번호</th>
+				<th class="th_col" scope="col">카테고리</th>
+				<th class="th_col" scope="col">제목</th>
+				<th class="th_col" scope="col">작성자</th>
+				<th class="th_col" scope="col">등록일</th>
+				<th class="th_col" scope="col">조회수</th>
+			</tr>
+			</thead>
+			<tbody id="listFrame">
+			</tbody>
+		</table>
+	</div>
+	<div class="board-footer" style="display:none;">
+		<div class="pagination"></div>
+	</div>
+</section>
+
+<script>
+
+	/*2022-05-24 QR코드 추가*/
+	
+
+	
+
+	/*2022-07-04 웹사이트 QR코드 추가*/
+	
+
+	/****************************************
+	 * Variable
+	 ****************************************/
+
+	function replaceAll(str, searchStr, replaceStr) {
+		return str.split(searchStr).join(replaceStr);
+	}
+
+	/****************************************
+	 * Init
+	 ****************************************/
+	$(document).ready(function(){
+		//2023.06.22 SBJ 바로가기 추가
+		//식품안전나라 ->식품안전 ->수입신고 및 검사 -> 구매대행 참고사항
+		if(false) {
+			showHCategory('1','','CTG_TYPE01','2021','bbs031');
+		}
+
+		//2022-10-24
+		//포탈이용관련 질의응답 상세화면에서 작성자ID 와 로그인ID 비교 후 표출되도록 개선
+		var bbsNo = $('#bbs_no').val();
+		if(bbsNo == "PTQNA01"){
+			fn_checkCreater();
+		}
+
+		fn_checkReturn();
+
+		var idx_1 = $("#idx_1").val();
+		if(idx_1 == '' || idx_1 == null){
+			idx_1 = "0";
+		}
+		$("#div_ctgType01_"+idx_1).addClass("active");
+
+		if('N' == 'Y'){
+			$('#tags').html(fn_tagSplit(''));		//태그정보 셋팅
+		}
+
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		// 게시판 본문 줄바꿈 정리
+		removeEmptyElement('pre span');
+		removeEmptyElement('pre p');
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+		//########################################################################################
+
+		//*
+		var cretr_nm = "";
+		var menu_no = $('#menu_no').val();
+
+		if (menu_no == '602'
+				|| menu_no == '1162') {
+			var nickname = "";
+			//alert("nickname:"+nickname);
+			if (nickname != null && nickname != undefined && $.trim(nickname).length > 0 ) {
+				$('.boardDetail').text(nickname);
+			}
+
+			var ans_nickname = "";
+			if (ans_nickname != null && ans_nickname != undefined && $.trim(ans_nickname).length > 0 ) {
+				$('.boardAnsDetail').text(ans_nickname);
+			}
+		}
+		var tCtgryNo = $("#ctgry_no").val();
+		if( menu_no == '2611' && tCtgryNo == '' && $("#ntctxt_no").val() == '21213' ){
+			showHCategory('0','','CTG_TYPE01','1137','bbs031');
+		}
+
+		/* if(menu_no == '3519' && tCtgryNo == '' && $("#ntctxt_no").val() == '1065603' ){
+            showHCategory('0','','CTG_TYPE01','1930','');
+        } */
+
+		if( $("#bbs_no").val() == 'bbscodex01'){
+			$("#bbsheader").hide();
+			$(".article-head").hide();
+			$(".board-footer").hide();
+		}
+
+		// 데이터활용 - 개발자 의견공유/ 데이터활용갤러리/ 묻고답하기 (KSB추가)
+		if( ("bbs031" == 'devOpinion') || ("bbs031" == 'dataUseGal') || ("bbs031" == 'aipQna') ){
+
+			var contents = '&lt;html&gt; &lt;head&gt;&lt;/head&gt; &lt;body&gt;  &lt;p class=&#034;HStyle0&#034; style=&#034;margin: 0pt 0px 0pt 18.4pt; padding: 0px; text-align: justify; text-indent: -18.4pt; line-height: 21.3333px; font-size: 10pt; font-family: 돋움체; color: rgb(0, 0, 0);&#034;&gt; &lt;span style=&#034;margin: 0px; padding: 0px; position: relative; font-size: 12pt; letter-spacing: 0.03em; line-height: 25.6px;&#034;&gt;해외 위해정보에 따라 다음과 같이 검사강화하고자 합니다.&lt;/span&gt;&lt;/p&gt;   &lt;div data-hjsonver=&#034;2.0&#034; data-jsonlen=&#034;6544&#034; id=&#034;hwpEditorBoardContent&#034; style=&#034;margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-size: medium;&#034;&gt;    &amp;nbsp;  &lt;/div&gt;   &lt;p class=&#034;HStyle0&#034; style=&#034;margin: 0pt 0px; padding: 0px; text-align: justify; line-height: 21.3333px; font-size: 10pt; font-family: 돋움체; color: rgb(0, 0, 0);&#034;&gt; &lt;span style=&#034;margin: 0px; padding: 0px; position: relative; font-size: 12pt; font-weight: bold; line-height: 25.6px;&#034;&gt;&amp;nbsp;가. 중국산 식용개구리 항생제 검사&lt;/span&gt;&lt;/p&gt;   &lt;p class=&#034;HStyle0&#034; style=&#034;margin: 0pt 0px; padding: 0px; text-align: justify; line-height: 21.3333px; font-size: 10pt; font-family: 돋움체; color: rgb(0, 0, 0);&#034;&gt; &lt;span style=&#034;margin: 0px; padding: 0px; position: relative; font-size: 12pt; line-height: 25.6px;&#034;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;○ 검사대상 :&lt;/span&gt;&lt;span style=&#034;margin: 0px; padding: 0px; position: relative; font-size: 12pt; letter-spacing: -0.08em; line-height: 25.6px;&#034;&gt; &lt;/span&gt;&lt;span style=&#034;margin: 0px; padding: 0px; position: relative; font-size: 12pt; letter-spacing: -0.09em; line-height: 25.6px;&#034;&gt;중국산 식용개구리 및 이를 원료로 제조한 가공품(기타식육 또는 기타알)&lt;/span&gt;&lt;/p&gt;   &lt;p class=&#034;HStyle0&#034; style=&#034;margin: 0pt 0px; padding: 0px; text-align: justify; line-height: 21.3333px; font-size: 10pt; font-family: 돋움체; color: rgb(0, 0, 0);&#034;&gt; &lt;span style=&#034;margin: 0px; padding: 0px; position: relative; font-size: 12pt; line-height: 25.6px;&#034;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;○ 검사항목 : 엔로/시프로플록사신, 플로르페니콜, 푸라졸리돈(AOZ)&lt;/span&gt;&lt;/p&gt;   &lt;div data-hjsonver=&#034;2.0&#034; data-jsonlen=&#034;8888&#034; id=&#034;hwpEditorBoardContent&#034; style=&#034;margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-size: medium;&#034;&gt;    &amp;nbsp;  &lt;/div&gt;  &lt;/body&gt;&lt;/html&gt;';
+
+			//20231222 sbj 컨텐츠에 img 들어가 있으면 엉망진창 html이 된다.
+			//img tag 없는 컨텐츠
+			if(contents.indexOf('img') == -1) {
+
+				contents = replaceAll(contents, "amp;", "");
+				contents = replaceAll(contents, "&gt;", ">");
+				contents = replaceAll(contents, "&lt;", "<");
+				contents = replaceAll(contents, 'br type="_moz"', "");
+// 			contents = replaceAll(contents,"&amp;gt;", ">");
+// 			contents = replaceAll(contents,"&amp;lt;", "<");
+
+// 			alert(CKEDITOR.instances.content.getData());
+				$('#bdt_pre').html(contents);		//태그 적용한 상세내용
+			}
+
+		}
+
+		
+
+		/**
+		 * 2021.08.19 이미지맵 사용된 컨텐츠가 있을 때
+		 * 반응형 적용되도록 js 적용
+		 */
+		if($('img[usemap]').length > 0){
+			$('img[usemap]').rwdImageMaps();
+		}
+
+
+		/*2022-05-24 QR코드 추가*/
+		
+
+		
+
+		
+	});
+
+
+
+
+
+	/****************************************
+	 * Button Action
+	 ****************************************/
+	//카테고리 클릭
+	function showHCategory(idx_1,idx_2,ctgType, ctgryno, bbsno){
+
+		$('.keyword').find('a').removeClass('active');
+
+		$("#idx_1").val(idx_1);
+		$("#idx_2").val(idx_2);
+		$("#ctgryno").val(ctgryno);
+		$("#ctgry_no").val(ctgryno);
+		$("#ntctxt_no").val("");
+
+		/*$(".active").attr("title","");
+		$(".active").removeClass("active");*/
+
+		$("#div_ctgType01_"+idx_1).addClass("active");
+		$('.keyword').find('a').children('.sr-only-tab-selected').remove();
+		$("#div_ctgType01_"+idx_1).append('<span class="sr-only sr-only-tab-selected">선택됨</span>');
+
+		$("#ctgry_type_cd").val(ctgType);
+
+		//var len = '5';
+
+		if(ctgType == 'CTG_TYPE01'){
+
+			if( bbsno == 'bbs031' ){
+				$("#bbs_no").val(bbsno);
+
+				if(ctgryno == '1137' || ctgryno == '1138' ){ //detail
+					setCategorySearch(ctgryno);
+				}else{
+					setDefault();
+					menuAdminInfo($("#menu_no").val()); //메뉴실명제 강제호출;
+					searchList();							// list
+				}
+			}else if( bbsno == 'bbscodex01' ){
+				setCategorySearch(ctgryno);
+				$("#bbs_no").val(bbsno);
+			}
+		}
+	}
+
+	//카테고리클릭 -> 상세조회
+	function setCategorySearch(ctgryno){
+		document.baseForm.action="/portal/board/boardDetail.do";
+		document.baseForm.target="_self";
+		document.baseForm.method="post";
+		document.baseForm.submit();
+	}
+
+	//---------------------------------------------------------
+	var show_cnt_onPage = 0;
+	var total_cnt_onPage = 0;
+
+	function searchList(){
+
+		//특수문자제거
+		fn_replaceSpecialChar('#search_keyword');
+
+		$.ajax({
+			data: $('#baseForm').serialize(),
+			dataType:'json',
+			type:'POST',
+			url:"/portal/board/boardList.do",
+			async : true,
+			success:function(arg){
+
+				var list = new Array();
+				list = arg.list;
+				// arg.idx_1
+
+				if(arg.idx_1 != ''){
+					$("#idx_1").val(arg.idx_1);
+					$("#div_ctgType01_" + arg.idx_1).addClass("active");
+				}
+
+				total_cnt_onPage = arg.total_cnt;
+				// 자릿수 표기
+				var formatStr = formatNumber(arg.total_cnt);
+				$('#total_cnt').html(formatStr);
+
+				setPaginationVars();
+				fn_drawList(list);
+
+			},
+			error:function(request,status,error){
+				alert('시스템에러가 발생하였습니다. 관리자에게 문의하십시오.');   //시스템에러
+			}
+		});
+
+	}
+
+	function fn_drawList(list){
+		var listLangth = list.length;
+		var content = "";
+		//alert($('#start_idx').val());
+		if(listLangth == 0){
+			content += "<tr>";
+			content += "<td colspan='6'><p style='color:red'><b>해당 카테고리의 정보가 없습니다.</b></p></td>";
+			content += "</tr>";
+		} else {
+
+			for(var i=0; i<listLangth; i++){
+
+				content += "<tr>";
+				content += "<td scope='row' class='num'>"+list[i].no+"</td>";
+				content += "<td>"+ list[i].ctgrynm+"</td>";
+				content += "<td class='subject'>";
+				content += "<a href=javascript:viewDetail_bbs031('"+list[i].ntctxt_no+"','"+list[i].cretr_id+"');>"+list[i].titl+"</a></td>";
+				content += "<td>"+list[i].cretr_nm+"</td>";
+				content += "<td class='num'>"+list[i].cret_dtm+"</td>";
+				content += "<td class='num'>"+formatNumber(list[i].inqry_cnt)+"</td>";
+
+			}
+		}
+
+		$("#bbsheader").hide();
+		$(".view-container").hide();
+
+		$("#listFrame").html(content);
+		$(".page-container").hide();
+		$(".list-container").show();
+		$(".board-footer").show();
+
+		setCaption();
+		setCtryTitle();
+	}
+
+	//페이징 변수셋팅
+	function setPaginationVars(){
+		show_cnt_onPage = $('#show_cnt').val();
+
+		$('.pagination').pagination("updateItems", total_cnt_onPage);
+		$('.pagination').pagination("updateItemsOnPage", show_cnt_onPage);
+
+		var pageNum = $('#start_idx').val();
+		if(pageNum == null || pageNum == ''){
+			pageNum = 1;
+		}
+		$('.pagination').pagination('drawPage', pageNum);
+	}
+
+
+	//페이징
+	$(function() {
+		$('.pagination').pagination({
+			items: total_cnt_onPage,
+			itemsOnPage: show_cnt_onPage,
+			cssStyle: 'compact-theme'
+		});
+	});
+
+	$('.pagination').click(function(){
+		var page = $('.pagination').pagination('getCurrentPage');
+		var cpage = $('#start_idx').val();
+		if (((!cpage || cpage == "") && page == 1) || page == cpage ) {
+			return false;
+		}
+		$('#start_idx').val(page);
+		searchList();
+		return false;
+	});
+	/* $('.pagination').click(function(){
+        var page = $('.pagination').pagination('getCurrentPage');
+        if($('#start_idx').val() != page){
+            $('#start_idx').val(page);
+            searchList();
+        }
+        return false;
+    }); */
+
+	function setDefault(){
+		$('#start_idx').val("1");
+
+		$("#search_type").val( $("#tSearch_type").val() );
+		$("#search_keyword").val( $("#tSearch_keyword").val());
+		searchList();
+	}
+
+	function resetValue(){
+		$(".active").removeClass();
+		//$('#ctgry_no').val('');
+	}
+
+	//상세페이지이동
+	function viewDetail_bbs031(ntctxt_no, user_id){
+		$("#ctgryno").val("");		// 상세페이지 조회에서는 카테고리 초기화해야함.. -_-;
+		$("#ntctxt_no").val(ntctxt_no);
+
+		document.baseForm.action="/portal/board/boardDetail.do";
+		document.baseForm.target="_self";
+		document.baseForm.method="post";
+		document.baseForm.submit();
+	}
+
+	//---------------------------------------------------------
+
+	/****************************************
+	 * Function
+	 ****************************************/
+	function downloadFile(file_path, physic_file_nm, logic_file_nm, file_type_cd, ecm_file_no){
+
+		$('#filePath').val(file_path);
+		$('#fileName').val(physic_file_nm);
+		$('#orgFileName').val(logic_file_nm);
+		$('#file_type_cd').val(file_type_cd);
+		$('#ecm_file_no').val(ecm_file_no);
+
+
+		document.baseForm.action="/common/downloadAttchdFile.do";
+		document.baseForm.target="_self";
+		document.baseForm.submit();
+
+	}
+
+	function downloadKfdaNewFile(file_path){
+		//file_path = encodeURI(file_path);
+
+		//location.href = "http://www.kfda.go.kr/jsp/common/download.jsp?fileinfo="+file_path;
+
+		document.baseForm.action="http://www.mfds.go.kr/jsp/common/download.jsp?fileinfo="+file_path;
+		document.baseForm.target="download";
+		document.baseForm.submit();
+	}
+
+	function addLike(){
+
+		$.ajax({
+			data: {ntctxt_no : $('#ntctxt_no').val()
+			},
+			dataType:'json',
+			type:'POST',
+			url:"/portal/board/addLike.do",
+			success:function(cnt){
+
+				if(cnt == 0){
+					alert('시스템에러가 발생하였습니다. 관리자에게 문의하십시오.');   //시스템에러
+				}
+				if(cnt == 1){
+					alert('추천이 되었습니다.');          //성공
+					var addedCount = parseInt('0')+cnt;
+					$('#rtrvl_cnt').html(formatNumber(addedCount));
+				}
+				if(cnt == 2){
+					alert('이미 추천을 하셨습니다.');      //중복추천
+				}
+			},
+			error:function(request,status,error){
+				alert("실패코드 : " + request.status+"\n메세지 : " + request.error);
+			}
+		});
+	}
+
+	//상세페이지이동
+	function viewDetail(ntctxt_no, brd_id){
+		$('#ntctxt_no').val(ntctxt_no);
+		$('#brd_id').val(brd_id);
+		document.baseForm.action="/portal/board/boardDetail.do";
+		document.baseForm.target="_self";
+		document.baseForm.method="post";
+		document.baseForm.submit();
+	}
+
+	//글쓰기 페이지 이동
+	function fn_Save(saveType){
+		$('#saveType').val(saveType);
+
+		if(saveType == "D"){
+			if(confirm("정말로 삭제하시겠습니까?")){
+				document.baseForm.enctype = "multipart/form-data";
+				document.baseForm.action="/portal/board/boardSave.do";
+			}else{
+				return;
+			}
+		}else{
+			document.baseForm.action="/portal/board/boardWrite.do";
+		}
+
+		document.baseForm.target="_self";
+		document.baseForm.method="post";
+		document.baseForm.submit();
+	}
+
+	//목록으로 이동
+	function moveBoardList(){
+
+		//$('#start_idx').val('1');
+		var action = "";
+
+		//게시판이 아닌 페이지에서 왔을 경우 돌아갈 URL 경로
+		if($("#other_url").val() != null && $.trim($("#other_url").val()) != ""){
+			action = $("#other_url").val();
+		}else{
+			//$('#first_idx').val('1');
+			action = "/portal/board/board.do";
+		}
+
+		var ctgry_no = $("#ctgry_no").val();
+
+		var btnInx = "";
+		if ( ctgry_no  == "1137"){
+			btnInx = "0";
+		}else if( ctgry_no  == "1138"){
+			btnInx = "1";
+		}else if( ctgry_no  == "577"){
+			btnInx = "2";
+		}else if( ctgry_no  == "578"){
+			btnInx = "3";
+		}else if( ctgry_no  == "579"){
+			btnInx = "4";
+		}
+
+		if($("#menu_no").val() == '2810' ){
+			$("#idx_1").val("3");
+			$("#ctgryno").val("1173");
+			$("#menu_no").val("2795");
+			$("#ntctxt_no").val("");
+		}
+		if( $("#menu_no").val() == '2611'){
+
+			cateHCategory(btnInx,'','CTG_TYPE01',ctgry_no,$("#bbs_no").val());
+		} else if($("#menu_no").val() == '4457') {
+			//4457 식품안전>수입식품>수입신고 및 검사
+			//list클릭 상세화면에서 목록클릭시 list화면으로 이동처리 sbj
+			//"javascript:showHCategory('1','','CTG_TYPE01','2021','bbs031')"
+
+			searchList();
+
+		} else {
+			document.baseForm.action=action;
+			document.baseForm.target="_self";
+			document.baseForm.method="post";
+			document.baseForm.submit();
+		}
+	}
+
+
+
+
+
+	//이전페이지로 이동
+	function back(){
+		var action = "";
+		//게시판이 아닌 페이지에서 왔을 경우 돌아갈 URL 경로
+		if($("#other_url").val() != null && $.trim($("#other_url").val()) != ""){
+			action = $("#other_url").val();
+		}else{
+			action = "/portal/board/board.do";
+		}
+
+		document.baseForm.action=action;
+		document.baseForm.target="_self";
+		document.baseForm.method="post";
+		document.baseForm.submit();
+	}
+
+	function setCaption(){
+		var th = [];
+		var caption = "";
+		var size = $('.th_col').length;
+		var j = 0;
+		for(i=0;i<size; i++){
+			if(''!=$(".th_col").eq(i).text() && ' '!=$(".th_col").eq(i).text() && $(".th_col").eq(i).text() != null){
+				th[j]=$(".th_col").eq(i).text();
+				j++;
+			}
+//     		th[i]=$(".th_col").eq(i).text();
+		}
+		$('#caption').text("이 표는 "+th.join(', ')+" 정보를 제공하는 표입니다.");
+	}
+
+	function setCtryTitle(){
+		var ctgrTitle = $('ul li .active').clone().find('.sr-only-tab-selected').remove().end().text();
+		$("#ctgrTitle").text(ctgrTitle+" 내용 시작");
+	}
+
+
+
+	function docViewer(atchFileNo, ecmFileNo){ // 2020 통합망 고도화 사업 - 외부관리자 내부 이관으로 인하여 신규로 작성되는 글에 첨부파일이 있는 경우 ecm_file_no를 부여
+		$.ajax({
+			data	 : {atchFileNo : atchFileNo, ecmFileNo : ecmFileNo},
+			dataType : 'json',
+			type	 : 'POST',
+			url		 : '/portal/docViewer/selectDocViewer.do',
+			success : function(result){
+
+				if(result.reultNum == 0){
+					var url ="/docViewer/skin/doc.html?fn="+result.fn+"&rs="+result.rs;
+					window.open(url,"docViewer","width=900,height=1000,scrollbars=yes,resizeable=1");
+				}else{
+					alert('에러가 발생했습니다. 관리자에게 문의하세요.');
+				}
+
+			},
+			error : function(e){
+				alert('에러가 발생했습니다. 관리자에게 문의하세요.');
+			}
+		});
+
+	}
+
+	function fnConvertDocViewer(brd_id, seq, file_seq){
+		$.ajax({
+			type: 'POST',
+			url: "https://mfds.go.kr/common/convertDocViewer.do",
+			data: {brd_id: brd_id, seq:seq, file_seq: file_seq, data_tp:'A'},
+			dataType:'jsonp',
+			async: false,
+			success: function(data){
+				if(data.result == "success"){
+					window.open("https://www.mfds.go.kr/docviewer/skin/doc.html?fn="+data.fn+"&rs="+data.rs,"docViewer","width=900,height=1000,scrollbars=yes, resizable=1");
+				}else{
+					alert(data.message);
+				}
+			},
+			error: function(data){
+				alert("문서변환중 오류가 발생하였습니다. \n 잠시 후 다시 시도해주시기 바랍니다.");
+			}
+		});
+	}
+
+	function fn_apiNoticeUrlAddr(){
+		var url = $("#copyUrl").val();
+		copyToClipboardWithURL(url);
+	}
+
+	function fn_checkReturn(){
+		var sDataStts = "";
+
+		console.log(sDataStts);
+		if("D" == sDataStts || "H" == sDataStts){
+
+			debugger;
+			alert("해당 게시물은 미개시 자료입니다.");
+			history.back();
+		}
+	}
+
+	//2022-10-24
+	//포탈이용관련 질의응답 상세화면에서 작성자ID 와 로그인ID 비교 후 표출되도록 개선
+	function fn_checkCreater(){
+		//로그인아이디
+		var loginId = "";
+
+		//작성자아이디
+		var createrId = "30049640";
+		var minwonID = "";
+		//로그인아이디, 작성아이디 비교
+		if(loginId != createrId && loginId != minwonID){
+
+			alert("해당 게시물은 작성자만 확인 가능합니다.");
+			history.back();
+		}
+	}
+
+	$(window).on("load", function(){
+		$('article').find('a').each(function(){
+			if($(this).find('img').length > 0){
+				$(this).css('display', 'block');
+			}
+		});
+	});
+
+
+	//2022-05-24 QR코드 생성 추가
+	function makeCode (down) {
+		var url = "";
+		if(down == "and"){
+			url = document.getElementById("andDownUrl");
+		}else if(down == "ios"){
+			url = document.getElementById("iosDownUrl");
+		}else if(down == "web"){
+			url = document.getElementById("websiteUrl");
+		}else{
+			alert("QR코드 생성 과정에서 오류가 발생했습니다. 관리자에 문의하세요!");
+			return;
+		}
+
+		if (!url.value) {
+			alert("QR코드 생성 과정에서 URL 오류가 발생했습니다. 관리자에 문의하세요!");
+			//elText.focus();
+			return;
+		}
+
+		if(down == "and"){
+			andQrcode.makeCode(url.value);
+		}else if(down == "ios"){
+			iosQrcode.makeCode(url.value);
+		}else if(down == "web"){
+			webQrcode.makeCode(url.value);
+		}else{
+			alert("QR코드가 정상적으로 생성되지 않았습니다. 관리자에 문의하세요!");
+			return;
+		}
+		//qrcode.makeCode(elText.value);
+	}
+
+
+	//댓글관련 시작
+
+	function replyWrite(){
+
+		var userId = '';
+		if(userId == ""){
+			alert("로그인 후 댓글작성이 가능합니다.");
+			return;
+		}
+
+		var ntctxt_no =  $('#ntctxt_no').val();
+		var contents = $('#contents').val();
+		var bbs_no = $('#bbs_no').val();
+		//var contents = document.getElementById('contents').value();
+		var menu_no = $('#menu_no').val();
+		var admin_yn = $("#admin_yn").val();
+		if(contents == ""){
+			alert('내용을 입력하세요.');
+		}else{
+
+			$.ajax({
+				data: {ntctxt_no: ntctxt_no, contents : contents, bbs_no : bbs_no, menu_no : menu_no,admin_yn: admin_yn},
+				dataType:'json',
+				type:'POST',
+				url:"/portal/board/replyWrite.do",
+				async : true,
+				success:function(arg){
+
+					// $(".reply").append("setNewContents");
+					if(arg !=null ){
+						alert('정상적으로 저장되었습니다.');
+						pageReload();
+
+					}else{
+						alert("정상적으로 저장이 되지 않았습니다.");
+					}
+
+				},
+				error:function(request,status,error){
+					alert("실패");
+					//alert('시스템에러가 발생하였습니다. 관리자에게 문의하십시오.');   //시스템에러
+				}
+			});
+		}
+	}
+
+	function pageReload(){
+		location.reload();
+	}
+
+	function deleteReply(reply_no,index){
+
+		if(confirm("댓글을 삭제하시겠습니까?")){
+
+			var user_id = $('#id').val();
+
+			$.ajax({
+				data: {user_id: user_id, reply_no : reply_no},
+				dataType:'json',
+				type:'POST',
+				url:"/portal/board/replyDelete.do",
+				async : true,
+				success:function(arg){
+					//var dtr = "tr"+id;
+					//dtr.css("display","none");
+					alert('삭제되었습니다.');
+					//document.getElementById(index).style.display="none";
+
+					$('#'+index).css('display', 'none');
+				},
+				error:function(request,status,error){
+					alert('시스템에러가 발생하였습니다. 관리자에게 문의하십시오.');   //시스템에러
+				}
+			});
+		}
+
+	}
+
+
+
+	function fnChkByte(obj, maxByte){
+		var str = obj.value;
+		var str_len = str.length;
+
+		var rbyte = 0;
+		var rlen = 0;
+		var one_char = "";
+		var str2 = "";
+
+		for(var i = 0; i < str_len; i++){
+			one_char = str.charAt(i);
+			if(escape(one_char).length > 4){
+				rbyte +=2;
+			}else{
+				rbyte++;
+			}
+
+			if(rbyte <=maxByte){
+				rlen = i+1;
+
+			}
+
+		}
+		if(rbyte > maxByte){
+			alert("최대" + maxByte +"byte를 초과할 수 없습니다.");
+			str2 = str.substr(0,rlen);
+			obj.value = str2;
+			fnChkByte(obj, maxByte);
+		}else{
+			document.getElementById('byteInfo').innerText = rbyte + "/500bytes";
+		}
+
+	}
+
+	function fn_replyClick(){
+		document.getElementById('replyAddBtn').click();
+	}
+
+	//댓글관련 끝
+
+	//페이지 새창오픈
+	function fn_openPage(url , type){
+		if(url != null && url != ''){
+			if(type == "Y"){
+				window.open(url, "");
+			}else{
+				document.baseForm.action=url;
+				document.baseForm.target="_self";
+				document.baseForm.method="post";
+				document.baseForm.submit();
+			}
+		}
+	}
+</script>
+
+                                    
+                                    
+                                
+
+                                
+
+                                
+
+                            </main>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+            <!-- 컨텐츠 영역 e -->
+        </div>
+        <!-- 컨테이너 영역 e -->
+
+        <!-- 우측 플로팅 팝업(js 공통) s -->
+        <common-floating></common-floating>
+        <!-- 우측 플로팅 팝업(js 공통) e -->
+
+        <!-- footer(js 공통) s -->
+        <common-footer></common-footer>
+        <!-- footer(js 공통) e -->
+    </div>
+
+    <!-- modal-wrap s -->
+    <div class="modal-wrap">
+        <!-- 모달 : 통합 검색 s -->
+        <div id="popTotalSch" class="modal fade" data-type="full">
+            <!-- modal-dialog s -->
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- modal title s -->
+                    <div class="modal-header sr-only">
+                        <h1 class="modal-title">통합검색</h1>
+                    </div>
+                    <!-- modal title e -->
+                    <!-- modal contents s -->
+                    <div class="modal-conts">
+                        <!-- 통합검색 s -->
+                        <div class="pop-total-serch-wrap">
+                            <!-- 통합검색 정보입력 영역 s -->
+                            <div class="search-total-top">
+                                <!-- 검색어 타이틀 s -->
+                                <div class="search-tit">
+                                    <label for="search-total-input-id">통합검색</label>
+                                    <a href="#" class="btn medium text">검색에 어려움이 있으신가요? <i
+                                            class="svg-icon ico-login-go"></i></a>
+                                </div>
+                                <!-- 검색어 타이틀 e -->
+
+                                <!-- 검색어 입력 폼 s -->
+                                <div class="sch-form-wrap vert">
+                                    <div class="sch-input">
+                                        <input type="text" class="custom-input xlarge" id="search-total-input-id"
+                                            placeholder="검색어를 입력해주세요.">
+                                        <button type="button" class="btn icon xlarge ico-search">
+                                            <span class="sr-only">검색</span>
+                                            <i class="svg-icon ico-sch"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- 검색어 입력 폼 e -->
+                            </div>
+                            <!-- 통합검색 정보입력 영역 e -->
+
+                            <!-- 검색어 리스트 s -->
+                            <div class="search-text">
+                                <!-- 검색어 입력 전 s -->
+                                <ul class="sch-info-list">
+                                    <li class="sch-info-item word-popular">
+                                        <h2 class="tit">인기검색어</h2>
+                                        <ol class="list">
+                                            <li>
+                                                <span class="ranking-txt"><a href="javascript:void(0);">식중독</a></span>
+                                                <span class="ranking-state up"><em class="sr-only">상승</em>1</span>
+                                            </li>
+                                            <li>
+                                                <span class="ranking-txt"><a href="javascript:void(0);">콘드로이친</a></span>
+                                                <span class="ranking-state same"><em class="sr-only">동일</em></span>
+                                            </li>
+                                            <li>
+                                                <span class="ranking-txt"><a href="javascript:void(0);">품목제조보고</a></span>
+                                                <span class="ranking-state up"><em class="sr-only">상승</em>3</span>
+                                            </li>
+                                            <li>
+                                                <span class="ranking-txt"><a href="javascript:void(0);">화인내츄럴</a></span>
+                                                <span class="ranking-state same"><em class="sr-only">동일</em></span>
+                                            </li>
+                                            <li>
+                                                <span class="ranking-txt"><a href="javascript:void(0);">위생등급제</a></span>
+                                                <span class="ranking-state same"><em class="sr-only">동일</em></span>
+                                            </li>
+                                            <li>
+                                                <span class="ranking-txt"><a href="javascript:void(0);">상황버섯</a></span>
+                                                <span class="ranking-state down"><em class="sr-only">하락</em>1</span>
+                                            </li>
+                                            <li>
+                                                <span class="ranking-txt"><a href="javascript:void(0);">쏘팔메토</a></span>
+                                                <span class="ranking-state down"><em class="sr-only">하락</em>1</span>
+                                            </li>
+                                            <li>
+                                                <span class="ranking-txt"><a href="javascript:void(0);">백수오</a></span>
+                                                <span class="ranking-state same"><em class="sr-only">동일</em></span>
+                                            </li>
+                                            <li>
+                                                <span class="ranking-txt"><a href="javascript:void(0);">위생등급</a></span>
+                                                <span class="ranking-state up"><em class="sr-only">상승</em>11</span>
+                                            </li>
+                                            <li>
+                                                <span class="ranking-txt"><a href="javascript:void(0);">식품첨가물</a></span>
+                                                <span class="ranking-state same"><em class="sr-only">동일</em></span>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="sch-info-item word-lately">
+                                        <h2 class="tit">최근검색어</h2>
+                                        <ul class="list" aria-live="polite">
+                                            <li>
+                                                <span class="word-txt"><a href="javascript:void(0);">식중독</a></span>
+                                                <button type="button" class="btn small icon">
+                                                    <span class="sr-only">삭제</span>
+                                                    <i class="svg-icon ico-delete-fill"></i>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <span class="word-txt"><a href="javascript:void(0);">나트륨</a></span>
+                                                <button type="button" class="btn small icon">
+                                                    <span class="sr-only">삭제</span>
+                                                    <i class="svg-icon ico-delete-fill"></i>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <span class="word-txt"><a href="javascript:void(0);">민원</a></span>
+                                                <button type="button" class="btn small icon">
+                                                    <span class="sr-only">삭제</span>
+                                                    <i class="svg-icon ico-delete-fill"></i>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                        <button type="button" class="btn medium text">최근검색어 전체 삭제 <i
+                                                class="svg-icon ico-delete-fill"></i></button>
+                                    </li>
+                                </ul>
+                                <!-- 검색어 입력 전 e -->
+                            </div>
+                            <!-- 검색어 리스트 e -->
+                        </div>
+                        <!-- 통합검색 e -->
+                    </div>
+                    <!-- modal contents e -->
+                    <!-- close button s -->
+                    <button type="button" class="btn xlarge icon btn-close close-modal">
+                        <span class="sr-only">닫기</span>
+                        <i class="svg-icon ico-popup-close"></i>
+                    </button>
+                    <!-- close button e -->
+                </div>
+            </div>
+            <!-- modal-dialog e -->
+            <div class="modal-back"></div>
+        </div>
+        <!-- 모달 : 통합 검색 e -->
+
+    </div>
+    <!-- modal-wrap e -->
+
+    <!-- 모달 : QR 코드 s (김유성 20260904) -->
+    <div id="qrModal" class="qr_modal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
+        <div class="qr_content">
+            <h3 id="qrModalTitle">QR 코드로 공유하기</h3>
+            <div id="qrCanvasContainer"></div>
+            <p>스캔하거나 아래 버튼을 눌러 이미지로 저장하세요.</p>
+            <div class="qr_buttons">
+                <button type="button" id="downloadQR" class="btn_qr_save">이미지 저장</button>
+                <button type="button" id="closeQRModal" class="btn_qr_close">닫기</button>
+            </div>
+        </div>
+    </div>
+    <!-- 모달 : QR 코드 e -->
+
+<script>
+    $(document).ready(function() {
+        // 웹접근성 : 마우스 클릭 트리거 추적
+        var _lastInteractiveEl = null;
+        document.addEventListener('mousedown', function(e){
+            if (e.target.closest('.fancybox-wrap, .fancybox-overlay, .modal')) return;
+            var el = e.target.closest('a, button, input, select, textarea, [tabindex]');
+            if (el) { _lastInteractiveEl = el; }
+        }, true);
+
+        // 웹접근성 : 링크/버튼에 새창 안내
+        window.fn_applyNewWindowNotice = function(root){
+            try {
+                var ctx = root || document;
+                var bels = ctx.querySelectorAll('a[target="_blank"], button[target="_blank"], area[target="_blank"]');
+                for (var bi=0; bi<bels.length; bi++){
+                    var be = bels[bi];
+                    var bt = be.getAttribute('title') || '';
+                    if (bt.indexOf('새창') > -1) continue; // 이미 새창 안내가 있으면 유지
+                    var blabel = bt || (be.textContent||'').trim() || (be.getAttribute('alt')||'');
+                    if (!blabel && be.querySelector) { var bimg = be.querySelector('img[alt]'); if (bimg) { blabel = bimg.getAttribute('alt') || ''; } } // 이미지 링크면 img alt 사용
+                    be.setAttribute('title', (blabel ? blabel + ' - ' : '') + '새창 열림');
+                }
+            } catch(e){}
+        };
+        fn_applyNewWindowNotice();
+
+        // 웹접근성 : 검색 오류 메시지를 레이어로 제공
+        window.fn_showFocusAlert = function(message, focusTarget, onClose){
+            function _resolveEl(t){
+                if(!t) return null;
+                if(typeof t === 'string'){ var el = document.getElementById(t); if(el) return el; try { return document.querySelector(t); } catch(e){ return null; } }
+                if(t.jquery){ return t[0] || null; }
+                if(t.focus){ return t; }
+                return null;
+            }
+            try {
+                var old = document.getElementById('commonFocusAlert'); if(old && old.parentNode){ old.parentNode.removeChild(old); }
+                var modal = document.createElement('div');
+                modal.id = 'commonFocusAlert';
+                modal.setAttribute('role','alertdialog'); modal.setAttribute('aria-modal','true');
+                modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:100000;';
+                modal.innerHTML = '<div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);"></div>'
+                    + '<div role="document" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:360px;max-width:90%;background:#fff;border-radius:6px;padding:28px 20px 20px;box-shadow:0 4px 20px rgba(0,0,0,.3);text-align:center;">'
+                    + '<p id="commonFocusAlertMsg" style="font-size:16px;margin:0 0 20px;line-height:1.5;"></p>'
+                    + '<button type="button" id="commonFocusAlertOk" style="min-width:80px;min-height:40px;padding:8px 20px;background:#2563eb;color:#fff;border:none;border-radius:4px;cursor:pointer;">확인</button>'
+                    + '</div>';
+                document.body.appendChild(modal);
+                var msgEl = modal.querySelector('#commonFocusAlertMsg');
+                var parts = String(message == null ? '' : message).split('\n');
+                for(var pi=0; pi<parts.length; pi++){ if(pi>0){ msgEl.appendChild(document.createElement('br')); } msgEl.appendChild(document.createTextNode(parts[pi])); }
+                var ok = modal.querySelector('#commonFocusAlertOk');
+                var closed = false;
+                var close = function(){ if(closed) return; closed = true; var ft = _resolveEl(focusTarget); if(modal.parentNode){ modal.parentNode.removeChild(modal); } if(ft && typeof ft.focus === 'function'){ ft.focus(); setTimeout(function(){ ft.focus(); }, 0); _waFocusOutline(ft); } if(typeof onClose === 'function'){ try{ onClose(); }catch(e){} } };
+                ok.addEventListener('click', close);
+                modal.addEventListener('keydown', function(e){ if(e.key==='Escape'||e.keyCode===27){ close(); } else if(e.key==='Tab'||e.keyCode===9){ e.preventDefault(); ok.focus(); } });
+                ok.focus(); // 레이어로 초점 이동
+            } catch(err){ alert(message); var ft2 = _resolveEl(focusTarget); if(ft2 && ft2.focus){ ft2.focus(); } if(typeof onClose === 'function'){ try{ onClose(); }catch(e){} } }
+        };
+        window._waFocusOutline = function(el){
+            try {
+                if(!el || !el.style) return;
+                el.style.setProperty('outline','3px solid #1d495b','important');
+                el.style.setProperty('outline-offset','2px','important');
+                var _ob = function(){ try{ el.style.removeProperty('outline'); el.style.removeProperty('outline-offset'); }catch(e){} el.removeEventListener('blur', _ob); };
+                el.addEventListener('blur', _ob);
+            } catch(e){}
+        };
+
+        $(".zipcode,.maker,.vendor").fancybox({
+            maxWidth	: 800,
+            maxHeight	: 760,
+            minHeight	: 760,
+            fitToView	: false,
+            width		: '70%',
+            height		: '80%',
+            autoSize	: false,
+            closeClick	: false,
+            openEffect	: 'fade',
+            closeEffect	: 'fade',
+            // 웹접근성 : 레이어 표시 시 초점 이동, 닫을 때 트리거로 복귀
+            afterShow	: function(){ try{ $('.fancybox-wrap').attr('role','dialog').attr('tabindex','-1').focus(); }catch(e){} },
+            afterClose	: function(){ try{ var _t = this.element ? this.element : _lastInteractiveEl; if(_t){ $(_t).focus(); } }catch(e){} },
+            tpl: {next : '', prev : ''},
+            padding : 0,
+            helpers : {overlay : {locked : false}}
+        });
+
+        $(".foodtype,.origin,.organization").fancybox({
+            maxWidth	: 650,
+            maxHeight	: 600,
+            minHeight	: 600,
+            fitToView	: false,
+            width		: '70%',
+            height		: '80%',
+            autoSize	: false,
+            closeClick	: false,
+            openEffect	: 'fade',
+            closeEffect	: 'fade',
+            afterShow	: function(){ try{ $('.fancybox-wrap').attr('role','dialog').attr('tabindex','-1').focus(); }catch(e){} },
+            afterClose	: function(){ try{ var _t = this.element ? this.element : _lastInteractiveEl; if(_t){ $(_t).focus(); } }catch(e){} },
+            padding : 0,
+            tpl: {next : '', prev : ''},
+            helpers : {overlay : {locked : false}}
+        });
+
+        $(document).on('click', '[class*=fileUpload][class*=fancybox]', function(e) {
+            e.preventDefault();
+            if ($.fancybox.isOpen) { return; }
+            var el = $(this);
+            const type = getType(this);
+            $.fancybox.open({
+                href        : el.attr('href'),
+                type        : type,
+                maxWidth	: 530,
+                maxHeight	: 350,
+                minHeight	: 100,
+                fitToView	: false,
+                width		: '70%',
+                height		: '80%',
+                autoSize	: false,
+                closeClick	: false,
+                openEffect	: 'fade',
+                closeEffect	: 'fade',
+                afterShow	: function(){ try{ $('.fancybox-wrap').attr('role','dialog').attr('tabindex','-1').focus(); }catch(e){} },
+                afterClose	: function(){ try{ var _t = this.element ? this.element : _lastInteractiveEl; if(_t){ $(_t).focus(); } }catch(e){} },
+                tpl: {next : '', prev : ''},
+                padding : 0,
+                helpers : {overlay : {locked : false}}
+            });
+        });
+
+        /*
+        $(".fileUpload").fancybox({
+            maxWidth	: 530,
+            maxHeight	: 350,
+            minHeight	: 100,
+            fitToView	: false,
+            width		: '70%',
+            height		: '80%',
+            autoSize	: false,
+            closeClick	: false,
+            openEffect	: 'fade',
+            closeEffect	: 'fade',
+            afterShow	: function(){ try{ $('.fancybox-wrap').attr('role','dialog').attr('tabindex','-1').focus(); }catch(e){} },
+            afterClose	: function(){ try{ var _t = this.element ? this.element : _lastInteractiveEl; if(_t){ $(_t).focus(); } }catch(e){} },
+            tpl: {next : '', prev : ''},
+            padding : 0,
+            helpers : {overlay : {locked : false}}
+        });
+        */
+
+        $(".addr").fancybox({
+            maxWidth	: 840,
+            maxHeight	: 760,
+            minHeight	: 760,
+            fitToView	: false,
+            width		: '100%',
+            height		: '100%',
+            autoSize	: false,
+            closeClick	: false,
+            openEffect	: 'fade',
+            closeEffect	: 'fade',
+            afterShow	: function(){ try{ $('.fancybox-wrap').attr('role','dialog').attr('tabindex','-1').focus(); }catch(e){} },
+            afterClose	: function(){ try{ var _t = this.element ? this.element : _lastInteractiveEl; if(_t){ $(_t).focus(); } }catch(e){} },
+            tpl: {next : '', prev : ''},
+            padding : 0,
+            helpers : {overlay : {locked : false}}
+        });
+
+        const getType = (tag) => {
+            let type = "iframe";
+
+            try {
+                const classList = tag.classList;
+
+                for(const className of classList) {
+                    if(className.includes("fancybox.")) {
+                        const split = className.split(".");
+                        if(split[1]) {
+                            type = split[1];
+                        }
+                    }
+                }
+            } catch(e) {
+                console.error(e);
+                type = "iframe";
+            }
+
+            return type;
+        }
+
+        menuAdmininfo("4457");
+
+        if(document.querySelector("#logoutBtn")) {
+            document.querySelector("#logoutBtn").addEventListener("click", (e) => {
+                fn_logout();
+            });
+        }
+
+        // 누락된 common.js 소스 구현 (김유성 260316)
+        $('.health .btn-toggle').click(function() {
+            if ($(this).parent().next().css('display') == "none") {
+                $('.btn-toggle').removeClass("active");
+                $('.btn-toggle').parent().next().hide();
+                $(this).parent().next().show();
+                $(this).addClass("active");
+                $(this).text("닫기");
+            } else {
+                $(this).parent().next().hide();
+                $(this).text("열기");
+            }
+        });
+
+        // QR 모달 닫기 (배경 클릭 / 닫기 버튼)
+        $(document).on("click", "#qrModal", function(e) {
+            if (e.target === this || $(e.target).closest("#closeQRModal").length > 0) {
+                fnQrModalClose();
+            }
+        });
+
+        // QR 모달 : ESC 로 닫기, Tab 초점 가두기
+        $(document).on("keydown", "#qrModal", function(e) {
+            if (e.keyCode === 27) {
+                fnQrModalClose();
+                return;
+            }
+            if (e.keyCode === 9) {
+                var btns = $(this).find("button:visible");
+                if (!btns.length) return;
+                var first = btns[0];
+                var last = btns[btns.length - 1];
+                if (e.shiftKey && e.target === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && e.target === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        });
+
+    });
+    function copyUrlAddr(){
+    	var url = $("#copyUrl").val();
+    	copyToClipboardWithURL(url);
+    }
+
+    // QR 코드 생성 / 이미지 다운로드 (김유성 20260904)
+    var _qrTriggerEl = null;
+
+    function fnQrcode(targetURL) {
+        var finalURL = targetURL || $("#copyUrl").val() || window.location.href;
+        if (finalURL.indexOf("/") === 0) {
+            finalURL = window.location.origin + finalURL;
+        }
+
+        if (typeof QRCodeGen === "undefined" || !QRCodeGen.toCanvas) {
+            alert("QR 코드 생성 모듈을 불러오지 못했습니다.");
+            return;
+        }
+
+        _qrTriggerEl = document.activeElement;
+
+        var container = document.getElementById("qrCanvasContainer");
+        container.innerHTML = "";
+
+        QRCodeGen.toCanvas(finalURL, { width: 200, margin: 2 }, function(err, canvas) {
+            if (err) {
+                alert("QR 코드 생성에 실패했습니다.");
+                return;
+            }
+            canvas.setAttribute("role", "img");
+            canvas.setAttribute("aria-label", "현재 페이지 주소 QR 코드");
+            container.appendChild(canvas);
+
+            $("#downloadQR").off("click").on("click", function() {
+                fnQrcodeDownload(canvas);
+            });
+
+            $("#qrModal").css("display", "flex");
+            $("#closeQRModal").focus();
+        });
+    }
+
+    function fnQrcodeDownload(canvas) {
+        if (canvas.msToBlob && navigator.msSaveBlob) {
+            navigator.msSaveBlob(canvas.msToBlob(), "qrcode.png");
+            return;
+        }
+        var link = document.createElement("a");
+        link.href = canvas.toDataURL("image/png");
+        link.download = "qrcode.png";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    function fnQrModalClose() {
+        $("#qrModal").hide();
+        if (_qrTriggerEl && _qrTriggerEl.focus) {
+            _qrTriggerEl.focus();
+        }
+        _qrTriggerEl = null;
+    }
+
+    function copyToClipboardWithURL(url) {
+    	var IE = (document.all) ? true : false;
+    	if (IE) {
+    		window.clipboardData.setData("Text", url);
+    		alert("이 글의 주소가 클립보드에 복사되었습니다.");
+    	}
+    	else {
+    		temp = prompt("Ctrl+C를 눌러 이 글의 주소를 클립보드로 복사하세요.", url);
+    	}
+    }
+
+    const menuAdmininfo = (menu_no) => {
+        if(!menu_no) {
+            return;
+        }
+
+        $.ajax({
+            data: {"menu_no": menu_no},
+            dataType: 'json',
+            type: 'POST',
+            async: false,
+            url: ""+"/portal/menuAdminInfo.do",
+            success:function(data){
+                printAdminInfo(data.menuAdminVO);
+            },
+            error:function(request,status,error){
+            }
+        });
+    }
+
+    const printAdminInfo = (data) => {
+        if(!data) {
+            return;
+        }
+
+        const menu_no = data.menu_no;
+        const tel_no = data.tel_no;
+        const psitn_dept = data.psitn_dept;
+
+        let contents = "";
+        if(menu_no == "2710" || menu_no == "2713") {
+            contents = `<span class="p-icon"><h>식품관리총괄과(043-719-2071) / 건강기능식품정책과(2460) / 농수산물안전정책과(3202, 3217) / 축산물안전정책과(3257) / 수입유통안전과(6258)</h></span>`;
+        } else {
+            if(psitn_dept) {
+                contents += '<span class="p-icon"><b>담당부서</b><h>' + psitn_dept + '</h></span>';
+            }
+            if(tel_no) {
+                contents += '<span class="p-icon1"><b>연락처</b><h>' + tel_no + '</h></span>';
+            }
+        }
+
+        const html = `
+            <div class="menu-admin">
+                <div class="box03 p-box">
+                    ${contents}
+                </div>
+            </div>
+        `;
+
+        if(document.querySelector("#contents") && contents) {
+            document.querySelector("#contents").insertAdjacentHTML("beforeend", html);
+        }
+    }
+</script>
+</body>
+
+</html>

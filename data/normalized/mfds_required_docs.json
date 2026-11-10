@@ -1,7 +1,7 @@
 {
   "source_id": "mfds_required_docs",
   "title": "(공지)수입식품 수입신고 시 제출해야 하는 구비서류 목록('26.8.4)",
-  "retrieved_at": "2026-11-10T14:22:25+09:00",
+  "retrieved_at": "2026-11-10T15:24:16+09:00",
   "url": "https://impfood.mfds.go.kr/CFCII04F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=666431",
   "publication_date": "2026-08-04",
   "effective_date": "2026-08-03",
@@ -11,7 +11,9 @@
     {
       "sn": "666497",
       "title": "스페인 수산물 위생증명서 추가 변경사항 알림",
-      "date": "2026-08-05"
+      "date": "2026-08-05",
+      "url": "https://impfood.mfds.go.kr/CFCII04F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=666497",
+      "body": "한-스페인 위생약정에 따른 수산물 위생증명 서식 이 붙임과 같이 변경되었음을 알려왔기에 공유드리니 관련 업무에 참고하시길 바랍니다. ○ 주요 변경내용 : (기존) Ref: ASE-3874 LPD0725 → Ref: ASE-3874 ARG0726 (변경후) ASE-3874 export fish products to Korea.docx 54.6 kb"
     }
   ],
   "content": {

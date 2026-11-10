@@ -10,8 +10,8 @@ import openpyxl
 from conftest import bootstrap, doc, make_service
 from replay import ReplayFetcher
 
-from seafood_import.collectors import FetchError
-from seafood_import.rules import diff_rulesets, validate_ruleset
+from food_import.collectors import FetchError
+from food_import.rules import diff_rulesets, validate_ruleset
 
 R = ReplayFetcher()
 

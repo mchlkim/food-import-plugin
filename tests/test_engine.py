@@ -1,11 +1,11 @@
-"""판정 엔진. 규칙은 공식 사이트 녹화본으로 만든 것이다(가상 규칙을 쓰는 테스트는 따로 표시)."""
+"""판정 엔진(수산물·농산물·축산물·가공식품 등). 규칙은 공식 사이트 녹화본으로 만든 것이다(가상 규칙을 쓰는 테스트는 따로 표시)."""
 from __future__ import annotations
 
 import copy
 
 from conftest import doc, docs_by_status
 
-from seafood_import.rules.engine import Query, evaluate
+from food_import.rules.engine import Query, evaluate
 
 TODAY = "2026-11-10"
 
@@ -108,7 +108,8 @@ def test_hypothetical_exhaustive_list_allows_not_required(svc):
     """가상 규칙(테스트 전용): 약정국 목록이 한정 열거라고 표시된 경우에만 NOT_REQUIRED 가 나온다."""
     rs = copy.deepcopy(svc.store.load_ruleset())
     rs["coverage"]["hygiene"]["exhaustive"] = True            # 실제 데이터에서는 False 다
-    q = Query(origin_country="IN", product_name="오징어", product_tag="squid", product_type="raw")
+    q = Query(origin_country="IN", product_name="오징어", product_tag="squid", product_type="raw",
+              product_class="seafood", category="seafood")
     r = evaluate(q, rs, today=TODAY)
     hyg = next(d for d in r["documents"] if "위생증명서" in d["name"])
     assert hyg["status"] == "NOT_REQUIRED" and "한정 열거" in hyg["reason"]
@@ -135,7 +136,7 @@ def test_china_frozen_squid_requires_certificate_and_mentions_wild_notice(svc):
 
 
 def test_china_live_fish_is_outside_notice_scope(svc):
-    r = ask(svc, origin_country="중국", product_name="농어", state="활")
+    r = ask(svc, origin_country="중국", product_name="넙치", state="활")
     d = doc(r, "HYG-CN")
     assert d["status"] == "UNKNOWN" and "적용대상에서 뺐다" in d["reason"]      # 고시 제2조: 활수생동물 제외
     assert doc(r, "ANNEX2-SURVEY-REPORT")["status"] == "CONDITIONAL"           # 활어 → 검량서(별표 2)
@@ -151,8 +152,9 @@ def test_russia_pollock_and_processed_product(svc):
 
 def test_processed_food_from_agreement_country_quotes_scope(svc):
     r = ask(svc, origin_country="노르웨이", product_name="연어", state="조미")
-    hyg = next(d for d in r["documents"] if "위생증명서" in d["name"])
+    hyg = next(d for d in r["documents"] if d["name"].startswith("수산물 위생증명서"))
     assert hyg["status"] == "UNKNOWN" and "적용 범위" in hyg["reason"]
+    assert r["query"]["category"] == "processed" and r["query"]["product_class"] == "seafood"
 
 
 def test_vietnam_shrimp_has_certificate_and_inspection_order(svc):
@@ -251,7 +253,7 @@ def test_seasoned_processed_seafood_skips_raw_only_rules(svc):
     r = ask(svc, origin_country="노르웨이", product_name="연어", state="훈제")
     assert r["query"]["product_type"] == "processed"
     assert doc(r, "HYG-NO") is None and doc(r, "MFDS-LIST-SCIENTIFIC-NAME") is None
-    hyg = next(d for d in r["documents"] if "위생증명서" in d["name"])
+    hyg = next(d for d in r["documents"] if d["name"].startswith("수산물 위생증명서"))
     assert hyg["status"] == "UNKNOWN" and "가공식품" in hyg["reason"]
 
 
@@ -319,7 +321,8 @@ def test_hypothetical_conflicting_rules_block_conclusion(svc):
     rs = copy.deepcopy(svc.store.load_ruleset())
     ban = next(r for r in rs["rules"] if r["id"] == "JP-SEAFOOD-BAN")
     ban["when"]["region_in"].append("JP-01")                  # 가상: 홋카이도를 금지 목록에도 넣는다
-    q = Query(origin_country="JP", region="JP-01", product_name="가리비", product_tag="scallop", product_type="raw")
+    q = Query(origin_country="JP", region="JP-01", product_name="가리비", product_tag="scallop", product_type="raw",
+              product_class="seafood", category="seafood")
     r = evaluate(q, rs, today=TODAY)
     assert r["importability"]["status"] == "UNKNOWN"
     assert r["conflicts"] and set(r["conflicts"][0]["rule_ids"]) == {"JP-SEAFOOD-BAN", "JP-SEAFOOD-RADCERT"}
@@ -372,3 +375,179 @@ def test_query_is_logged_with_rule_version(svc):
     ask(svc, origin_country="페루", product_name="오징어", state="냉동")
     log = (svc.store.dir / "history" / "queries.jsonl").read_text(encoding="utf-8")
     assert '"rule_version": 1' in log
+
+
+# ---------- 조문 원문 조건, 별표 9, 참고 게시물 본문 ----------
+
+def test_conditions_from_article_27_are_verbatim_with_annex_9(svc):
+    r = ask(svc, origin_country="인도", product_name="새우", state="냉동")
+    photo = doc(r, "GEN-ART27-1-2-PHOTO")
+    assert photo["condition_verbatim"] is True
+    assert "천연색 사진" in photo["condition"]                    # 제1호의2 원문
+    assert "별표 9 제2호가목1) 원문" in photo["condition"] and "외화획득용" in photo["condition"]
+    assert "연구ㆍ조사에" in photo["condition"]
+    lab = doc(r, "GEN-ART27-2-FOREIGN-LAB")
+    assert "별표 9 제2호다목 원문" in lab["condition"] and "미생물학적" in lab["condition"]
+    assert "조건(조문 원문)" in r["markdown"]
+    sci = doc(r, "MFDS-LIST-SCIENTIFIC-NAME")
+    assert sci["condition_verbatim"] is False and "조건(요약)" in r["markdown"] and "원문:" in r["markdown"]
+
+
+def test_advisory_bodies_and_import_ban_titles(svc):
+    r = ask(svc, origin_country="일본", region="나가사키", product_name="새우", state="냉동")
+    shrimp = next(a for a in r["advisories"]["items"] if a["title"] == "일본산 냉동새우 검사강화")
+    assert shrimp.get("body") and "검사" in shrimp["body"]
+    assert any("일본산 수입식품 잠정 수입중단" == b["title"] for b in r["import_bans"]["items"])
+    assert all("일본" in b["title"] for b in r["import_bans"]["items"])
+    rs = svc.store.load_ruleset()
+    assert "mfds_import_bans" not in rs["sources"]
+
+
+def test_reference_notice_bodies_for_country(svc):
+    r = ask(svc, origin_country="스페인", product_name="오징어", state="냉동")
+    titles = [n["title"] for n in r["reference_notices"]["items"]]
+    assert any("스페인 수산물 위생증명서 추가 변경사항" in t for t in titles)
+    assert all(n["body"] for n in r["reference_notices"]["items"])
+    assert "관련 식약처 공지" in r["markdown"]
+    other = ask(svc, origin_country="인도", product_name="새우", state="냉동")
+    assert other["reference_notices"]["items"] == []
+
+
+# ====================================================================== 수산물 외 식품 유형
+
+def nd(r):
+    """기본 서류(GEN-)를 뺀 (상태, 규칙 ID) 목록."""
+    return [(d["status"], d.get("rule_id")) for d in r["documents"] if not (d.get("rule_id") or "").startswith("GEN-")]
+
+
+# ---------- 축산물 ----------
+
+def test_livestock_requires_export_certificate_and_importability_is_unknown(svc):
+    r = ask(svc, origin_country="미국", product_name="소고기", state="냉동")
+    assert r["query"]["category"] == "livestock"
+    d = doc(r, "LIV-EXPORT-CERT")
+    assert d["status"] == "REQUIRED" and "제27조제1항제8호" in d["legal_basis"][0]
+    assert d["original_or_copy"].startswith("수출국 정부 발행 원본") and "축산물 또는 동물성 식품" in d["condition"]
+    assert r["importability"]["status"] == "UNKNOWN" and "수입위생요건" in r["importability"]["summary"]
+    ids = [p["rule_id"] for p in r["prechecks"]]
+    assert "GATE-LIVESTOCK-ALLOWED" in ids and "PRECHECK-LIVESTOCK-ESTABLISHMENT" in ids
+    assert "PRECHECK-FOREIGN-FACILITY" not in ids               # 해외제조업소 정의에서 축산물은 빠진다(법 제2조제3호)
+    assert not any("수산물 위생증명서" in x["name"] for x in r["documents"])
+
+
+def test_japan_meat_is_prohibited_but_cheese_needs_certificates(svc):
+    beef = ask(svc, origin_country="일본", region="홋카이도", product_name="소고기")
+    assert beef["importability"]["status"] == "PROHIBITED"
+    assert beef["importability"]["prohibitions"][0]["rule_id"] == "JP-MEAT-MILK-BAN"
+    assert "육류 및 원유" in beef["importability"]["prohibitions"][0]["reason"]
+    cheese = ask(svc, origin_country="일본", region="홋카이도", product_name="치즈")
+    assert doc(cheese, "JP-LIVESTOCK-ORIGINCERT")["status"] == "REQUIRED"
+    assert doc(cheese, "LIV-EXPORT-CERT")["status"] == "REQUIRED"
+    assert doc(ask(svc, origin_country="일본", region="도쿄", product_name="치즈"), "JP-LIVESTOCK-RADCERT")["status"] == "REQUIRED"
+
+
+def test_japan_livestock_generic_cannot_rule_out_ban(svc):
+    r = ask(svc, origin_country="일본", region="홋카이도", product_name="축산물")
+    assert r["importability"]["status"] == "UNKNOWN" and "구체적인 품목명" in r["missing_info"]
+
+
+# ---------- 농산물 ----------
+
+def test_japan_agricultural_bans_by_prefecture_and_item(svc):
+    assert ask(svc, origin_country="일본", region="후쿠시마", product_name="쌀")["importability"]["status"] == "PROHIBITED"
+    mush = ask(svc, origin_country="일본", region="나가노", product_name="표고버섯")     # 원문: 버섯류
+    assert mush["importability"]["prohibitions"][0]["rule_id"] == "JP-AGRI-BAN-JP-20"
+    tea = ask(svc, origin_country="일본", region="가나가와", product_name="차")            # 원문: 차(茶)
+    assert tea["importability"]["status"] == "PROHIBITED"
+    rice = ask(svc, origin_country="일본", region="니가타", product_name="쌀")             # 니가타는 오가피만 금지
+    assert rice["importability"]["status"] == "NO_PROHIBITION_FOUND"
+    assert doc(rice, "JP-PROCESSED-RADCERT")["status"] == "REQUIRED"                     # 13개 도·현 → 검사성적서
+
+
+def test_japan_agricultural_without_region_is_unknown(svc):
+    r = ask(svc, origin_country="일본", product_name="표고버섯")
+    assert r["importability"]["status"] == "UNKNOWN" and any("생산지역" in m for m in r["missing_info"])
+
+
+def test_unlisted_product_with_category_uses_its_name(svc):
+    r = ask(svc, origin_country="일본", region="후쿠시마", product_name="사과", category="농산물")
+    assert r["importability"]["status"] == "NO_PROHIBITION_FOUND"          # 후쿠시마 금지 품목 낱말에 사과가 없다
+    assert doc(r, "JP-PROCESSED-RADCERT")["status"] == "REQUIRED"
+    assert any("품목 사전에서 찾지 못했다" in c for c in r["needs_confirmation"])
+    assert all(s != "UNKNOWN" for s, _ in nd(r))
+
+
+def test_country_specific_agricultural_rows(svc):
+    assert doc(ask(svc, origin_country="중국", product_name="다진마늘"), "CN-MINCED-GARLIC")["status"] == "REQUIRED"
+    assert doc(ask(svc, origin_country="베트남", product_name="다진마늘"), "CN-MINCED-GARLIC") is None
+    assert doc(ask(svc, origin_country="인도", product_name="향신료"), "ORDER-01")["status"] == "CONDITIONAL"
+    assert doc(ask(svc, origin_country="중국", product_name="목이버섯"), "ORDER-06") is not None
+
+
+# ---------- 가공식품, 원재료 ----------
+
+def test_ingredient_rows_depend_on_ingredient_input(svc):
+    yes = ask(svc, origin_country="베트남", product_name="과자", ingredients=["돼지고기"])
+    assert doc(yes, "MFDS-LIST-ASF-PORK")["status"] == "REQUIRED"           # 베트남은 ASF 발생국 각주에 있다
+    unknown = ask(svc, origin_country="베트남", product_name="과자")
+    d = doc(unknown, "MFDS-LIST-ASF-PORK")
+    assert d["status"] == "CONDITIONAL" and "원재료를 입력하지 않았다" in d["condition"]
+    none = ask(svc, origin_country="베트남", product_name="과자", ingredients=[])
+    assert doc(none, "MFDS-LIST-ASF-PORK") is None and doc(none, "MFDS-LIST-RUMINANT") is None
+    other = ask(svc, origin_country="미국", product_name="과자", ingredients=["돼지고기"])
+    assert doc(other, "MFDS-LIST-ASF-PORK") is None                         # 미국은 각주 목록에 없다
+
+
+def test_gelatin_health_functional_food(svc):
+    r = ask(svc, origin_country="독일", product_name="건강기능식품", ingredients=["젤라틴"])
+    assert doc(r, "MFDS-LIST-GELATIN-ORIGIN")["status"] == "REQUIRED"
+    bse = doc(r, "MFDS-LIST-BSE-GELATIN")
+    assert bse["status"] == "CONDITIONAL" and "36개국" in bse["condition"]   # BSE 국가 목록이 없어 조건부로만 답한다
+
+
+def test_product_specific_processed_rows(svc):
+    assert doc(ask(svc, origin_country="뉴질랜드", product_name="꿀"), "NZ-HONEY")["status"] == "REQUIRED"
+    assert doc(ask(svc, origin_country="호주", product_name="꿀"), "NZ-HONEY") is None
+    assert doc(ask(svc, origin_country="중국", product_name="천일염"), "CN-SOLAR-SALT")["status"] == "REQUIRED"
+    assert doc(ask(svc, origin_country="중국", product_name="천일염"), "MFDS-LIST-BULK-SOLAR-SALT")["status"] == "CONDITIONAL"
+    assert doc(ask(svc, origin_country="미국", product_name="죽염"), "MFDS-LIST-BURNT-SALT")["status"] == "REQUIRED"
+
+
+def test_apparatus_and_raw_products_skip_ingredient_rows(svc):
+    pet = ask(svc, origin_country="중국", product_name="PET 도시락")
+    assert nd(pet) == [("CONDITIONAL", "MFDS-LIST-PET-WARE")]
+    raw = ask(svc, origin_country="페루", product_name="오징어", state="냉동")
+    assert not any((rid or "").startswith(("MFDS-LIST-BSE", "MFDS-LIST-ASF", "LIV-")) for _, rid in nd(raw))
+
+
+def test_non_seafood_never_gets_seafood_hygiene_certificate(svc):
+    for f in (dict(origin_country="노르웨이", product_name="치즈"), dict(origin_country="중국", product_name="과자"),
+              dict(origin_country="베트남", product_name="고추")):
+        r = ask(svc, **f)
+        assert not any((rid or "").startswith("HYG-") for _, rid in nd(r))
+        assert not any("수산물 위생증명서" in d["name"] for d in r["documents"])
+        assert not any(p["rule_id"] == "PRECHECK-ART17-5" for p in r["prechecks"])
+
+
+def test_unknown_product_without_category_asks_for_food_class(svc):
+    r = ask(svc, origin_country="태국", product_name="망고스틴")
+    assert any(m.startswith("식품 유형") for m in r["missing_info"])
+    assert nd(r) == []                                         # 유형별 규칙을 미확인으로 늘어놓지 않는다
+    assert docs_by_status(r, "REQUIRED")                        # 기본 서류는 그대로 나온다
+
+
+def test_all_required_docs_rows_are_bound(svc):
+    rs = svc.store.load_ruleset()
+    assert not any("규칙에 연결되지 않았다" in w for w in rs["warnings"])
+    assert any("리트비아" in w for w in rs["warnings"])          # 원문 표기를 국가 사전에서 찾지 못한 이름은 경고로 남긴다
+    asf = next(r for r in rs["rules"] if r["id"] == "MFDS-LIST-ASF-PORK")
+    assert len(asf["when"]["origin_country"]) >= 70 and "CN" in asf["when"]["origin_country"]
+    assert sum(r["id"].startswith("JP-AGRI-BAN-") for r in rs["rules"]) == 15
+    assert sum(r["id"].startswith("ORDER-") for r in rs["rules"]) == 12
+
+
+def test_natural_language_non_seafood(svc):
+    r = ask(svc, text="호주산 소고기 수입할 때 필요한 서류")
+    assert r["query"]["origin_country"] == "AU" and r["query"]["category"] == "livestock"
+    r = ask(svc, text="일본 가나가와현 차 수입 가능한가?")
+    assert r["query"]["region"] == "JP-14" and r["importability"]["status"] == "PROHIBITED"

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# 프로젝트 가상환경의 CLI 를 실행한다. 심볼릭 링크로 설치된 스킬 폴더에서도 프로젝트 위치를 찾는다.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/.." && pwd)"
+export FOOD_IMPORT_HOME="$ROOT"
+if [ -x "$ROOT/.venv/bin/food-import" ]; then
+  exec "$ROOT/.venv/bin/food-import" "$@"
+fi
+exec uv run --project "$ROOT" food-import "$@"

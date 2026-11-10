@@ -1,9 +1,9 @@
 {
   "mfds_required_docs": {
     "status": "OK",
-    "last_checked": "2026-11-10T14:22:26+09:00",
+    "last_checked": "2026-11-10T15:24:17+09:00",
     "error": null,
-    "last_success": "2026-11-10T14:22:26+09:00",
+    "last_success": "2026-11-10T15:24:17+09:00",
     "latest_document": "(공지)수입식품 수입신고 시 제출해야 하는 구비서류 목록('26.8.4)",
     "publication_date": "2026-08-04",
     "effective_date": "2026-08-03",
@@ -11,28 +11,28 @@
   },
   "radsafe_japan_measures": {
     "status": "OK",
-    "last_checked": "2026-11-10T14:22:26+09:00",
-    "last_success": "2026-11-10T14:22:26+09:00",
+    "last_checked": "2026-11-10T15:24:17+09:00",
+    "last_success": "2026-11-10T15:24:17+09:00",
     "error": null,
     "latest_document": "일본산 식품 수입제한조치 (수입식품방사능안전정보 > 원전사고 이후 대응조치)",
     "publication_date": null,
     "effective_date": null,
-    "last_content_change": "2026-11-10T10:11:30+09:00"
+    "last_content_change": "2026-11-10T15:24:17+09:00"
   },
   "law_enforcement_rule_27": {
     "status": "OK",
-    "last_checked": "2026-11-10T14:22:29+09:00",
-    "last_success": "2026-11-10T14:22:29+09:00",
+    "last_checked": "2026-11-10T15:24:22+09:00",
+    "last_success": "2026-11-10T15:24:22+09:00",
     "error": null,
     "latest_document": "수입식품안전관리 특별법 시행규칙 제27조(수입식품등의 수입신고)",
     "publication_date": null,
     "effective_date": "2026-09-30",
-    "last_content_change": "2026-11-10T10:11:34+09:00"
+    "last_content_change": "2026-11-10T14:47:09+09:00"
   },
   "mfds_inspection_orders": {
     "status": "OK",
-    "last_checked": "2026-11-10T14:22:30+09:00",
-    "last_success": "2026-11-10T14:22:30+09:00",
+    "last_checked": "2026-11-10T15:24:23+09:00",
+    "last_success": "2026-11-10T15:24:23+09:00",
     "error": null,
     "latest_document": "검사명령 대상 식품 현황 (수입식품정보마루 > 검사명령제)",
     "publication_date": null,
@@ -41,22 +41,22 @@
   },
   "mfds_hygiene_agreement_notices": {
     "status": "OK",
-    "last_checked": "2026-11-10T14:22:52+09:00",
-    "last_success": "2026-11-10T14:22:52+09:00",
+    "last_checked": "2026-11-10T15:25:00+09:00",
+    "last_success": "2026-11-10T15:25:00+09:00",
     "error": null,
     "latest_document": "수산물 위생약정·위생증명서 관련 공지 (수입식품정보마루 > 공지사항)",
     "publication_date": null,
     "effective_date": null,
-    "last_content_change": "2026-11-10T14:18:15+09:00"
+    "last_content_change": "2026-11-10T14:47:49+09:00"
   },
   "_rules": {
-    "last_compared": "2026-11-10T14:24:15+09:00",
+    "last_compared": "2026-11-10T15:28:05+09:00",
     "status": "CHANGE_DETECTED"
   },
   "law_hygiene_agreements": {
     "status": "OK",
-    "last_checked": "2026-11-10T14:23:59+09:00",
-    "last_success": "2026-11-10T14:23:59+09:00",
+    "last_checked": "2026-11-10T15:26:05+09:00",
+    "last_success": "2026-11-10T15:26:05+09:00",
     "error": null,
     "latest_document": "국가별 수산물 위생약정 고시 (국가법령정보센터 행정규칙)",
     "publication_date": null,
@@ -65,8 +65,8 @@
   },
   "law_import_inspection_notice": {
     "status": "OK",
-    "last_checked": "2026-11-10T14:24:08+09:00",
-    "last_success": "2026-11-10T14:24:08+09:00",
+    "last_checked": "2026-11-10T15:26:13+09:00",
+    "last_success": "2026-11-10T15:26:13+09:00",
     "error": null,
     "latest_document": "식약처 고시 「수입식품등 신고 및 검사에 관한 규정」 (국가법령정보센터 행정규칙)",
     "publication_date": null,
@@ -75,8 +75,8 @@
   },
   "law_special_act_5": {
     "status": "OK",
-    "last_checked": "2026-11-10T14:24:12+09:00",
-    "last_success": "2026-11-10T14:24:12+09:00",
+    "last_checked": "2026-11-10T14:49:04+09:00",
+    "last_success": "2026-11-10T14:49:04+09:00",
     "error": null,
     "latest_document": "수입식품안전관리 특별법 제5조(해외제조업소 등록)",
     "publication_date": null,
@@ -85,12 +85,32 @@
   },
   "fsk_inspection_advisories": {
     "status": "OK",
-    "last_checked": "2026-11-10T14:24:15+09:00",
-    "last_success": "2026-11-10T14:24:15+09:00",
+    "last_checked": "2026-11-10T15:28:04+09:00",
+    "last_success": "2026-11-10T15:28:04+09:00",
     "error": null,
     "latest_document": "검사지시(검사강화) 게시물 목록 (식품안전나라 > 수입신고 및 검사 > 검사지시)",
     "publication_date": null,
     "effective_date": null,
-    "last_content_change": "2026-11-10T14:19:35+09:00"
+    "last_content_change": "2026-11-10T15:28:04+09:00"
+  },
+  "mfds_import_bans": {
+    "status": "OK",
+    "last_checked": "2026-11-10T15:28:05+09:00",
+    "last_success": "2026-11-10T15:28:05+09:00",
+    "error": null,
+    "latest_document": "수입금지제품 게시물 목록 (수입식품정보마루 > 수입금지제품)",
+    "publication_date": null,
+    "effective_date": null,
+    "last_content_change": "2026-11-10T14:49:39+09:00"
+  },
+  "law_special_act": {
+    "status": "OK",
+    "last_checked": "2026-11-10T15:26:17+09:00",
+    "last_success": "2026-11-10T15:26:17+09:00",
+    "error": null,
+    "latest_document": "수입식품안전관리 특별법",
+    "publication_date": null,
+    "effective_date": "2026-10-08",
+    "last_content_change": "2026-11-10T15:26:17+09:00"
   }
 }

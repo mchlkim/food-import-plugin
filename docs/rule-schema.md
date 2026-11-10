@@ -85,6 +85,17 @@
 | `related_notices` | 같은 국가의 식약처 공지(제목, 게시일, 주소) |
 | `title` | `NOTICE` 규칙의 제목 |
 
+### 0.3.0 에서 추가된 필드
+
+| 필드 | 뜻 |
+|---|---|
+| `when.category_in` | 판정용 식품 유형. `agricultural`, `livestock`, `seafood`, `processed`, `health_functional`, `additive`, `apparatus`. 농·수산물을 가공한 것은 `processed` 다 |
+| `when.product_class_in` | 품목 사전의 분류(가공 여부와 무관). 수산물 약정처럼 "수산물이거나 수산가공품"을 가릴 때 쓴다 |
+| `when.ingredient_any` | 원재료 태그. 조회에 원재료가 없으면 서류를 `CONDITIONAL` 로 낮춰 답한다. 원물 농·수산물, 가공하지 않은 축산물, 기구·용기는 원재료가 없는 것으로 본다 |
+| `when.product_name_any` | 원문의 품목 낱말(예: 버섯류, 차(茶)). 조회한 품목명·사전 이름과 글자로 대조한다 |
+| `importability_unknown` | `NOTICE` 규칙에 쓴다. 해당하면 수입 가능 여부를 `UNKNOWN` 으로 답한다(축산물 수입위생요건) |
+| `condition_verbatim` | 조건 문구가 요약이 아니라 조문 원문이다 |
+
 검사강화 게시물(`advisories`)은 규칙이 아니다. 정규화 데이터(`fsk_inspection_advisories`)에서 조회 시점에 읽어 붙인다. 그래서 게시물이 새로 올라와도 검토 대기가 생기지 않는다.
 
 ## 판정 상태

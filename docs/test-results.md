@@ -1,22 +1,22 @@
 # 테스트 결과
 
-실행일: 2026-11-10 (Python 3.12.3, pytest 8, mcp 2.3.0, pypdf). 버전 0.2.0 기준
+실행일: 2026-11-10 (Python 3.12.3, pytest 8, mcp 2.3.0, pypdf). 버전 0.3.0 기준
 
 | 구분 | 명령 | 결과 |
 |---|---|---|
-| 오프라인 | `.venv/bin/python -m pytest -q` | 135 passed, 1 deselected |
+| 오프라인 | `.venv/bin/python -m pytest -q` | 154 passed, 1 deselected |
 | 실제 사이트 접속 | `.venv/bin/python -m pytest -q -m live` | 1 passed |
-| 규칙 검증 | `scripts/validate_rules` | 오류 0, 경고 0 (규칙 40개, v4) |
-| MCP stdio | JSON-RPC `initialize` → `tools/call` 직접 전송 | `get_required_documents`(러시아 명태, `refresh: false`) 응답 확인 |
+| 규칙 검증 | `scripts/validate_rules` | 오류 0, 경고 0 (규칙 89개, v6) |
+| MCP stdio | JSON-RPC `initialize` → `tools/call` 직접 전송 | `get_required_documents`(베트남 과자, 원재료 돼지고기, `refresh: false`) 응답 확인 |
 
-오프라인 테스트는 2026-11-10 에 공식 사이트에서 녹화한 응답 47건(`tests/fixtures/http/`)을 재생한다. 수집기와 같은 요청만 녹화했고 응답 원문을 그대로 저장했다.
+오프라인 테스트는 2026-11-10 에 공식 사이트에서 녹화한 응답 87건(`tests/fixtures/http/`)을 재생한다. 수집기와 같은 요청만 녹화했고 응답 원문을 그대로 저장했다.
 
 ## 파일별 내용
 
 | 파일 | 수 | 다루는 것 |
 |---|---|---|
-| `tests/test_normalization_and_parsers.py` | 58 | 국가·지역 별칭, 통칭 품목, 예시 문장 해석, 엑셀·일본 조치·조문·검사명령·공지·고시·PDF 별표·게시판 목록 파서, 구조 변경 시 실패 |
-| `tests/test_engine.py` | 45 | 국가·지역별, 제품 유형별 판정, 약정 고시 12개국, 활수산물 제외, 신고 전 확인사항, 검사강화 게시물, 날짜, 근거 추적, 충돌, 오류 입력, 보조 도구 |
+| `tests/test_normalization_and_parsers.py` | 59 | 국가·지역 별칭, 통칭 품목, 예시 문장 해석, 엑셀·일본 조치·조문·검사명령·공지·고시·PDF 별표·게시판 목록 파서, 구조 변경 시 실패 |
+| `tests/test_engine.py` | 63 | 국가·지역별, 제품 유형별 판정, 약정 고시 12개국, 활수산물 제외, 신고 전 확인사항, 검사강화 게시물, 날짜, 근거 추적, 충돌, 오류 입력, 보조 도구. 축산물, 일본산 농산물·축산물, 구비서류 목록 전체 연번, 원재료 조건, 식품 유형 미입력 |
 | `tests/test_update_and_rules.py` | 26 | 업데이트 절차, 실패 시 기존 규칙 유지, 변경 감지·승인·되돌리기, 수동 반영, 규칙 검증·비교, 조회 전 최신 확인 |
 | `tests/test_interfaces.py` | 6 (+live 1) | MCP 도구 목록·스키마·호출, CLI 출력과 종료 코드 |
 
@@ -34,6 +34,20 @@
 | 약정 고시가 적용대상에서 뺀 상태, 가공식품 | `test_china_live_fish_is_outside_notice_scope`, `test_processed_food_from_agreement_country_quotes_scope` |
 | 위생약정 미확인 국가의 일반 수산물 | `test_country_without_confirmed_agreement_is_unknown_not_not_required` |
 | 국가별 특별 제출서류가 있는 품목 | `test_country_specific_item_document`, `test_vietnam_shrimp_inspection_order_and_expiry`, `test_vietnam_shrimp_has_certificate_and_inspection_order`, `test_raw_pufferfish_origin_certificate_from_annex` |
+
+수산물 외 식품 유형(0.3.0):
+
+| 시나리오 | 테스트 |
+|---|---|
+| 축산물 수출 위생증명서, 수입 가능 여부 미확인 | `test_livestock_requires_export_certificate_and_importability_is_unknown` |
+| 일본산 육류 금지, 유가공품 증명서 | `test_japan_meat_is_prohibited_but_cheese_needs_certificates`, `test_japan_livestock_generic_cannot_rule_out_ban` |
+| 일본산 농산물 현별 금지 품목 | `test_japan_agricultural_bans_by_prefecture_and_item`, `test_japan_agricultural_without_region_is_unknown` |
+| 품목 사전에 없는 품목 | `test_unlisted_product_with_category_uses_its_name`, `test_unknown_product_without_category_asks_for_food_class` |
+| 국가·품목별 행(다진마늘, 꿀, 천일염, 죽염) | `test_country_specific_agricultural_rows`, `test_product_specific_processed_rows` |
+| 원재료 조건(ASF, 젤라틴, BSE) | `test_ingredient_rows_depend_on_ingredient_input`, `test_gelatin_health_functional_food` |
+| 기구·용기, 원물에는 원재료 행을 붙이지 않음 | `test_apparatus_and_raw_products_skip_ingredient_rows` |
+| 수산물이 아니면 수산물 위생증명서를 붙이지 않음 | `test_non_seafood_never_gets_seafood_hygiene_certificate` |
+| 구비서류 목록 전체 연번 연결, 국가 각주 | `test_all_required_docs_rows_are_bound` |
 
 제품 유형:
 
@@ -80,4 +94,7 @@
 - (0.2.0) 결합표의 서류명에 쉼표가 있어 YAML 이 중간에서 잘라 읽음 → 따옴표 처리
 - (0.2.0) 품목을 모르는 조회에 선택 서류(복어 원산지증명서)가 미확인으로 나옴 → 정보가 부족하면 싣지 않도록 수정
 - (0.2.0) 검사강화 게시물 낱말 "김"이 "김장", "김치"에 걸림 → 한 글자 낱말 제거
+- (0.3.0) 국가 이름 "인도"가 "인도네시아"에, "가나"가 "가나가와"에 걸림 → 긴 이름부터 찾고 찾은 자리를 가리도록 수정
+- (0.3.0) 품목 이름 "고기"가 "물고기"에, "크림"이 "아이스크림"에 걸림 → 사전에서 제거
+- (0.3.0) 원물·기구에 원재료 조건 서류가 조건부로 붙음 → 원재료가 없는 유형으로 처리
 - (0.2.0) 고시 본문의 낱말 중간 링크 때문에 인용문이 "해 양식 물"처럼 끊김 → 링크 태그를 먼저 없애도록 수정

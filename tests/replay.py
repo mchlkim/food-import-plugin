@@ -34,7 +34,7 @@ class ReplayFetcher:
                 return value
         entry = self.manifest.get(_key(url, data))
         if entry is None:
-            from seafood_import.collectors import FetchError
+            from food_import.collectors import FetchError
             raise FetchError(f"녹화되지 않은 요청: {url}")
         return (FIXTURES / entry["file"]).read_bytes()
 
@@ -47,8 +47,8 @@ class ReplayFetcher:
 
 
 def record() -> None:
-    from seafood_import.collectors import COLLECTORS, HttpFetcher
-    from seafood_import.config import load_config
+    from food_import.collectors import COLLECTORS, HttpFetcher
+    from food_import.config import load_config
 
     cfg = load_config()
     http = HttpFetcher(cfg.settings["http"]["user_agent"], cfg.settings["http"]["min_interval_seconds"])

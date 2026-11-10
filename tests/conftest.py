@@ -15,9 +15,9 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from replay import ReplayFetcher  # noqa: E402
 
-from seafood_import.config import load_config  # noqa: E402
-from seafood_import.services import Service  # noqa: E402
-from seafood_import.storage import Store  # noqa: E402
+from food_import.config import load_config  # noqa: E402
+from food_import.services import Service  # noqa: E402
+from food_import.storage import Store  # noqa: E402
 
 
 def make_service(tmp_path: Path, overrides=None, bindings=None) -> Service:

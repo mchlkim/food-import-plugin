@@ -7,9 +7,9 @@ import openpyxl
 import pytest
 from replay import ReplayFetcher
 
-from seafood_import import normalization as n
-from seafood_import import parsers as p
-from seafood_import.collectors import parse_attachments, parse_board_list
+from food_import import normalization as n
+from food_import import parsers as p
+from food_import.collectors import parse_attachments, parse_board_list
 
 R = ReplayFetcher()
 
@@ -228,7 +228,13 @@ def test_admin_rule_structure_change_raises():
 
 
 def test_pdf_annex_text_and_loose_span_search():
-    pages = p.parse_pdf_text(R.recorded("flDownload.do"))["pages"]
+    from replay import FIXTURES
+    pdfs = [p.parse_pdf_text((FIXTURES / e["file"]).read_bytes())["pages"]
+            for e in R.manifest.values() if "flDownload.do" in e["url"]]
+    assert len(pdfs) == 2                                        # 식약처 고시 별표 2, 시행규칙 별표 9
+    pages = next(x for x in pdfs if "관능검사" in x[0])
+    annex9 = next(x for x in pdfs if "별표9" in x[0].replace(" ", ""))
+    assert "외화획득용" in p.find_span(annex9, "1)「대외무역법 시행령」", "제외한다.")[0]
     quote, page = p.find_span(pages, "수입신고는 폐사된 양을", "선별하게 한 후 판정한다.")
     assert "검량서(Survey Report)" in quote and page >= 1
     assert p.find_span(pages, "이 문장은 별표에 없다", "끝") is None
@@ -257,3 +263,14 @@ def test_fsk_board_parser():
         p.parse_fsk_board(b"<html>error</html>")
     with pytest.raises(p.ParseError):
         p.parse_fsk_board(b'{"list": [{"ntctxt_no": "1", "titl": "x", "cret_dtm": "2026/11/05"}]}')
+
+
+def test_board_post_and_fsk_post_parsers():
+    from replay import FIXTURES
+    posts = [(e["url"], (FIXTURES / e["file"]).read_text(encoding="utf-8", errors="replace")) for e in R.manifest.values()]
+    fsk = next(t for u, t in posts if "boardDetail.do" in u)
+    assert len(p.parse_fsk_post(fsk)) > 30
+    with pytest.raises(p.ParseError):
+        p.parse_fsk_post("<html><body>오류</body></html>")
+    ban_list = next(t for u, t in posts if "CFCII03F01" in u)
+    assert any("수입중단" in x["title"] for x in parse_board_list(ban_list))

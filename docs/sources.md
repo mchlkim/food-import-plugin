@@ -13,8 +13,11 @@
 | `mfds_hygiene_agreement_notices` | 수산물 위생약정·위생증명서 공지 | `https://impfood.mfds.go.kr/CFBAA01F02/getCntntsDetail?cntntsSn=…` | HTML | 등록된 게시물 번호의 본문. "위생약정", "위생증명서" 검색 결과에서 등록되지 않은 수산물 공지를 찾아 경고로 올린다. 규칙의 `related_notices` 에 붙는다 |
 | `law_hygiene_agreements` | 국가별 수산물 위생약정 고시 13건(12개국) | `https://www.law.go.kr/행정규칙/<고시명>` | HTML | 한글주소 페이지에서 현행 `admRulSeq` 를 읽고 `LSW/admRulLsInfoR.do` 로 본문을 받는다 |
 | `law_import_inspection_notice` | 식약처 고시 「수입식품등 신고 및 검사에 관한 규정」 | 위와 같다 | HTML + PDF | 본문과, 본문 페이지의 별표 2 PDF 링크(`LSW/flDownload.do?flSeq=…`) |
-| `law_special_act_5` | 수입식품안전관리 특별법 제5조 | `https://www.law.go.kr/법령/수입식품안전관리특별법` | HTML | 시행규칙과 같은 방법 |
-| `fsk_inspection_advisories` | 검사지시(검사강화) 게시물 목록 | `https://www.foodsafetykorea.go.kr/portal/board/boardList.do` (bbs031, 분류 577) | JSON | 게시판 페이지가 보내는 것과 같은 목록 요청. 제목·게시일만 쓴다. 규칙 묶음에는 넣지 않는다 |
+| `law_special_act` | 수입식품안전관리 특별법 제2조·제5조·제11조·제12조 | `https://www.law.go.kr/법령/수입식품안전관리특별법` | HTML | 시행규칙과 같은 방법 |
+| `mfds_import_bans` | 수입금지제품 게시물 목록 | `https://impfood.mfds.go.kr/CFCII03F01` | HTML | 목록의 제목·게시일만 쓴다. 규칙 묶음에는 넣지 않는다 |
+| `fsk_inspection_advisories` | 검사지시(검사강화) 게시물 목록과 본문 | `https://www.foodsafetykorea.go.kr/portal/board/boardList.do` (bbs031, 분류 577) | JSON | 게시판 페이지가 보내는 것과 같은 목록 요청. 최근 90일 게시물(최대 40건)은 `boardDetail.do` 로 본문도 받는다. 규칙 묶음에는 넣지 않는다 |
+
+시행규칙 출처(`law_enforcement_rule_27`)는 본문 페이지의 링크로 별표 9 PDF 도 받는다. 구비서류 목록 출처는 목록 공지 뒤에 올라온 게시물 본문(최대 5건)을, 위생약정 공지 출처는 등록되지 않은 수산물 공지 본문(최대 15건)을 함께 받는다.
 
 수집 시점의 최신 문서:
 
@@ -37,6 +40,8 @@
 | `data_go_kr_openapi` | 인증키와 활용신청이 필요해 엔드포인트와 응답 형식을 확인하지 못했다. 확인하지 않은 주소는 코드에 넣지 않았다 | 키 발급 후 형식을 확인해 수집기 추가 |
 | `foodsafetykorea_openapi` | 위와 같다 | 위와 같다 |
 | `mfds_hygiene_agreement_full_list` | 체결국 전체를 한정 열거한 공식 문서를 찾지 못했다. 국가법령정보센터의 행정규칙 검색은 화면 스크립트의 내부 요청으로만 동작하고 그 형식을 확인하지 못해 수집 경로로 쓰지 않았다 | 새 고시명을 `law_hygiene_agreements` 에 등록 |
+| `livestock_import_requirements` | 법 제11조에 따른 축산물·동물성 식품의 국가별 수입위생요건 고시. 고시명과 목록 위치를 확인하지 못했다(추정한 고시명으로 한글주소를 조회했으나 없었다) | 고시명을 확인해 출처로 등록 |
+| `bse_country_list` | 구비서류 목록이 'BSE관련 36개국'을 열거하지 않는다 | 목록이 실린 공식 문서를 확인해 출처로 등록 |
 | `mfds_photo_exemption_notice` | 사진 제출 제외 대상 공지를 수입식품정보마루 공지 검색에서 찾지 못했다 | 공지 주소를 확인해 출처로 등록 |
 | `mfds_import_suspension` | 수입금지제품(`/CFCII03F01`)·수입중단업체(`/CFCCC01F08`)는 업체·제품 단위의 자유 서술이다 | 조회 결과에 직접 확인 항목으로 표시 |
 
@@ -45,7 +50,8 @@
 - `impfood.mfds.go.kr`, `radsafe.mfds.go.kr` 는 `robots.txt` 를 제공하지 않는다(요청하면 오류 페이지를 돌려준다). 요청 간격 1.5초를 둔다.
 - 법제처 Open API(`www.law.go.kr/DRF/…`)는 인증값 없이는 "필수입력요소 검증 실패"를 돌려준다. 그래서 공개 웹페이지 본문을 쓴다. 제3자 중계 서버는 쓰지 않는다.
 - `www.law.go.kr/robots.txt` 는 전체 허용(`Allow: /`)이다.
-- 한 번 확인하는 데 요청 47건, 2분쯤 걸린다.
+- 한 번 확인하는 데 요청 89건, 3분쯤 걸린다.
+- 국가 사전은 수입식품정보마루 수입중단업체 조회 화면(`/CFCCC01F08`)의 국가 선택 목록(코드와 한글명 249개)을 2026-11-10 에 한 번 읽어 `terms.yaml` 에 옮긴 것이다. 자동으로 갱신하지 않는다.
 - 로그인, CAPTCHA, 접근 제한 우회는 하지 않는다.
 - 수집한 원본은 `data/raw/<출처>/` 에 받은 그대로 저장하고, 주소·게시일·수집 시각·sha256 을 `data/raw/index.jsonl` 에 남긴다.
 

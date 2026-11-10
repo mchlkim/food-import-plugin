@@ -16,7 +16,7 @@ jobs:
         id: update
         run: |
           set +e
-          uv run seafood-import update > update-report.json
+          uv run food-import update > update-report.json
           echo "code=$?" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@v4
         with:

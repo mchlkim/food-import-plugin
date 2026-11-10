@@ -28,13 +28,13 @@ data/rules/pending/    검토 대기  ──(사람이 approve)──▶  data/r
 
 | 경로 | 역할 |
 |---|---|
-| `src/seafood_import/collectors/` | `HttpFetcher`(요청 간격·재시도), 게시판 목록·첨부 해석, 출처별 수집 함수 |
-| `src/seafood_import/parsers/` | 엑셀, 일본 조치 페이지, 법령 조문, 검사명령 표, 위생약정 공지, 행정규칙(고시) 본문, PDF 별표, 게시판 목록(JSON) 파서 |
-| `src/seafood_import/normalization/` | 국가·일본 지역·품목·상태 사전(`data/terms.yaml`), 자연어 간이 해석 |
-| `src/seafood_import/rules/` | 규칙 형식·검증·비교(`__init__`), 후보 생성(`builder`), 판정(`engine`) |
-| `src/seafood_import/storage/` | 파일 저장소: 원본, 정규화, 규칙 버전, 검토 대기, 이력, 출처 상태 |
-| `src/seafood_import/services/` | `Service`(도구 함수, 조회 전 최신 확인 `ensure_fresh`, 검사강화 게시물 붙이기), `updater`(업데이트 절차), `render`(Markdown) |
-| `src/seafood_import/cli/`, `mcp/` | 인자·스키마 변환만 한다. 판정 로직이 없다 |
+| `src/food_import/collectors/` | `HttpFetcher`(요청 간격·재시도), 게시판 목록·첨부 해석, 출처별 수집 함수 |
+| `src/food_import/parsers/` | 엑셀, 일본 조치 페이지, 법령 조문, 검사명령 표, 위생약정 공지, 행정규칙(고시) 본문, PDF 별표, 게시판 목록(JSON) 파서 |
+| `src/food_import/normalization/` | 국가·일본 지역·품목(식품 유형 포함)·원재료·상태 사전(`data/terms.yaml`), 자연어 간이 해석 |
+| `src/food_import/rules/` | 규칙 형식·검증·비교(`__init__`), 후보 생성(`builder`), 판정(`engine`) |
+| `src/food_import/storage/` | 파일 저장소: 원본, 정규화, 규칙 버전, 검토 대기, 이력, 출처 상태 |
+| `src/food_import/services/` | `Service`(도구 함수, 조회 전 최신 확인 `ensure_fresh`, 검사강화 게시물 붙이기), `updater`(업데이트 절차), `render`(Markdown) |
+| `src/food_import/cli/`, `mcp/` | 인자·스키마 변환만 한다. 판정 로직이 없다 |
 | `config/` | 출처 등록부, 실행 설정, 결합표 |
 
 ## 판정 흐름

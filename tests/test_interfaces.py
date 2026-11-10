@@ -7,8 +7,8 @@ import json
 import pytest
 from conftest import make_service
 
-from seafood_import.cli import main as cli
-from seafood_import.mcp.server import create_server
+from food_import.cli import main as cli
+from food_import.mcp.server import create_server
 
 EXPECTED_TOOLS = {"get_required_documents", "check_import_restrictions", "get_hygiene_certificate_requirements",
                   "search_regulations", "check_regulation_updates", "get_source_status", "resolve_terms"}
@@ -85,9 +85,9 @@ def test_cli_update_exit_codes(tmp_path, monkeypatch, capsys):
 @pytest.mark.live
 def test_live_official_sites_collect_and_parse(tmp_path):
     """실제 공식 사이트에 접속한다. `pytest -m live` 로만 실행한다."""
-    from seafood_import.config import load_config
-    from seafood_import.services import Service
-    from seafood_import.storage import Store
+    from food_import.config import load_config
+    from food_import.services import Service
+    from food_import.storage import Store
 
     s = Service(cfg=load_config(), store=Store(tmp_path / "data"))
     report = s.check_regulation_updates()

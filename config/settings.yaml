@@ -1,9 +1,9 @@
 # 실행 설정. 민감한 값(API 키)은 여기에 적지 않고 환경변수(.env.example 참고)로 넣는다.
 
-data_dir: data            # 프로젝트 루트 기준 상대 경로. 환경변수 SEAFOOD_IMPORT_DATA_DIR 로 바꿀 수 있다.
+data_dir: data            # 프로젝트 루트 기준 상대 경로. 환경변수 FOOD_IMPORT_DATA_DIR 로 바꿀 수 있다.
 
 http:
-  user_agent: "seafood-import-plugin/0.2 (regulatory document checker)"
+  user_agent: "food-import-plugin/0.3 (regulatory document checker)"
   min_interval_seconds: 1.5   # 같은 호스트 요청 사이 최소 간격
   timeout_seconds: 60
   max_retries: 2

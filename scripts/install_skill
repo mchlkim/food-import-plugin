@@ -5,7 +5,7 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/.." && pwd)"
 TARGET_DIR="${1:?스킬 폴더 경로를 준다 (예: ~/.claude/skills)}"
-LINK="$TARGET_DIR/seafood-import-plugin"
+LINK="$TARGET_DIR/food-import-plugin"
 if [ -e "$LINK" ] || [ -L "$LINK" ]; then
   echo "이미 있다: $LINK (지우고 다시 실행한다)" >&2
   exit 1

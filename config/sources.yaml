@@ -29,6 +29,7 @@ sources:
       law_address: https://www.law.go.kr/법령/수입식품안전관리특별법시행규칙
       body_url: https://www.law.go.kr/LSW/lsInfoR.do
       article: 제27조(수입식품등의 수입신고)
+      annexes: ["별표 9"]        # 제27조제1항제1호의2·제2호가 가리키는 검사방법 별표(PDF)
 
   - id: mfds_inspection_orders
     title: 검사명령 대상 식품 현황 (수입식품정보마루 > 검사명령제)
@@ -87,14 +88,18 @@ sources:
       rules:
         - {key: MFDS-INSPECTION, name: "수입식품등 신고 및 검사에 관한 규정", annexes: ["별표 2"]}
 
-  - id: law_special_act_5
-    title: 수입식품안전관리 특별법 제5조 (국가법령정보센터)
+  - id: law_special_act
+    title: 수입식품안전관리 특별법 제2조·제5조·제11조·제12조 (국가법령정보센터)
     collector: lawgo_text
     enabled: true
     params:
       law_address: https://www.law.go.kr/법령/수입식품안전관리특별법
       body_url: https://www.law.go.kr/LSW/lsInfoR.do
-      article: 제5조(해외제조업소 등록)
+      articles:
+        - 제2조(정의)
+        - 제5조(해외제조업소 등록)
+        - 제11조(축산물 및 동물성 식품의 수입위생평가 등)
+        - 제12조(해외작업장의 등록 등)
 
   - id: fsk_inspection_advisories
     title: 검사지시(검사강화) 게시물 목록 (식품안전나라 > 수입신고 및 검사 > 검사지시)
@@ -109,8 +114,35 @@ sources:
       bbs_no: bbs031
       ctgry_no: "577"
       count: 50
+      # 최근 게시물의 본문을 받는다(품목을 가리지 않는다).
+      body_days: 90
+      body_limit: 40
+
+  - id: mfds_import_bans
+    title: 수입금지제품 게시물 목록 (수입식품정보마루 > 수입금지제품)
+    collector: impfood_board
+    enabled: true
+    advisory: true     # 제목만 참고 정보로 붙인다. 규칙으로 만들지 않는다.
+    params:
+      board_url: https://impfood.mfds.go.kr/CFCII03F01
+      detail_url: https://impfood.mfds.go.kr/CFCII03F02/getCntntsDetail?page=1&limit=10&cntntsView=list&cntntsSn=
+      limit: 50
 
   # ---- 아래는 자동 수집하지 않는 출처 ----
+
+  - id: livestock_import_requirements
+    title: 축산물·동물성 식품의 국가별 수입위생요건 고시(수입허용 국가·품목)
+    collector: manual
+    enabled: false
+    reason: >-
+      법 제11조제2항·제3항에 따른 국가·품목별 수입위생요건 고시의 고시명과 목록 위치를 확인하지 못했다.
+      그래서 축산물의 수입 가능 여부는 UNKNOWN 으로 답하고 근거 조문만 알린다.
+
+  - id: bse_country_list
+    title: BSE 관련 36개국 목록
+    collector: manual
+    enabled: false
+    reason: 구비서류 목록 엑셀이 'BSE관련 36개국'이라고만 적고 국가를 열거하지 않는다. 연번 2·7 은 국가를 판정하지 않고 조건부로 답한다.
 
   - id: data_go_kr_openapi
     title: 공공데이터포털 수입식품 관련 Open API
@@ -144,7 +176,7 @@ sources:
     reason: 수입식품정보마루 공지 검색에서 해당 공지를 찾지 못했다. 사진 제출 제외 대상은 조문 단서만 인용한다.
 
   - id: mfds_import_suspension
-    title: 수입금지제품·수입중단업체 (수입식품정보마루 /CFCII03F01, /CFCCC01F08)
+    title: 수입중단업체 조회 (수입식품정보마루 /CFCCC01F08)
     collector: manual
     enabled: false
-    reason: 게시물이 업체·제품 단위의 자유 서술이라 규칙으로 자동 변환하지 않는다. 조회 결과에 직접 확인 항목으로 표시한다.
+    reason: 업체 단위 조회 화면이고 내부 요청 형식을 확인하지 못했다. 조회 결과에 직접 확인 항목으로 표시한다.
